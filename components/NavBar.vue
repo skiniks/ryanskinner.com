@@ -2,13 +2,7 @@
 	<nav>
 		<div class="flex flex-row justify-between items-center w-full">
 			<NuxtLink class="flex justify-left pt-8 sm:pt-0" to="/" target="_blank">
-				<nuxt-img
-					src="/images/logo.svg"
-					alt="Ryan Skinner"
-					class="logo hover:animate-heartBeat"
-					format="webp"
-					quality="90"
-				/>
+				<nuxt-img src="/images/logo.svg" alt="Ryan Skinner" class="logo hover:animate-heartBeat" />
 			</NuxtLink>
 			<div class="flex justify-center pt-4 space-x-4">
 				<a href="https://github.com/skiniks" target="_blank">
