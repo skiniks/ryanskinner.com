@@ -7,7 +7,7 @@
 					alt="Ryan Skinner"
 					class="logo hover:animate-heartBeat"
 					format="webp"
-					quality="60"
+					quality="90"
 				/>
 			</NuxtLink>
 			<div class="flex justify-center pt-4 space-x-4">
