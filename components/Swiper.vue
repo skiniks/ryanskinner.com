@@ -11,7 +11,7 @@
 						alt="University of Toronto"
 						sizes="xs:280px md:480px lg:600px"
 						width="280"
-						height="auto"
+						height="150"
 					/>
 				</div>
 				<div class="swiper-slide">
@@ -23,7 +23,7 @@
 						alt="Wine Growers Canada"
 						sizes="sm:280px md:480px lg:680px"
 						width="280"
-						height="auto"
+						height="150"
 						fit="contain"
 					/>
 				</div>
@@ -36,7 +36,7 @@
 						alt="Cannabis Council of Canada"
 						sizes="sm:280px md:480px lg:680px"
 						width="280"
-						height="auto"
+						height="150"
 						fit="contain"
 					/>
 				</div>
@@ -49,7 +49,7 @@
 						alt="Rideau Hall Foundation"
 						sizes="sm:280px md:480px lg:680px"
 						width="280"
-						height="auto"
+						height="150"
 						fit="contain"
 					/>
 				</div>
@@ -62,7 +62,7 @@
 						alt="Canadian Building Trades Union"
 						sizes="sm:280px md:480px lg:680px"
 						width="280"
-						height="auto"
+						height="150"
 						fit="contain"
 					/>
 				</div>
@@ -75,7 +75,7 @@
 						alt="Native Women's Association of Canada"
 						sizes="sm:280px md:480px lg:680px"
 						width="280"
-						height="auto"
+						height="150"
 						fit="contain"
 					/>
 				</div>
@@ -88,7 +88,7 @@
 						alt="California Polytechnic State University"
 						sizes="sm:280px md:480px lg:680px"
 						width="280"
-						height="auto"
+						height="150"
 						fit="contain"
 					/>
 				</div>
@@ -101,7 +101,7 @@
 						alt="Reed College, Portland, Oregon"
 						sizes="sm:280px md:480px lg:680px"
 						width="280"
-						height="auto"
+						height="150"
 						fit="contain"
 					/>
 				</div>
@@ -114,7 +114,7 @@
 						alt="Carthage College, Kenosha, Wisconsin"
 						sizes="sm:280px md:480px lg:680px"
 						width="280"
-						height="auto"
+						height="150"
 						fit="contain"
 					/>
 				</div>
@@ -127,7 +127,7 @@
 						alt="Parent Project Muscular Dystrophy"
 						sizes="sm:280px md:480px lg:680px"
 						width="280"
-						height="auto"
+						height="150"
 						fit="contain"
 					/>
 				</div>
@@ -140,7 +140,7 @@
 						alt="Energy Outreach Colorado"
 						sizes="sm:280px md:480px lg:680px"
 						width="280"
-						height="auto"
+						height="150"
 						fit="contain"
 					/>
 				</div>
@@ -153,7 +153,7 @@
 						alt="Wayfinder Family Services"
 						sizes="sm:280px md:480px lg:680px"
 						width="280"
-						height="auto"
+						height="150"
 						fit="contain"
 					/>
 				</div>
@@ -166,7 +166,7 @@
 						alt="American Indian College Fund"
 						sizes="sm:280px md:480px lg:680px"
 						width="280"
-						height="auto"
+						height="150"
 						fit="contain"
 					/>
 				</div>
@@ -179,7 +179,7 @@
 						alt="Recording Academy"
 						sizes="sm:280px md:480px lg:680px"
 						width="280"
-						height="auto"
+						height="150"
 						fit="contain"
 					/>
 				</div>
@@ -192,7 +192,7 @@
 						alt="California State University"
 						sizes="sm:280px md:480px lg:680px"
 						width="280"
-						height="auto"
+						height="150"
 						fit="contain"
 					/>
 				</div>
@@ -205,7 +205,7 @@
 						alt="McMaster University"
 						sizes="sm:280px md:480px lg:680px"
 						width="280"
-						height="auto"
+						height="150"
 						fit="contain"
 					/>
 				</div>
