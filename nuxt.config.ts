@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
 	ssr: false,
 	target: "static",
+	components: true,
 	modules: [
 		// https://windicss.org/guide/nuxt.html
 		"nuxt-windicss",
@@ -10,4 +11,10 @@ export default defineNuxtConfig({
 		// https://github.com/nuxt-community/robots-module
 		"@nuxtjs/robots",
 	],
+	buildModules: ["@nuxt/typescript-build"],
+	"@nuxt/typescript-build": {
+		strict: true,
+		typeCheck: true,
+	},
+	css: ["virtual:windi-base.css", "virtual:windi-utilities.css"],
 })
