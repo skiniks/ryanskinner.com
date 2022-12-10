@@ -6,7 +6,7 @@
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 562.21 183.47"
-					class="logo hover:animate-heartbeat"
+					class="logo hover:animate-heartBeat"
 				>
 					<path
 						fill="#fff"
