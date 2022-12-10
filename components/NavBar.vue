@@ -56,7 +56,6 @@ nav {
 	padding-bottom: 8rem;
 }
 .logo {
-	rotate: -4deg;
 	height: 86px;
 	@media (max-width: 768px) {
 		height: 64px;
