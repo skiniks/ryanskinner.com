@@ -1,0 +1,22 @@
+{
+	"private": true,
+	"scripts": {
+		"build": "nuxt build",
+		"dev": "nuxt dev",
+		"generate": "nuxt generate",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare"
+	},
+	"devDependencies": {
+		"@nuxt/image-edge": "1.0.0-27840416.dc1ed65",
+		"@nuxtjs/robots": "^3.0.0",
+		"@windicss/plugin-animations": "^1.0.9",
+		"nuxt": "3.0.0",
+		"nuxt-windicss": "^2.6.0",
+		"sass": "^1.56.2",
+		"sass-loader": "^13.2.0",
+		"swiper": "^8.4.5",
+		"vite": "^3.0.0",
+		"webpack": "5.75.0"
+	}
+}
