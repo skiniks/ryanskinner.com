@@ -2,6 +2,7 @@
 	<nav>
 		<div class="flex flex-row justify-between items-center w-full">
 			<NuxtLink class="flex justify-left pt-8 sm:pt-0" to="/" target="_blank">
+				<span class="sr-only">Ryan Skinner</span>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 562.21 183.47"
