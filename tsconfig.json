@@ -4,9 +4,6 @@
   "compilerOptions": {
     "strict": true,
     "skipLibCheck": true,
-    "types": [
-      "nuxt-windicss",
-      "@nuxt/types"
-    ]
+    "types": ["nuxt-windicss", "@nuxt/types"]
   }
 }

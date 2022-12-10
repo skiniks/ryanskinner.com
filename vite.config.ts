@@ -1,8 +1,8 @@
-import { defineConfig } from "vite"
+import { defineConfig } from 'vite'
 
 export default defineConfig({
-	build: {
-		minify: true,
-		sourcemap: true,
-	},
+  build: {
+    minify: true,
+    sourcemap: true,
+  },
 })
