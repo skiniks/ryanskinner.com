@@ -215,10 +215,10 @@
 </template>
 
 <script lang="ts">
-import { Swiper, Pagination, Autoplay } from 'swiper'
+import { Swiper, Autoplay } from 'swiper'
 import 'swiper/swiper-bundle.min.css'
 
-Swiper.use([Pagination, Autoplay])
+Swiper.use([Autoplay])
 
 export default {
   mounted() {
@@ -230,10 +230,6 @@ export default {
       autoplay: {
         delay: 2000,
         disableOnInteraction: false,
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
       },
       breakpoints: {
         0: {
