@@ -19,5 +19,10 @@
     "swiper": "^8.4.5",
     "vite": "^3.2.5"
   },
-   "packageManager": "pnpm@7.18.1"
+   "packageManager": "pnpm@7.18.1",
+   "pnpm": {
+       "peerDependencyRules": {
+        "ignoreMissing": ["webpack"]
+      }
+   }
 }

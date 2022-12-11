@@ -4264,6 +4264,8 @@ packages:
         optional: true
       sass-embedded:
         optional: true
+      webpack:
+        optional: true
     dependencies:
       klona: 2.0.5
       neo-async: 2.6.2
