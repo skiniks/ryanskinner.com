@@ -1,6 +1,6 @@
 # ryanskinner.com Nuxt 3 Starter Template
 
-Nuxt 3 static starter template built with [Vite](https://vitejs.dev/), [Sass](https://sass-lang.com/) & [Windi CSS](https://windicss.org/).
+[Nuxt 3](https://v3.nuxtjs.org/) static starter template built with [Vite](https://vitejs.dev/), [Sass](https://sass-lang.com/) & [Windi CSS](https://windicss.org/).
 
 ## Features
 
