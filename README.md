@@ -1,20 +1,20 @@
 # ryanskinner.com Nuxt 3 Starter Template
 
-Nuxt 3 static starter template built with [Windi CSS](https://windicss.org/).
+Nuxt 3 static starter template built with [Vite](https://vitejs.dev/), [Sass](https://sass-lang.com/) & [Windi CSS](https://windicss.org/).
 
 ## Features
 
-- [x] [pnpm](https://pnpm.io/)
-- [x] [Vite](https://vitejs.dev/)
-- [x] [Nuxt 3](https://v3.nuxtjs.org/)
-- [x] [Nuxt Image](https://v3.nuxtjs.org/docs/directives/image)
-- [x] [Windi CSS](https://windicss.org/)
-- [x] [TypeScript](https://www.typescriptlang.org/)
-- [x] [Sass](https://sass-lang.com/)
-- [x] [Prettier](https://prettier.io/)
-- [x] [Swiper](https://swiperjs.com/)
-- [x] [@nuxtjs/robots](https://www.npmjs.com/package/@nuxtjs/robots)
-- [x] [@windicss/plugin-animations](https://windicss.org/plugins/community/animations.html)
+- [x] [pnpm](https://pnpm.io/) — Fast, disk space efficient package manager.
+- [x] [Vite](https://vitejs.dev/) — Next generation frontend tooling.
+- [x] [Nuxt 3](https://v3.nuxtjs.org/) — The Intuitive Vue Framework.
+- [x] [Nuxt Image](https://v3.nuxtjs.org/docs/directives/image) — Image optimization with [Sharp](https://sharp.pixelplumbing.com/).
+- [x] [Windi CSS](https://windicss.org/) — Next generation utility-first CSS framework.
+- [x] [TypeScript](https://www.typescriptlang.org/) — Typed superset of JavaScript.
+- [x] [Sass](https://sass-lang.com/) — CSS with superpowers.
+- [x] [Prettier](https://prettier.io/) — Opinionated code formatter.
+- [x] [Swiper](https://swiperjs.com/) — The Most Modern Mobile Touch Slider.
+- [x] [@nuxtjs/robots](https://www.npmjs.com/package/@nuxtjs/robots) — Generate robots.txt file.
+- [x] [@windicss/plugin-animations](https://windicss.org/plugins/community/animations.html) — Windi CSS animations plugin.
 
 ## Getting Started
 
