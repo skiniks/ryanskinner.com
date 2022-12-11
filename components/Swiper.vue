@@ -238,13 +238,13 @@ export default {
 <style lang="scss" scoped>
 .swiper {
   &-slide {
-    margin: auto;
-    background-position: center;
-    background-size: contain;
     opacity: 0.75;
     &:hover {
       opacity: 1;
       scale: 1.1;
+      @media (max-width: 768px) {
+        scale: 1;
+      }
     }
     &-active {
       opacity: 0.85;
