@@ -76,6 +76,10 @@ h2 {
   &:hover {
     scale: 1.1;
     rotate: -4deg;
+    @media (max-width: 768px) {
+      scale: 1;
+      rotate: none;
+    }
   }
 }
 
@@ -83,12 +87,20 @@ h3 {
   &:hover {
     scale: 1.1;
     rotate: 4deg;
+    @media (max-width: 768px) {
+      scale: 1;
+      rotate: none;
+    }
   }
 }
 
 p {
   &:hover {
     scale: 1.1;
+    @media (max-width: 768px) {
+      scale: 1;
+      rotate: none;
+    }
   }
 }
 </style>
