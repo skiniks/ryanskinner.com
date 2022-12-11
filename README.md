@@ -10,9 +10,9 @@ Nuxt 3 static starter template built with [Windi CSS](https://windicss.org/).
 - [x] [Nuxt Image](https://v3.nuxtjs.org/docs/directives/image)
 - [x] [Windi CSS](https://windicss.org/)
 - [x] [TypeScript](https://www.typescriptlang.org/)
+- [x] [Sass](https://sass-lang.com/)
 - [x] [Prettier](https://prettier.io/)
 - [x] [Swiper](https://swiperjs.com/)
-- [x] [Sass](https://sass-lang.com/)
 - [x] [@nuxtjs/robots](https://www.npmjs.com/package/@nuxtjs/robots)
 - [x] [@windicss/plugin-animations](https://windicss.org/plugins/community/animations.html)
 
@@ -38,10 +38,4 @@ This project is ready to be deployed to [Vercel](https://vercel.com) with no add
 
 ## License
 
-[MIT](
-
-[Image: MIT License]
-
-MIT License1920×1080 1.1 MB
-
-)
+[MIT](./LICENSE)
