@@ -229,7 +229,7 @@ export default {
       centeredSlides: true,
       autoplay: {
         delay: 2000,
-        disableOnInteraction: true,
+        disableOnInteraction: false,
       },
       pagination: {
         el: '.swiper-pagination',
