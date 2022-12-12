@@ -254,6 +254,13 @@ export default {
       ) {
       opacity: 0.25;
     }
+    picture {
+      img[loading='lazy'] {
+        opacity: 0;
+        transition: opacity 0.5s;
+        border: 0;
+      }
+    }
   }
 }
 </style>
