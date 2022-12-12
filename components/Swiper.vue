@@ -235,7 +235,7 @@ export default {
 }
 </script>
 
-<style lang="scss" module>
+<style lang="scss" scoped>
 .swiper {
   &-slide {
     opacity: 0.75;

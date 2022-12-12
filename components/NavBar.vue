@@ -67,7 +67,7 @@
   </nav>
 </template>
 
-<style lang="scss" module>
+<style lang="scss" scoped>
 nav {
   padding-top: 3rem;
   padding-bottom: 8rem;
