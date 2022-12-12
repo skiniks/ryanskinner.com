@@ -2,7 +2,7 @@
   <main>
     <div class="sm:max-w-6xl sm:mx-auto p-4">
       <NavBar />
-      <div class="flex flex-col lg:flex-row justify-center cta">
+      <div class="cta">
         <div class="flex justify-center w-full lg:w-7/12 items-baseline">
           <h2 class="text-5xl">
             I design and build digital products that are
@@ -21,7 +21,7 @@
           </h3>
         </div>
       </div>
-      <div class="flex justify-center w-full md:w-10/12 md:mx-auto bio">
+      <div class="bio">
         <p class="text-center text-2xl">
           I'm from Toronto, Ontario, Canada and have extensive experience
           building with WordPress for corporate and non-profit clients across
@@ -55,6 +55,7 @@
       padding-bottom: 2rem;
     }
   }
+  @apply flex flex-col lg:flex-row justify-center;
 }
 .bio {
   height: 35vh;
@@ -62,5 +63,6 @@
     height: auto;
     padding-bottom: 3rem;
   }
+  @apply flex justify-center w-full md:w-10/12 md:mx-auto;
 }
 </style>

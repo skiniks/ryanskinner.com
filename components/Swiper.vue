@@ -1,199 +1,197 @@
 <template>
-  <div class="flex items-center justify-center relative">
-    <div class="swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <nuxt-picture
-            format="avif"
-            quality="60"
-            loading="lazy"
-            src="/images/uoft-logo.svg"
-            alt="University of Toronto"
-            width="280"
-            height="158"
-            sizes="sm:100vw md:50vw lg:280px"
-          />
-        </div>
-        <div class="swiper-slide">
-          <nuxt-picture
-            format="avif"
-            quality="60"
-            loading="lazy"
-            src="/images/wgc-logo.png"
-            alt="Wine Growers Canada"
-            width="280"
-            height="158"
-            sizes="sm:100vw md:50vw lg:280px"
-          />
-        </div>
-        <div class="swiper-slide">
-          <nuxt-picture
-            format="avif"
-            quality="60"
-            loading="lazy"
-            src="/images/c3-logo.png"
-            alt="Cannabis Council of Canada"
-            width="280"
-            height="158"
-            sizes="sm:100vw md:50vw lg:280px"
-          />
-        </div>
-        <div class="swiper-slide">
-          <nuxt-picture
-            format="avif"
-            quality="60"
-            loading="lazy"
-            src="/images/rhf-logo.png"
-            alt="Rideau Hall Foundation"
-            width="280"
-            height="158"
-            sizes="sm:100vw md:50vw lg:280px"
-          />
-        </div>
-        <div class="swiper-slide">
-          <nuxt-picture
-            format="avif"
-            quality="60"
-            loading="lazy"
-            src="/images/cbtu-logo.svg"
-            alt="Canadian Building Trades Union"
-            width="280"
-            height="158"
-            sizes="sm:100vw md:50vw lg:280px"
-          />
-        </div>
-        <div class="swiper-slide">
-          <nuxt-picture
-            format="avif"
-            quality="60"
-            loading="lazy"
-            src="/images/nwac-logo.png"
-            alt="Native Women's Association of Canada"
-            width="280"
-            height="158"
-            sizes="sm:100vw md:50vw lg:280px"
-          />
-        </div>
-        <div class="swiper-slide">
-          <nuxt-picture
-            format="avif"
-            quality="60"
-            loading="lazy"
-            src="/images/calpoly-logo.png"
-            alt="California Polytechnic State University"
-            width="280"
-            height="158"
-            sizes="sm:100vw md:50vw lg:280px"
-          />
-        </div>
-        <div class="swiper-slide">
-          <nuxt-picture
-            format="avif"
-            quality="60"
-            loading="lazy"
-            src="/images/reed-logo.png"
-            alt="Reed College, Portland, Oregon"
-            width="280"
-            height="158"
-            sizes="sm:100vw md:50vw lg:280px"
-          />
-        </div>
-        <div class="swiper-slide">
-          <nuxt-picture
-            format="avif"
-            quality="60"
-            loading="lazy"
-            src="/images/carthage-logo.png"
-            alt="Carthage College, Kenosha, Wisconsin"
-            width="280"
-            height="158"
-            sizes="sm:100vw md:50vw lg:280px"
-          />
-        </div>
-        <div class="swiper-slide">
-          <nuxt-picture
-            format="avif"
-            quality="60"
-            loading="lazy"
-            src="/images/ppmd-logo.png"
-            alt="Parent Project Muscular Dystrophy"
-            width="280"
-            height="158"
-            sizes="sm:100vw md:50vw lg:280px"
-          />
-        </div>
-        <div class="swiper-slide">
-          <nuxt-picture
-            format="avif"
-            quality="60"
-            loading="lazy"
-            src="/images/eoc-logo.png"
-            alt="Energy Outreach Colorado"
-            width="280"
-            height="158"
-            sizes="sm:100vw md:50vw lg:280px"
-          />
-        </div>
-        <div class="swiper-slide">
-          <nuxt-picture
-            format="avif"
-            quality="60"
-            loading="lazy"
-            src="/images/wayfinder-logo.png"
-            alt="Wayfinder Family Services"
-            width="280"
-            height="158"
-            sizes="sm:100vw md:50vw lg:280px"
-          />
-        </div>
-        <div class="swiper-slide">
-          <nuxt-picture
-            format="avif"
-            quality="60"
-            loading="lazy"
-            src="/images/aicf-logo.png"
-            alt="American Indian College Fund"
-            width="280"
-            height="158"
-            sizes="sm:100vw md:50vw lg:280px"
-          />
-        </div>
-        <div class="swiper-slide">
-          <nuxt-picture
-            format="avif"
-            quality="80"
-            loading="lazy"
-            src="/images/recording-academy.png"
-            alt="Recording Academy"
-            width="280"
-            height="158"
-            sizes="sm:100vw md:50vw lg:280px"
-          />
-        </div>
-        <div class="swiper-slide">
-          <nuxt-picture
-            format="avif"
-            quality="60"
-            loading="lazy"
-            src="/images/cal-state-seal.png"
-            alt="California State University"
-            width="280"
-            height="158"
-            sizes="sm:100vw md:50vw lg:280px"
-          />
-        </div>
-        <div class="swiper-slide">
-          <nuxt-picture
-            format="avif"
-            quality="60"
-            loading="lazy"
-            src="/images/mcmaster-wordmark.png"
-            alt="McMaster University"
-            width="280"
-            height="158"
-            sizes="sm:100vw md:50vw lg:280px"
-          />
-        </div>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <nuxt-picture
+          format="avif"
+          quality="60"
+          loading="lazy"
+          src="/images/uoft-logo.svg"
+          alt="University of Toronto"
+          width="280"
+          height="158"
+          sizes="sm:100vw md:50vw lg:280px"
+        />
+      </div>
+      <div class="swiper-slide">
+        <nuxt-picture
+          format="avif"
+          quality="60"
+          loading="lazy"
+          src="/images/wgc-logo.png"
+          alt="Wine Growers Canada"
+          width="280"
+          height="158"
+          sizes="sm:100vw md:50vw lg:280px"
+        />
+      </div>
+      <div class="swiper-slide">
+        <nuxt-picture
+          format="avif"
+          quality="60"
+          loading="lazy"
+          src="/images/c3-logo.png"
+          alt="Cannabis Council of Canada"
+          width="280"
+          height="158"
+          sizes="sm:100vw md:50vw lg:280px"
+        />
+      </div>
+      <div class="swiper-slide">
+        <nuxt-picture
+          format="avif"
+          quality="60"
+          loading="lazy"
+          src="/images/rhf-logo.png"
+          alt="Rideau Hall Foundation"
+          width="280"
+          height="158"
+          sizes="sm:100vw md:50vw lg:280px"
+        />
+      </div>
+      <div class="swiper-slide">
+        <nuxt-picture
+          format="avif"
+          quality="60"
+          loading="lazy"
+          src="/images/cbtu-logo.svg"
+          alt="Canadian Building Trades Union"
+          width="280"
+          height="158"
+          sizes="sm:100vw md:50vw lg:280px"
+        />
+      </div>
+      <div class="swiper-slide">
+        <nuxt-picture
+          format="avif"
+          quality="60"
+          loading="lazy"
+          src="/images/nwac-logo.png"
+          alt="Native Women's Association of Canada"
+          width="280"
+          height="158"
+          sizes="sm:100vw md:50vw lg:280px"
+        />
+      </div>
+      <div class="swiper-slide">
+        <nuxt-picture
+          format="avif"
+          quality="60"
+          loading="lazy"
+          src="/images/calpoly-logo.png"
+          alt="California Polytechnic State University"
+          width="280"
+          height="158"
+          sizes="sm:100vw md:50vw lg:280px"
+        />
+      </div>
+      <div class="swiper-slide">
+        <nuxt-picture
+          format="avif"
+          quality="60"
+          loading="lazy"
+          src="/images/reed-logo.png"
+          alt="Reed College, Portland, Oregon"
+          width="280"
+          height="158"
+          sizes="sm:100vw md:50vw lg:280px"
+        />
+      </div>
+      <div class="swiper-slide">
+        <nuxt-picture
+          format="avif"
+          quality="60"
+          loading="lazy"
+          src="/images/carthage-logo.png"
+          alt="Carthage College, Kenosha, Wisconsin"
+          width="280"
+          height="158"
+          sizes="sm:100vw md:50vw lg:280px"
+        />
+      </div>
+      <div class="swiper-slide">
+        <nuxt-picture
+          format="avif"
+          quality="60"
+          loading="lazy"
+          src="/images/ppmd-logo.png"
+          alt="Parent Project Muscular Dystrophy"
+          width="280"
+          height="158"
+          sizes="sm:100vw md:50vw lg:280px"
+        />
+      </div>
+      <div class="swiper-slide">
+        <nuxt-picture
+          format="avif"
+          quality="60"
+          loading="lazy"
+          src="/images/eoc-logo.png"
+          alt="Energy Outreach Colorado"
+          width="280"
+          height="158"
+          sizes="sm:100vw md:50vw lg:280px"
+        />
+      </div>
+      <div class="swiper-slide">
+        <nuxt-picture
+          format="avif"
+          quality="60"
+          loading="lazy"
+          src="/images/wayfinder-logo.png"
+          alt="Wayfinder Family Services"
+          width="280"
+          height="158"
+          sizes="sm:100vw md:50vw lg:280px"
+        />
+      </div>
+      <div class="swiper-slide">
+        <nuxt-picture
+          format="avif"
+          quality="60"
+          loading="lazy"
+          src="/images/aicf-logo.png"
+          alt="American Indian College Fund"
+          width="280"
+          height="158"
+          sizes="sm:100vw md:50vw lg:280px"
+        />
+      </div>
+      <div class="swiper-slide">
+        <nuxt-picture
+          format="avif"
+          quality="80"
+          loading="lazy"
+          src="/images/recording-academy.png"
+          alt="Recording Academy"
+          width="280"
+          height="158"
+          sizes="sm:100vw md:50vw lg:280px"
+        />
+      </div>
+      <div class="swiper-slide">
+        <nuxt-picture
+          format="avif"
+          quality="60"
+          loading="lazy"
+          src="/images/cal-state-seal.png"
+          alt="California State University"
+          width="280"
+          height="158"
+          sizes="sm:100vw md:50vw lg:280px"
+        />
+      </div>
+      <div class="swiper-slide">
+        <nuxt-picture
+          format="avif"
+          quality="60"
+          loading="lazy"
+          src="/images/mcmaster-wordmark.png"
+          alt="McMaster University"
+          width="280"
+          height="158"
+          sizes="sm:100vw md:50vw lg:280px"
+        />
       </div>
     </div>
   </div>
@@ -253,13 +251,6 @@ export default {
         .swiper-slide-next
       ) {
       opacity: 0.25;
-    }
-    picture {
-      img[loading='lazy'] {
-        opacity: 0;
-        transition: opacity 0.5s;
-        border: 0;
-      }
     }
   }
 }
