@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav class="animate__animated animate__slideInDown">
     <NuxtLink to="/" class="home-link">
       <span class="sr-only">Ryan Skinner</span>
       <svg

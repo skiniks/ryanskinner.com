@@ -2,7 +2,7 @@
   <main>
     <div class="sm:max-w-6xl sm:mx-auto p-4">
       <Navbar />
-      <div class="cta">
+      <div class="cta animate__animated animate__fadeIn">
         <div class="flex justify-center w-full lg:w-7/12 items-baseline">
           <h2 class="text-5xl">
             I design and build digital products that are
@@ -21,7 +21,7 @@
           </h3>
         </div>
       </div>
-      <div class="bio">
+      <div class="bio animate__animated animate__fadeIn">
         <p class="text-center text-2xl">
           I'm from Toronto, Ontario, Canada and have extensive experience
           building with WordPress for corporate and non-profit clients across
