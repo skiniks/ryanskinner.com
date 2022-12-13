@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "build": "prettier --write . && nuxi generate",
+    "build": "prettier --write . && nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
