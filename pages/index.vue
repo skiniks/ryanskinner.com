@@ -48,8 +48,8 @@
 <style scoped>
 .cta {
   height: 50vh;
-  animation-delay: 0.25s;
   @apply flex flex-col md:flex-row justify-center;
+  --animate-delay: 0.5s;
 }
 @media (max-width: 768px) {
   .cta {
@@ -62,8 +62,8 @@
 }
 .bio {
   height: 35vh;
-  animation-delay: 0.25s;
   @apply flex justify-center w-full md:w-10/12 md:mx-auto;
+  --animate-delay: 0.5s;
 }
 @media (max-width: 768px) {
   .bio {
