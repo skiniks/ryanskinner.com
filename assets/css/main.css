@@ -1,3 +1,5 @@
+@import 'animate.css/animate.min.css';
+
 body {
   background-color: #000;
   background-image: url('/images/gradient.svg');

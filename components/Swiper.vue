@@ -232,7 +232,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
+@import 'swiper/swiper-bundle.min.css';
 .swiper-wrapper {
   align-items: center;
 }
