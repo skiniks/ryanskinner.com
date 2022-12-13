@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="sm:max-w-6xl sm:mx-auto p-4">
-      <NavBar />
+      <Navbar />
       <div class="cta">
         <div class="flex justify-center w-full lg:w-7/12 items-baseline">
           <h2 class="text-5xl">
