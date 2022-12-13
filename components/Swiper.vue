@@ -236,10 +236,10 @@ export default {
 <style scoped>
 .swiper-slide {
   opacity: 0.75;
+  transition: opacity 0.3s, transform 0.3s;
 }
 .swiper-slide:hover {
-  opacity: 1;
-  scale: 1.1;
+  @apply opacity-100 scale-110;
 }
 @media (max-width: 768px) {
   .swiper-slide:hover {

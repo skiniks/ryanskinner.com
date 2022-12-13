@@ -76,6 +76,7 @@ nav {
 }
 .logo {
   height: 86px;
+  @apply hover:scale-110 transition-transform duration-300 ease-in-out;
 }
 @media (max-width: 768px) {
   .logo {
@@ -88,8 +89,8 @@ nav {
     height: 36px;
   }
 }
-.github-icon:hover {
-  rotate: -12deg;
+.github-icon {
+  @apply hover:-rotate-12 transition-transform duration-300 ease-in-out;
 }
 @media (max-width: 768px) {
   .linkedin-icon {
@@ -97,7 +98,7 @@ nav {
     height: 36px;
   }
 }
-.linkedin-icon:hover {
-  rotate: 12deg;
+.linkedin-icon {
+  @apply hover:rotate-12 transition-transform duration-300 ease-in-out;
 }
 </style>

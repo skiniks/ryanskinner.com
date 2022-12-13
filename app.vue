@@ -65,28 +65,24 @@ h4 {
 a {
   color: #42b883;
 }
-h2:hover {
-  scale: 1.1;
-  rotate: -4deg;
+h2 {
+  @apply hover:scale-110 hover:rotate-[-4deg] transition-transform duration-300 ease-in-out;
 }
 @media (max-width: 768px) {
   h2:hover {
-    scale: 1;
-    rotate: none;
+    @apply scale-100 rotate-0;
   }
 }
-h3:hover {
-  scale: 1.1;
-  rotate: 4deg;
+h3 {
+  @apply hover:scale-110 hover:rotate-[4deg] transition-transform duration-300 ease-in-out;
 }
 @media (max-width: 768px) {
   h3:hover {
-    scale: 1;
-    rotate: none;
+    @apply scale-100 rotate-0;
   }
 }
-p:hover {
-  scale: 1.1;
+p {
+  @apply hover:scale-110 transition-transform duration-300 ease-in-out;
 }
 @media (max-width: 768px) {
   p:hover {
