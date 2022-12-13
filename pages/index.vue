@@ -48,7 +48,7 @@
 <style scoped>
 .cta {
   height: 50vh;
-  @apply flex flex-col lg:flex-row justify-center;
+  @apply flex flex-col md:flex-row justify-center;
 }
 @media (max-width: 768px) {
   .cta {
