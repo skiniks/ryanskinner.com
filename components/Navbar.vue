@@ -70,6 +70,7 @@ nav {
   @apply flex flex-row justify-between items-center w-full;
   padding-top: 3rem;
   padding-bottom: 8rem;
+  animation-delay: 0.2s;
 }
 .home-link {
   @apply flex justify-start pt-8 sm:pt-0;

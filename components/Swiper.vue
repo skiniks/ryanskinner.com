@@ -3,7 +3,7 @@
     <div class="swiper-wrapper">
       <div class="swiper-slide">
         <nuxt-picture
-          format="webp"
+          format="avif"
           quality="60"
           loading="lazy"
           src="/images/uoft-logo.svg"
@@ -15,7 +15,7 @@
       </div>
       <div class="swiper-slide">
         <nuxt-img
-          format="webp"
+          format="avif"
           quality="60"
           loading="lazy"
           src="/images/wgc-logo.png"
@@ -27,7 +27,7 @@
       </div>
       <div class="swiper-slide">
         <nuxt-img
-          format="webp"
+          format="avif"
           quality="60"
           loading="lazy"
           src="/images/c3-logo.png"
@@ -39,7 +39,7 @@
       </div>
       <div class="swiper-slide">
         <nuxt-img
-          format="webp"
+          format="avif"
           quality="60"
           loading="lazy"
           src="/images/rhf-logo.png"
@@ -51,7 +51,7 @@
       </div>
       <div class="swiper-slide">
         <nuxt-picture
-          format="webp"
+          format="avif"
           quality="60"
           loading="lazy"
           src="/images/cbtu-logo.svg"
@@ -63,7 +63,7 @@
       </div>
       <div class="swiper-slide">
         <nuxt-img
-          format="webp"
+          format="avif"
           quality="60"
           loading="lazy"
           src="/images/nwac-logo.png"
@@ -75,7 +75,7 @@
       </div>
       <div class="swiper-slide">
         <nuxt-img
-          format="webp"
+          format="avif"
           quality="60"
           loading="lazy"
           src="/images/calpoly-logo.png"
@@ -87,7 +87,7 @@
       </div>
       <div class="swiper-slide">
         <nuxt-img
-          format="webp"
+          format="avif"
           quality="60"
           loading="lazy"
           src="/images/reed-logo.png"
@@ -99,7 +99,7 @@
       </div>
       <div class="swiper-slide">
         <nuxt-img
-          format="webp"
+          format="avif"
           quality="60"
           loading="lazy"
           src="/images/carthage-logo.png"
@@ -111,7 +111,7 @@
       </div>
       <div class="swiper-slide">
         <nuxt-img
-          format="webp"
+          format="avif"
           quality="60"
           loading="lazy"
           src="/images/ppmd-logo.png"
@@ -123,7 +123,7 @@
       </div>
       <div class="swiper-slide">
         <nuxt-img
-          format="webp"
+          format="avif"
           quality="60"
           loading="lazy"
           src="/images/eoc-logo.png"
@@ -135,7 +135,7 @@
       </div>
       <div class="swiper-slide">
         <nuxt-img
-          format="webp"
+          format="avif"
           quality="60"
           loading="lazy"
           src="/images/wayfinder-logo.png"
@@ -147,7 +147,7 @@
       </div>
       <div class="swiper-slide">
         <nuxt-img
-          format="webp"
+          format="avif"
           quality="60"
           loading="lazy"
           src="/images/aicf-logo.png"
@@ -159,7 +159,7 @@
       </div>
       <div class="swiper-slide">
         <nuxt-img
-          format="webp"
+          format="avif"
           quality="80"
           loading="lazy"
           src="/images/recording-academy.png"
@@ -171,7 +171,7 @@
       </div>
       <div class="swiper-slide">
         <nuxt-img
-          format="webp"
+          format="avif"
           quality="60"
           loading="lazy"
           src="/images/cal-state-seal.png"
@@ -183,7 +183,7 @@
       </div>
       <div class="swiper-slide">
         <nuxt-img
-          format="webp"
+          format="avif"
           quality="60"
           loading="lazy"
           src="/images/mcmaster-wordmark.png"
