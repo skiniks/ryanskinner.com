@@ -1,4 +1,4 @@
-# ryanskinner.com [![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=
+# ryanskinner.com
 
 [Nuxt 3](https://v3.nuxtjs.org/) template for [ryanskinner.com](https://ryanskinner.com) built with [Vite](https://vitejs.dev/) & [Tailwind CSS](https://tailwindcss.com/).
 
