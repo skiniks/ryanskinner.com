@@ -5,7 +5,12 @@ export default defineNuxtConfig({
     'animate.css/animate.min.css',
     'swiper/swiper-bundle.min.css',
   ],
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/image-edge', '@nuxtjs/robots'],
+  modules: [
+    '@nuxtjs/tailwindcss',
+    '@nuxt/image-edge',
+    '@nuxtjs/robots',
+    'nuxt-purgecss',
+  ],
   typescript: {
     strict: true,
   },
