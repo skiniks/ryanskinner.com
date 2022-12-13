@@ -233,25 +233,25 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.swiper {
-  &-slide {
-    opacity: 0.75;
-    &:hover {
-      opacity: 1;
-      scale: 1.1;
-      @media (max-width: 768px) {
-        scale: 1;
-      }
-    }
-    &-active {
-      opacity: 0.85;
-    }
-    &:not(.swiper-slide-active):not(.swiper-slide-prev):not(
-        .swiper-slide-next
-      ) {
-      opacity: 0.25;
-    }
+<style scoped>
+.swiper-slide {
+  opacity: 0.75;
+}
+.swiper-slide:hover {
+  opacity: 1;
+  scale: 1.1;
+}
+@media (max-width: 768px) {
+  .swiper-slide:hover {
+    scale: 1;
   }
+}
+.swiper-slide-active {
+  opacity: 0.85;
+}
+.swiper-slide:not(.swiper-slide-active):not(.swiper-slide-prev):not(
+    .swiper-slide-next
+  ) {
+  opacity: 0.25;
 }
 </style>

@@ -5,7 +5,7 @@
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 562.21 183.47"
-        class="logo hover:animate-heartBeat"
+        class="logo"
       >
         <path
           fill="#fff"
@@ -30,7 +30,7 @@
       <a href="https://github.com/skiniks" target="_blank">
         <span class="sr-only">GitHub</span>
         <svg
-          class="github-icon hover:animate-heartBeat"
+          class="github-icon"
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
           aria-hidden="true"
@@ -53,7 +53,7 @@
           width="40"
           height="40"
           fill="rgba(255, 255, 255, .87)"
-          class="linkedin-icon hover:animate-heartBeat"
+          class="linkedin-icon"
           viewBox="0 0 16 16"
         >
           <path
@@ -65,37 +65,39 @@
   </nav>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 nav {
   @apply flex flex-row justify-between items-center w-full;
   padding-top: 3rem;
   padding-bottom: 8rem;
-  .home-link {
-    @apply flex justify-start pt-8 sm:pt-0;
-  }
+}
+.home-link {
+  @apply flex justify-start pt-8 sm:pt-0;
 }
 .logo {
   height: 86px;
-  @media (max-width: 768px) {
+}
+@media (max-width: 768px) {
+  .logo {
     height: 64px;
   }
 }
-.github-icon {
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
+  .github-icon {
     width: 36px;
     height: 36px;
-  }
-  &:hover {
-    rotate: -12deg;
   }
 }
-.linkedin-icon {
-  @media (max-width: 768px) {
+.github-icon:hover {
+  rotate: -12deg;
+}
+@media (max-width: 768px) {
+  .linkedin-icon {
     width: 36px;
     height: 36px;
   }
-  &:hover {
-    rotate: 12deg;
-  }
+}
+.linkedin-icon:hover {
+  rotate: 12deg;
 }
 </style>

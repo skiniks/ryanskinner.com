@@ -45,24 +45,28 @@
   </main>
 </template>
 
-<style lang="scss">
+<style scoped>
 .cta {
   height: 50vh;
-  @media (max-width: 768px) {
+  @apply flex flex-col lg:flex-row justify-center;
+}
+@media (max-width: 768px) {
+  .cta {
     height: auto;
     padding-bottom: 2rem;
-    div {
-      padding-bottom: 2rem;
-    }
   }
-  @apply flex flex-col lg:flex-row justify-center;
+  .cta div {
+    padding-bottom: 2rem;
+  }
 }
 .bio {
   height: 35vh;
-  @media (max-width: 768px) {
+  @apply flex justify-center w-full md:w-10/12 md:mx-auto;
+}
+@media (max-width: 768px) {
+  .bio {
     height: auto;
     padding-bottom: 3rem;
   }
-  @apply flex justify-center w-full md:w-10/12 md:mx-auto;
 }
 </style>

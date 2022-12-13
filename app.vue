@@ -23,26 +23,23 @@ useHead({
 })
 </script>
 
-<style lang="scss">
+<style>
 @font-face {
   font-family: 'Clearface';
   src: url('/fonts/ClearfaceStd-Regular.woff2') format('woff2');
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: 'Founders Grotesk';
   src: url('/fonts/FoundersGrotesk-Regular.woff2') format('woff2');
   font-style: normal;
   font-display: swap;
 }
-
 ::selection {
   background-color: #42b883;
   color: rgba(255, 255, 255, 0.87);
 }
-
 body {
   background-color: #000;
   background-image: url('/images/gradient.svg');
@@ -53,54 +50,48 @@ body {
   margin: 0;
   padding: 0;
 }
-
 h2,
 h3 {
   color: rgba(255, 255, 255, 0.87);
   font-family: 'Clearface';
   font-weight: 400;
 }
-
 p,
 h4 {
   color: rgba(255, 255, 255, 0.87);
   font-family: 'Founders Grotesk';
   font-weight: 400;
 }
-
 a {
   color: #42b883;
 }
-
-h2 {
-  &:hover {
-    scale: 1.1;
-    rotate: -4deg;
-    @media (max-width: 768px) {
-      scale: 1;
-      rotate: none;
-    }
+h2:hover {
+  scale: 1.1;
+  rotate: -4deg;
+}
+@media (max-width: 768px) {
+  h2:hover {
+    scale: 1;
+    rotate: none;
   }
 }
-
-h3 {
-  &:hover {
-    scale: 1.1;
-    rotate: 4deg;
-    @media (max-width: 768px) {
-      scale: 1;
-      rotate: none;
-    }
+h3:hover {
+  scale: 1.1;
+  rotate: 4deg;
+}
+@media (max-width: 768px) {
+  h3:hover {
+    scale: 1;
+    rotate: none;
   }
 }
-
-p {
-  &:hover {
-    scale: 1.1;
-    @media (max-width: 768px) {
-      scale: 1;
-      rotate: none;
-    }
+p:hover {
+  scale: 1.1;
+}
+@media (max-width: 768px) {
+  p:hover {
+    scale: 1;
+    rotate: none;
   }
 }
 </style>
