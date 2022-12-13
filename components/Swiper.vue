@@ -14,7 +14,7 @@
         />
       </div>
       <div class="swiper-slide">
-        <nuxt-picture
+        <nuxt-img
           format="webp"
           quality="60"
           loading="lazy"
@@ -26,7 +26,7 @@
         />
       </div>
       <div class="swiper-slide">
-        <nuxt-picture
+        <nuxt-img
           format="webp"
           quality="60"
           loading="lazy"
@@ -38,7 +38,7 @@
         />
       </div>
       <div class="swiper-slide">
-        <nuxt-picture
+        <nuxt-img
           format="webp"
           quality="60"
           loading="lazy"
@@ -62,7 +62,7 @@
         />
       </div>
       <div class="swiper-slide">
-        <nuxt-picture
+        <nuxt-img
           format="webp"
           quality="60"
           loading="lazy"
@@ -74,7 +74,7 @@
         />
       </div>
       <div class="swiper-slide">
-        <nuxt-picture
+        <nuxt-img
           format="webp"
           quality="60"
           loading="lazy"
@@ -86,7 +86,7 @@
         />
       </div>
       <div class="swiper-slide">
-        <nuxt-picture
+        <nuxt-img
           format="webp"
           quality="60"
           loading="lazy"
@@ -98,7 +98,7 @@
         />
       </div>
       <div class="swiper-slide">
-        <nuxt-picture
+        <nuxt-img
           format="webp"
           quality="60"
           loading="lazy"
@@ -110,7 +110,7 @@
         />
       </div>
       <div class="swiper-slide">
-        <nuxt-picture
+        <nuxt-img
           format="webp"
           quality="60"
           loading="lazy"
@@ -122,7 +122,7 @@
         />
       </div>
       <div class="swiper-slide">
-        <nuxt-picture
+        <nuxt-img
           format="webp"
           quality="60"
           loading="lazy"
@@ -134,7 +134,7 @@
         />
       </div>
       <div class="swiper-slide">
-        <nuxt-picture
+        <nuxt-img
           format="webp"
           quality="60"
           loading="lazy"
@@ -146,7 +146,7 @@
         />
       </div>
       <div class="swiper-slide">
-        <nuxt-picture
+        <nuxt-img
           format="webp"
           quality="60"
           loading="lazy"
@@ -158,7 +158,7 @@
         />
       </div>
       <div class="swiper-slide">
-        <nuxt-picture
+        <nuxt-img
           format="webp"
           quality="80"
           loading="lazy"
@@ -170,7 +170,7 @@
         />
       </div>
       <div class="swiper-slide">
-        <nuxt-picture
+        <nuxt-img
           format="webp"
           quality="60"
           loading="lazy"
@@ -182,7 +182,7 @@
         />
       </div>
       <div class="swiper-slide">
-        <nuxt-picture
+        <nuxt-img
           format="webp"
           quality="60"
           loading="lazy"
@@ -234,6 +234,9 @@ export default {
 </script>
 
 <style scoped>
+.swiper-wrapper {
+  align-items: center;
+}
 .swiper-slide {
   opacity: 0.75;
   transition: opacity 0.3s, transform 0.3s;
