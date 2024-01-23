@@ -33,7 +33,7 @@ function generateLogoPath(path: string): string {
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="-mx-6 grid grid-cols-2 gap-0.5 overflow-hidden sm:mx-0 sm:rounded-2xl md:grid-cols-3 lg:grid-cols-4">
         <div v-for="logo in logoData" :key="logo.path" class="bg-white/5 p-6 flex items-center justify-center">
-          <nuxt-img :src="generateLogoPath(logo.path)" :alt="`${logo.name}`" class="w-full object-contain grayscale hover:grayscale-0 hover:scale-105 transition-all duration-300 ease-in-out" />
+          <nuxt-img :src="generateLogoPath(logo.path)" :alt="`${logo.name}`" class="w-full object-contain hover:scale-105 transition-all duration-300 ease-in-out" />
         </div>
       </div>
     </div>

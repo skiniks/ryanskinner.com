@@ -18,7 +18,9 @@
     "@types/node": "^20.11.5",
     "@unocss/nuxt": "^0.58.3",
     "@unocss/reset": "^0.58.3",
+    "daisyui": "^3.9.4",
     "eslint": "^8.56.0",
-    "nuxt": "^3.9.3"
+    "nuxt": "^3.9.3",
+    "unocss-preset-daisy": "^7.0.0"
   }
 }

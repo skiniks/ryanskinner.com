@@ -1,7 +1,8 @@
 import { defineConfig, presetIcons, presetTypography, presetUno, transformerDirectives } from 'unocss'
+import { presetDaisy } from 'unocss-preset-daisy'
 
 export default defineConfig({
-  presets: [presetIcons(), presetTypography(), presetUno()],
+  presets: [presetDaisy({ themes: false }), presetIcons(), presetTypography(), presetUno()],
 
   transformers: [transformerDirectives()],
 })
