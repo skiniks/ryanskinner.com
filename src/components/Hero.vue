@@ -18,12 +18,12 @@
           style="clip-path: polygon(70% 50%, 100% 65%, 95% 30%, 85% 5%, 80% 10%, 70% 40%, 60% 60%, 50% 70%, 45% 55%, 40% 30%, 25% 80%, 0 70%, 15% 100%, 30% 75%, 75% 95%, 70% 50%)"
         />
       </div>
-      <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+      <div class="mx-auto max-w-3xl py-32 sm:py-48 lg:py-56">
         <div class="text-center">
-          <h1 class="text-6xl font-bold tracking-tight text-transparent bg-clip-text animated-gradient sm:text-7xl pb-1">
+          <h1 class="text-6xl font-bold tracking-tight text-transparent bg-clip-text animated-gradient sm:text-8xl pb-2">
             Let's build a better internet together.
           </h1>
-          <p class="mt-6 text-lg leading-8 text-gray-300">
+          <p class="mt-6 text-lg leading-8 text-gray-300 font-mono">
             I'm a creative software developer passionate about exceptional
             design, enhancing the developer experience, and pushing the boundaries of the modern web. I've collaborated
             with a diverse range of clients and utilized various technologies to craft beautiful, accessible, and
