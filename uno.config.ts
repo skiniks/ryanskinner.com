@@ -2,7 +2,7 @@ import { defineConfig, presetIcons, presetTypography, presetUno, transformerDire
 import { presetDaisy } from 'unocss-preset-daisy'
 
 export default defineConfig({
-  presets: [presetDaisy({ themes: false }), presetIcons(), presetTypography(), presetUno()],
+  presets: [presetDaisy({themes: ["dark"]}), presetIcons(), presetTypography(), presetUno()],
 
   transformers: [transformerDirectives()],
 })
