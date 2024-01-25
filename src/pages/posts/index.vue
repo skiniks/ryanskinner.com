@@ -1,5 +1,7 @@
 <script setup lang="ts">
-defineOgImageComponent('Og')
+defineOgImageComponent('NuxtSeo', {
+  title: 'Posts I\'ve Written',
+})
 </script>
 
 <template>

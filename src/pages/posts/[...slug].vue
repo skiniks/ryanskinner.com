@@ -9,14 +9,33 @@ const path = computed(() =>
   route.path.replace(/(index)?\.json$/, '').replace(/\/$/, ''),
 )
 
+const { data: page } = await useAsyncData(
+  path.value,
+  () =>
+    ((import.meta.server || import.meta.dev) as true) &&
+    queryContent(path.value)
+      .only(['title', 'date', 'tags', 'description'])
+      .findOne()
+)
+
+if (!page.value) {
+  throw createError({
+    statusCode: 404,
+    fatal: true,
+  })
+}
+
+route.meta.title = page.value.title
+route.meta.description = page.value.description
+
 const { data: contentData } = await useAsyncData('content', () =>
   queryContent()
     .where({ _path: path.value })
     .only(['title', 'date', 'tags'])
     .findOne())
 
-defineOgImageComponent('Og', {
-  title: 'Is this thing on?'
+defineOgImageComponent('NuxtSeo', {
+  title: page.value.title,
 })
 </script>
 
@@ -25,10 +44,8 @@ defineOgImageComponent('Og', {
     <NuxtTime :datetime="contentData?.date" day="numeric" month="long" year="numeric" />
     <h1>{{ contentData?.title }}</h1>
     <ul class="list-none flex flex-wrap gap-2 p-0">
-      <li
-        v-for="tag in contentData?.tags" :key="tag"
-        class="bg-blue-200 text-blue-800 light:bg-blue-800 light:text-blue-200 text-sm font-semibold py-1 px-3 rounded-full"
-      >
+      <li v-for="tag in contentData?.tags" :key="tag"
+        class="bg-blue-200 text-blue-800 light:bg-blue-800 light:text-blue-200 text-sm font-semibold py-1 px-3 rounded-full">
         {{ tag }}
       </li>
     </ul>
