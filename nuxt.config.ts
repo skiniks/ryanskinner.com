@@ -25,11 +25,14 @@ export default defineNuxtConfig({
     payloadExtraction: true,
   },
 
+  devtools: { enabled: true },
+
   modules: [
     '@unocss/nuxt',
     '@nuxtjs/color-mode',
     '@nuxt/content',
     '@nuxt/image',
+    'nuxt-og-image',
     'nuxt-time',
   ],
 

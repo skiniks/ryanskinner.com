@@ -14,6 +14,8 @@ const { data: contentData } = await useAsyncData('content', () =>
     .where({ _path: path.value })
     .only(['title', 'date', 'tags'])
     .findOne())
+
+defineOgImageComponent('Og')
 </script>
 
 <template>
