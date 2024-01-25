@@ -15,7 +15,9 @@ const { data: contentData } = await useAsyncData('content', () =>
     .only(['title', 'date', 'tags'])
     .findOne())
 
-defineOgImageComponent('Og')
+defineOgImageComponent('Og', {
+  title: 'Is this thing on?'
+})
 </script>
 
 <template>
