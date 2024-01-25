@@ -6,17 +6,31 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ['@unocss/reset/tailwind.css'],
+  colorMode: {
+    preference: 'dark',
+    dataValue: 'theme',
+  },
+
+  content: {
+    highlight: {
+      preload: ['js', 'ts', 'json', 'vue'],
+      theme: 'material-theme-palenight',
+    },
+  },
+
+  css: ['@unocss/reset/tailwind.css', '@/assets/main.css'],
 
   experimental: {
     componentIslands: true,
+    payloadExtraction: true,
   },
 
   modules: [
     '@unocss/nuxt',
+    '@nuxtjs/color-mode',
     '@nuxt/content',
     '@nuxt/image',
-    'nuxt-time'
+    'nuxt-time',
   ],
 
   srcDir: 'src',

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 const entries = await queryContent('/posts')
-  .only(['title', 'date', '_path'])
+  .only(['title', 'date', 'description', '_path'])
   .find()
-  .then(result => {
-    return (result as Array<{ title?: string; date: string; _path: string }>)
+  .then((result) => {
+    return (result as Array<{ title?: string, date: string, description: string, _path: string }>)
       .map(e => ({
         ...e,
         path: e._path,
@@ -13,36 +13,29 @@ const entries = await queryContent('/posts')
 </script>
 
 <template>
-  <section class="flex flex-col gap-4 max-w-[37.50rem]">
-    <NuxtLink
-      v-for="{ title, path, date } in entries"
-      :key="path"
-      :to="path"
-      :title="title"
-    >
-      <article>
-        <header class="flex flex-col md:flex-row justify-between items-start">
-          <span class="underlined-link">
-            {{ title }}
-          </span>
-          <dl
-            v-if="date"
-            class="mt-3 md:mt-1 leading-normal uppercase text-xs text-muted"
-          >
-            <dt class="sr-only">
-              Published
-            </dt>
-            <dd class="mr-4">
-              <NuxtTime
-                :datetime="date"
-                day="numeric"
-                month="long"
-                year="numeric"
-              />
-            </dd>
-          </dl>
-        </header>
-      </article>
-    </NuxtLink>
-  </section>
+  <div class="mx-auto max-w-7xl px-2 lg:px-0">
+    <div class="mx-auto max-w-2xl">
+      <div class="space-y-16">
+        <article
+          v-for="{ title, date, description, path } in entries" :key="path"
+          class="flex max-w-xl flex-col items-start justify-between"
+        >
+          <div class="flex items-center gap-x-4 text-xs">
+            <NuxtTime :datetime="date" day="numeric" month="long" year="numeric" />
+          </div>
+          <div class="group relative">
+            <h3 class="mt-3 text-2xl font-semibold">
+              <a :href="path">
+                <span class="absolute inset-0" />
+                {{ title }}
+              </a>
+            </h3>
+            <p class="mt-5 line-clamp-3 text-sm leading-6">
+              {{ description }}
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
 </template>
