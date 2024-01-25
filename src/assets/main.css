@@ -1,0 +1,29 @@
+.dark-mode {
+  --background: theme('colors.gray.800');
+  --accent: theme('colors.gray.900');
+  --primary: theme('colors.white');
+  --muted: theme('colors.gray.300');
+}
+
+.light-mode {
+  --background: theme('colors.gray.200');
+  --accent: theme('colors.gray.100');
+  --primary: theme('colors.gray.800');
+  --muted: theme('colors.gray.700');
+}
+
+:root {
+  background-color: var(--background, theme('colors.gray.800'));
+  color: var(--primary, theme('colors.white'));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a:not([href]) {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+p + p, p + blockquote {
+  @apply mt-4;
+}

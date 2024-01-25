@@ -46,7 +46,7 @@ useServerHead({
 </script>
 
 <template>
-  <div id="app" class="overflow-x-hidden min-h-screen flex flex-col">
+  <div id="app">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>

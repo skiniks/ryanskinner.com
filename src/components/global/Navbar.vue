@@ -1,13 +1,18 @@
 <template>
-  <div class="drawer">
-    <div class="drawer-content flex flex-col">
-      <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 navbar pt-6">
-        <div class="flex-1 px-2 mx-2">
-          <NuxtLink to="/">
-            <NuxtImg src="/logo.svg" alt="logo" class="w-40" />
+  <div class="bg-gray-800">
+    <div class="mx-auto max-w-6xl py-4">
+      <nav class="flex justify-between items-center text-white p-4">
+        <NuxtLink to="/" class="flex items-center gap-2">
+          <NuxtImg src="/logo.svg" alt="Logo" width="160" height="32" />
+        </NuxtLink>
+
+        <div class="flex items-center gap-4">
+          <NuxtLink to="/posts">
+            Posts
           </NuxtLink>
+          <ToggleColorMode class="flex" />
         </div>
-      </div>
+      </nav>
     </div>
   </div>
 </template>
