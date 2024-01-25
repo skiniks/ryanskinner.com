@@ -2,6 +2,10 @@
 defineOgImageComponent('NuxtSeo', {
   title: 'Posts I\'ve Written',
 })
+
+useSeoMeta({
+  title: 'Posts I\'ve Written',
+})
 </script>
 
 <template>
