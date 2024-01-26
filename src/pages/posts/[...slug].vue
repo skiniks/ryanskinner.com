@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useRoute, createError } from 'nuxt/app'
-
 definePageMeta({
   layout: 'article',
 })
