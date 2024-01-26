@@ -1,11 +1,8 @@
 <script setup lang="ts">
-defineOgImageComponent('NuxtSeo', {
-  title: 'Posts I\'ve Written',
-})
+const pageTitle = 'Posts I\'ve Written'
 
-useSeoMeta({
-  title: 'Posts I\'ve Written',
-})
+defineOgImageComponent('NuxtSeo', { title: pageTitle })
+useSeoMeta({ title: pageTitle })
 </script>
 
 <template>

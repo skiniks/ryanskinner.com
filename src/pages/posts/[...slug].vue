@@ -33,8 +33,10 @@ defineOgImageComponent('NuxtSeo', {
     <NuxtTime :datetime="pageData?.date" day="numeric" month="long" year="numeric" />
     <h1>{{ pageData?.title }}</h1>
     <ul class="list-none flex flex-wrap gap-2 p-0">
-      <li v-for="tag in pageData?.tags" :key="tag"
-        class="bg-blue-200 text-blue-800 light:bg-blue-800 light:text-blue-200 text-sm font-semibold py-1 px-3 rounded-full">
+      <li
+        v-for="tag in pageData?.tags" :key="tag"
+        class="bg-blue-200 text-blue-800 light:bg-blue-800 light:text-blue-200 text-sm font-semibold py-1 px-3 rounded-full"
+      >
         {{ tag }}
       </li>
     </ul>
