@@ -8,7 +8,7 @@ useHead({
     {
       hid: 'description',
       name: 'description',
-      content: 'Ryan Skinner is a software engineer and web developer based in Toronto, Canada.'
+      content: 'Ryan Skinner is a software engineer based in Toronto, Canada.'
     }
   ]
 })
