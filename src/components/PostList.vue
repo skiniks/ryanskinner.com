@@ -18,19 +18,19 @@ const entries = await queryContent('/posts')
       <div class="space-y-16">
         <article
           v-for="{ title, date, description, path } in entries" :key="path"
-          class="flex max-w-xl flex-col items-start justify-between"
+          class="flex max-w-xl flex-col items-start justify-between bg-white rounded-lg p-6 my-4 shadow-md transition-all ease-in-out duration-300 hover:shadow-lg"
         >
-          <div class="flex items-center gap-x-4 text-xs">
+          <div class="flex items-center gap-x-4 text-xs  text-black">
             <NuxtTime :datetime="date" day="numeric" month="long" year="numeric" />
           </div>
           <div class="group relative">
-            <h3 class="mt-3 text-2xl font-semibold">
+            <h3 class="mt-3 text-2xl font-semibold text-black">
               <a :href="path">
                 <span class="absolute inset-0" />
                 {{ title }}
               </a>
             </h3>
-            <p class="mt-5 line-clamp-3 text-sm leading-6">
+            <p class="mt-5 line-clamp-3 text-sm leading-6  text-black">
               {{ description }}
             </p>
           </div>

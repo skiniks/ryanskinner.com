@@ -47,7 +47,7 @@
 }
 
 .animate-fadeInMoveUp {
-  animation: fadeInAndMoveUp 1.5s ease-out forwards;
+  animation: fadeInAndMoveUp 1s ease-out forwards;
 }
 
 .bg-clip-text {
