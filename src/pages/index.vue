@@ -14,5 +14,6 @@ useSeoMeta({
 
 <template>
   <Hero />
+  <RecentPost />
   <LogoGrid />
 </template>

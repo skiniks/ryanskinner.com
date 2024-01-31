@@ -32,7 +32,7 @@ route.meta.description = pageData.value.description
 <template>
   <header class="mt-8 px-4 lg:px-0">
     <NuxtTime :datetime="pageData?.date" day="numeric" month="long" year="numeric" />
-    <h1>{{ pageData?.title }}</h1>
+    <h1 class="text-yellow-300 light:text-black">{{ pageData?.title }}</h1>
     <ul class="list-none flex flex-wrap gap-2 p-0">
       <li
         v-for="tag in pageData?.tags" :key="tag"
