@@ -23,6 +23,7 @@ export default defineNuxtConfig({
   experimental: {
     componentIslands: true,
     payloadExtraction: true,
+    viewTransition: true,
   },
 
   devtools: { enabled: true },
