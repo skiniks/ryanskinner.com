@@ -20,12 +20,13 @@ if (error.value || !pageData.value) {
   })
 }
 
-route.meta.title = pageData.value.title
-route.meta.description = pageData.value.description
-
 defineOgImageComponent('NuxtSeo', {
   title: pageData.value.title,
+  description: pageData.value.description,
 })
+
+route.meta.title = pageData.value.title
+route.meta.description = pageData.value.description
 </script>
 
 <template>
