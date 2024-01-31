@@ -1,6 +1,6 @@
 <template>
   <div class="mx-auto max-w-4xl py-32 sm:py-48 lg:py-56">
-    <div class="text-center">
+    <div class="text-center animate-fadeInMoveUp">
       <h1 class="text-6xl font-black tracking-tight text-transparent bg-clip-text animated-gradient sm:text-8xl pb-2">
         Let's build a better internet together.
       </h1>
@@ -33,6 +33,21 @@
   100% {
     background-position: 0% 50%;
   }
+}
+
+@keyframes fadeInAndMoveUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInMoveUp {
+  animation: fadeInAndMoveUp 1.5s ease-out forwards;
 }
 
 .bg-clip-text {
