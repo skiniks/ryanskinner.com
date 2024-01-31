@@ -20,12 +20,6 @@ export default defineNuxtConfig({
 
   css: ['@unocss/reset/tailwind.css', '@/assets/main.css'],
 
-  experimental: {
-    componentIslands: true,
-    payloadExtraction: true,
-    viewTransition: true,
-  },
-
   devtools: { enabled: true },
 
   modules: [
