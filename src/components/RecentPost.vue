@@ -29,9 +29,6 @@ const entries = await queryContent('/posts')
       <p class="text-gray-300 text-lg leading-relaxed mb-6">
         {{ entries[0].description }}
       </p>
-      <a :href="entries[0].path" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-200" aria-label="Read more">
-        Read More
-      </a>
     </div>
     <div v-else class="text-center">
       <p>No recent posts available.</p>
