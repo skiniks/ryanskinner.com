@@ -1,9 +1,9 @@
 <template>
-  <Navbar />
+  <LayoutNavbar />
   <article class="flex flex-col gap-4 max-w-2xl mx-auto prose">
     <slot />
   </article>
-  <Footer />
+  <LayoutFooter />
 </template>
 
 <style>
