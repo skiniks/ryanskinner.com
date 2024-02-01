@@ -26,9 +26,12 @@ const entries = await queryContent('/posts')
           {{ entries[0].title }}
         </a>
       </h1>
-      <p class="text-gray-300 text-lg leading-relaxed mb-6">
+      <p class="text-gray-300 text-lg leading-relaxed mb-10">
         {{ entries[0].description }}
       </p>
+      <a :href="entries[0].path" class="bg-blue-600 hover:bg-blue-800 px-4 py-4 rounded-xl" :aria-label="'Read more about ' + entries[0].title" :title="'Read more about ' + entries[0].title">
+      View Article
+      </a>
     </div>
     <div v-else class="text-center">
       <p>No recent posts available.</p>
