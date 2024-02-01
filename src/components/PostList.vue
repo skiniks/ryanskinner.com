@@ -24,7 +24,7 @@ const entries = await queryContent('/posts')
             <NuxtTime :datetime="date" day="numeric" month="long" year="numeric" />
           </div>
           <div class="group relative">
-            <h3 class="mt-3 text-2xl font-semibold text-gray-100">
+            <h3 class="mt-3 text-3xl font-semibold text-gray-100">
               <a :href="path">
                 <span class="absolute inset-0" />
                 {{ title }}
