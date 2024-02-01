@@ -22,14 +22,14 @@ const entries = await queryContent('/posts')
         </span>
       </div>
       <h1 class="mb-4 text-5xl font-bold text-gray-100 leading-tight">
-        <a :href="entries[0].path" class="hover:text-gray-300 transition-colors duration-200" aria-label="Read the post: {{ entries[0].title }}">
+        <a :href="entries[0].path" class="hover:text-gray-300 transition-colors duration-200">
           {{ entries[0].title }}
         </a>
       </h1>
       <p class="text-gray-300 text-lg leading-relaxed mb-6">
         {{ entries[0].description }}
       </p>
-      <a :href="entries[0].path" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-200" aria-label="Read more about: {{ entries[0].title }}">
+      <a :href="entries[0].path" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-200" aria-label="Read more">
         Read More
       </a>
     </div>
