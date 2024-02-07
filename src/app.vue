@@ -8,9 +8,9 @@ useHead({
     {
       hid: 'description',
       name: 'description',
-      content: 'Ryan Skinner is a software engineer based in Toronto, Canada.'
-    }
-  ]
+      content: 'Ryan Skinner is a software engineer based in Toronto, Canada.',
+    },
+  ],
 })
 </script>
 
