@@ -22,6 +22,11 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
+  experimental: {
+    viewTransition: true,
+    payloadExtraction: true,
+  },
+
   modules: [
     '@unocss/nuxt',
     '@nuxtjs/color-mode',
