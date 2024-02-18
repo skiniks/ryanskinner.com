@@ -16,7 +16,7 @@ const entries = await queryContent('/posts')
 <template>
   <div class="p-8 md:p-12">
     <div class="mx-auto px-4 sm:px-6 lg:px-8 min-h-screen">
-      <div class="mx-auto sm:max-w-xl md:max-w-2xl lg:max-w-4xl">
+      <div class="mx-auto sm:max-w-xl md:max-w-2xl lg:max-w-3xl">
         <div class="space-y-8">
           <div
             v-if="entries.length > 0" :key="entries[0].path"
