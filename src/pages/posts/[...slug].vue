@@ -29,6 +29,11 @@ defineOgImageComponent('Article', {
   bgColor: 'bg-gray-800',
   tags: route.meta.tags,
 })
+
+useSeoMeta({
+  title: pageData.value.title,
+  description: pageData.value.description
+})
 </script>
 
 <template>
