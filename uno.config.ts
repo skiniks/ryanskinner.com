@@ -5,7 +5,22 @@ export default defineConfig({
     filesystem: ['content/**/*.md'],
   },
 
-  presets: [presetIcons(), presetTypography(), presetUno({ dark: { dark: '.dark-mode', light: '.light-mode' } })],
+  presets: [
+    presetIcons(),
+
+    presetTypography({
+      cssExtend: {
+        'code::before': {
+          content: 'none',
+        },
+        'code::after': {
+          content: 'none',
+        },
+      },
+    }),
+
+    presetUno({ dark: { dark: '.dark-mode', light: '.light-mode' } }),
+  ],
 
   theme: {
     colors: {
