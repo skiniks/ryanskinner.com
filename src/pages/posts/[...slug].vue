@@ -3,8 +3,6 @@ definePageMeta({
   layout: 'article',
 })
 
-defineOgImageScreenshot()
-
 const route = useRoute()
 const path = computed(() => route.path.replace(/(index)?\.json$/, '').replace(/\/$/, ''))
 
@@ -24,6 +22,13 @@ if (error.value || !pageData.value) {
 
 route.meta.title = pageData.value.title
 route.meta.description = pageData.value.description
+route.meta.tags = pageData.value.tags
+
+defineOgImageComponent('Article', {
+  title: route.meta.title,
+  bgColor: 'bg-gray-800',
+  tags: route.meta.tags,
+})
 </script>
 
 <template>

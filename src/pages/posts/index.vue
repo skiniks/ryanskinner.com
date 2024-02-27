@@ -1,7 +1,9 @@
 <script setup lang="ts">
 const pageTitle = 'Posts'
 
-defineOgImageScreenshot()
+defineOgImageComponent('Default', {
+  bgColor: 'bg-gray-800',
+})
 
 useSeoMeta({
   title: pageTitle,
