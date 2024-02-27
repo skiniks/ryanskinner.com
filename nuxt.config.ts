@@ -30,6 +30,10 @@ export default defineNuxtConfig({
     typedPages: true,
   },
 
+  future: {
+    typescriptBundlerResolution: true,
+  },
+
   modules: [
     '@unocss/nuxt',
     '@nuxtjs/color-mode',
