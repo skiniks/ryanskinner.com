@@ -4,13 +4,23 @@ const route = useRoute()
 useHead({
   title: () => (route.meta.title as string) || '',
   titleTemplate: title => (title ? `${title} - Ryan Skinner` : 'Ryan Skinner'),
-  meta: [
+})
+
+useServerHead({
+  meta: () => [
     {
-      hid: 'description',
       name: 'description',
-      content: 'Ryan Skinner is a software engineer based in Toronto, Canada.',
+      content:
+        (route.meta.description as string) ||
+        `Ryan Skinner's website — ryanskinner.com`,
     },
-  ],
+    {
+      property: 'og:description',
+      content:
+        (route.meta.description as string) ||
+        `Ryan Skinner's website — ryanskinner.com`,
+    },
+  ]
 })
 </script>
 

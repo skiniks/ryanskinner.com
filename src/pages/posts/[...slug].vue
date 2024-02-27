@@ -24,6 +24,8 @@ route.meta.title = pageData.value.title
 route.meta.description = pageData.value.description
 route.meta.tags = pageData.value.tags
 
+useRoute().meta.description = pageData.value.description
+
 defineOgImageComponent('Article', {
   title: route.meta.title,
   bgColor: 'bg-gray-800',
