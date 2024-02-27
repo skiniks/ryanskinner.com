@@ -3,6 +3,8 @@ definePageMeta({
   layout: 'article',
 })
 
+defineOgImageScreenshot()
+
 const route = useRoute()
 const path = computed(() => route.path.replace(/(index)?\.json$/, '').replace(/\/$/, ''))
 
@@ -19,11 +21,6 @@ if (error.value || !pageData.value) {
     fatal: true,
   })
 }
-
-defineOgImageComponent('NuxtSeo', {
-  title: pageData.value.title,
-  description: pageData.value.description,
-})
 
 route.meta.title = pageData.value.title
 route.meta.description = pageData.value.description
