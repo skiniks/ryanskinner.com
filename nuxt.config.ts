@@ -23,8 +23,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   experimental: {
+    headNext: true,
     viewTransition: true,
+    componentIslands: true,
     payloadExtraction: true,
+    typedPages: true,
   },
 
   modules: [
