@@ -11,16 +11,16 @@ useServerHead({
     {
       name: 'description',
       content:
-        (route.meta.description as string) ||
-        `Ryan Skinner's website — ryanskinner.com`,
+        (route.meta.description as string)
+        || `Ryan Skinner's website — ryanskinner.com`,
     },
     {
       property: 'og:description',
       content:
-        (route.meta.description as string) ||
-        `Ryan Skinner's website — ryanskinner.com`,
+        (route.meta.description as string)
+        || `Ryan Skinner's website — ryanskinner.com`,
     },
-  ]
+  ],
 })
 </script>
 

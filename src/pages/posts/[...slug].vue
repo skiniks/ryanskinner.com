@@ -34,7 +34,7 @@ defineOgImageComponent('Article', {
 
 useSeoMeta({
   title: pageData.value.title,
-  description: pageData.value.description
+  description: pageData.value.description,
 })
 </script>
 
