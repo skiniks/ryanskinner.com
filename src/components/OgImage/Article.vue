@@ -4,7 +4,7 @@ const props = defineProps({
   title: String,
   description: String,
   bgColor: String,
-  tags: Array,
+  tags: Array as PropType<string[]>,
 })
 
 const isClass = computed(() => props.bgColor?.startsWith('bg-'))
