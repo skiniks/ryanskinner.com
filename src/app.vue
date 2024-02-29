@@ -23,13 +23,13 @@ if (import.meta.server) {
         name: 'description',
         content:
           (route.meta.description as string)
-          || `Ryan Skinner, a Toronto-based creative software developer, is dedicated to pushing the boundaries of the modern web with exceptional design and an enhanced developer experience. With a passion for crafting beautiful, accessible, and high-performing web applications, Ryan has collaborated with a diverse range of clients and utilized various technologies to bring innovative solutions to life.`,
+          || `Ryan Skinner, a distinguished software engineer based in Toronto, Canada, excels in enhancing the web with his expertise in React, server-side technologies, and Nuxt to create high-performance, search-optimized web applications. Focused on improving the developer experience and leveraging the power of web components, Ryan's work embodies the pinnacle of modern web development. Through his commitment to exceptional design and performance, Ryan Skinner's portfolio showcases how he seamlessly integrates React components and Nuxt frameworks to elevate web applications, making them accessible, beautiful, and fast.`,
       },
       {
         property: 'og:description',
         content:
           (route.meta.description as string)
-          || `Ryan Skinner, a Toronto-based creative software developer, is dedicated to pushing the boundaries of the modern web with exceptional design and an enhanced developer experience. With a passion for crafting beautiful, accessible, and high-performing web applications, Ryan has collaborated with a diverse range of clients and utilized various technologies to bring innovative solutions to life.`,
+          || `Ryan Skinner, a distinguished software engineer based in Toronto, Canada, excels in enhancing the web with his expertise in React, server-side technologies, and Nuxt to create high-performance, search-optimized web applications. Focused on improving the developer experience and leveraging the power of web components, Ryan's work embodies the pinnacle of modern web development. Through his commitment to exceptional design and performance, Ryan Skinner's portfolio showcases how he seamlessly integrates React components and Nuxt frameworks to elevate web applications, making them accessible, beautiful, and fast.`,
       },
     ],
     link: [
