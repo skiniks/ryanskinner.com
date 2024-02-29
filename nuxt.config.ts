@@ -44,12 +44,6 @@ export default defineNuxtConfig({
     'nuxt-time',
   ],
 
-  nitro: {
-    prerender: {
-      routes: ['/sitemap.xml'],
-    },
-  },
-
   site: {
     url: 'https://ryanskinner.com',
   },
