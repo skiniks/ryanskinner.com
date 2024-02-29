@@ -19,6 +19,9 @@ if (import.meta.server) {
 
   useServerHead({
     meta: () => [
+      { property: 'og:url', content: url },
+      { property: 'og:image:width', content: '1200' },
+      { property: 'og:image:height', content: '630' },
       {
         name: 'description',
         content:

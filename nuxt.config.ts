@@ -35,6 +35,7 @@ export default defineNuxtConfig({
   },
 
   modules: [
+    '~/modules/sitemap',
     '@unocss/nuxt',
     '@nuxtjs/color-mode',
     '@nuxt/content',
@@ -43,6 +44,10 @@ export default defineNuxtConfig({
     'nuxt-og-image',
     'nuxt-time',
   ],
+
+  site: {
+    url: 'https://ryanskinner.com'
+  },
 
   srcDir: 'src',
 })
