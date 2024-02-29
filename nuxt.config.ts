@@ -37,6 +37,7 @@ export default defineNuxtConfig({
   modules: [
     '@unocss/nuxt',
     '@nuxtjs/color-mode',
+    '@nuxtjs/sitemap',
     '@nuxt/content',
     '@nuxt/image',
     'magic-regexp/nuxt',
