@@ -35,7 +35,6 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    '~/modules/sitemap',
     '@unocss/nuxt',
     '@nuxtjs/color-mode',
     '@nuxt/content',
@@ -45,8 +44,14 @@ export default defineNuxtConfig({
     'nuxt-time',
   ],
 
+  nitro: {
+    prerender: {
+      routes: ['/sitemap.xml'],
+    },
+  },
+
   site: {
-    url: 'https://ryanskinner.com'
+    url: 'https://ryanskinner.com',
   },
 
   srcDir: 'src',
