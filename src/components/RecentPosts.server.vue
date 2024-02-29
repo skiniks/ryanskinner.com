@@ -20,9 +20,9 @@ const entries = await queryContent('/posts')
         <span class="bg-blue-600 text-white text-xs font-semibold mr-2 px-2.5 py-1.5 rounded-full">
           <NuxtTime :datetime="entries[0].date" day="numeric" month="long" year="numeric" />
         </span>
-        <h2 class="mt-4 text-3xl font-bold tracking-tight light:text-gray-900 sm:text-4xl">
+        <h3 class="mt-4 text-3xl font-bold tracking-tight light:text-gray-900 sm:text-4xl">
           {{ entries[0].title }}
-        </h2>
+        </h3>
         <p class="mt-4 text-lg leading-8 light:text-gray-600">
           {{ entries[0].description }}
         </p>
@@ -40,11 +40,11 @@ const entries = await queryContent('/posts')
               <span class="bg-blue-600 text-white text-xs font-semibold mr-2 px-2.5 py-1.5 rounded-full">
                 <NuxtTime :datetime="entry.date" day="numeric" month="long" year="numeric" />
               </span>
-              <h2 class="mt-4 text-xl font-semibold light:text-gray-900 group-hover:text-gray-600">
+              <h3 class="mt-4 text-xl font-semibold light:text-gray-900 group-hover:text-gray-600">
                 <a :href="entry.path">
                   {{ entry.title }}
                 </a>
-              </h2>
+              </h3>
               <p class="mt-4 text-sm leading-6 light:text-gray-600">
                 {{ entry.description }}
               </p>
