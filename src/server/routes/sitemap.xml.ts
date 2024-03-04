@@ -3,7 +3,7 @@ import { serverQueryContent } from '#content/server'
 
 const staticPages = [
   '/',
-  '/posts',
+  '/posts/',
 ]
 
 export default defineEventHandler(async (event) => {
