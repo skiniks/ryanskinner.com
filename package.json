@@ -27,5 +27,8 @@
     "nuxt-og-image": "3.0.0-rc.38",
     "nuxt-time": "^0.1.2",
     "sitemap": "^7.1.1"
+  },
+  "resolutions": {
+    "nitropack": "2.8.1"
   }
 }
