@@ -1,5 +1,5 @@
 <template>
-  <div class="-mt-16 mx-auto max-w-4xl py-32 sm:py-48 lg:py-56 relative isolate">
+  <div class="-mt-16 mx-auto max-w-4xl py-32 sm:py-48 lg:py-56 isolate">
     <div
       class="absolute left-[calc(50%-4rem)] top-10 -z-10 transform-gpu blur-3xl sm:left-[calc(50%-18rem)] lg:left-48 lg:bottom-[calc(50%-60rem)] xl:left-[calc(20%-24rem)]"
       aria-hidden="true"
