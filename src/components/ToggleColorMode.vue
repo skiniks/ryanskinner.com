@@ -7,7 +7,7 @@ const colorMode = useColorMode()
     v-if="colorMode"
     aria-label="Change site theme"
     type="button"
-    class="h-7 w-12 relative rounded-full bg-accent ml-2 items-center justify-start px-1 transition-opacity outline-none border-2 border-solid border-accent hover:border-primary focus:border-primary active:border-primary"
+    class="bg-accent border-accent hover:border-primary focus:border-primary active:border-primary relative ml-2 h-7 w-12 items-center justify-start rounded-full border-2 border-solid px-1 outline-none transition-opacity"
     @click="
       colorMode.value === 'dark'
         ? (colorMode.preference = 'light')
@@ -15,7 +15,7 @@ const colorMode = useColorMode()
     "
   >
     <span
-      class="inline-block rounded-full h-4 w-4 bg-primary transition-transform"
+      class="bg-primary inline-block h-4 w-4 rounded-full transition-transform"
       :style="
         colorMode.value === 'light' ? 'transform:translateX(1.25rem)' : ''
       "

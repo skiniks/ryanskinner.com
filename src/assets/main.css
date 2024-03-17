@@ -24,7 +24,8 @@ a:not([href]) {
   pointer-events: none;
 }
 
-p + p, p + blockquote {
+p + p,
+p + blockquote {
   @apply mt-4;
 }
 

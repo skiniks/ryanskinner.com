@@ -12,13 +12,18 @@ const isClass = computed(() => props.bgColor?.startsWith('bg-'))
 
 <template>
   <div
-    class="w-full h-full flex flex-col justify-center text-white relative"
-    :class="isClass ? [bgColor || 'bg-blue-500'] : []" :style="{ backgroundColor: !isClass ? `#${bgColor}` : undefined }"
-    style="padding: 60px;"
+    class="relative flex h-full w-full flex-col justify-center text-white"
+    :class="isClass ? [bgColor || 'bg-blue-500'] : []"
+    :style="{ backgroundColor: !isClass ? `#${bgColor}` : undefined }"
+    style="padding: 60px"
   >
-    <div class="flex mt-4 mb-6">
+    <div class="mb-6 mt-4 flex">
       <div class="flex flex-wrap gap-2">
-        <span v-for="tag in tags" :key="tag" class="bg-blue-700 text-lg font-semibold px-3 py-1 rounded-full">
+        <span
+          v-for="tag in tags"
+          :key="tag"
+          class="rounded-full bg-blue-700 px-3 py-1 text-lg font-semibold"
+        >
           {{ tag }}
         </span>
       </div>

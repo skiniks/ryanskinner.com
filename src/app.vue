@@ -3,7 +3,8 @@ const route = useRoute()
 
 useHead({
   title: () => (route.meta.title as string) || '',
-  titleTemplate: title => (title ? `${title} - Ryan Skinner` : 'Ryan Skinner'),
+  titleTemplate: title =>
+    title ? `${title} - Ryan Skinner` : 'Ryan Skinner',
 })
 
 if (import.meta.server) {

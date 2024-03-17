@@ -4,11 +4,17 @@ definePageMeta({
 })
 
 const route = useRoute()
-const path = computed(() => route.path.replace(/(index)?\.json$/, '').replace(/\/$/, ''))
+const path = computed(() =>
+  route.path.replace(/(index)?\.json$/, '').replace(/\/$/, ''),
+)
 
 const { data: pageData, error } = await useAsyncData('pageData', () => {
-  const contentQuery = queryContent(path.value)
-    .only(['title', 'date', 'tags', 'description'])
+  const contentQuery = queryContent(path.value).only([
+    'title',
+    'date',
+    'tags',
+    'description',
+  ])
 
   return contentQuery.findOne()
 })
@@ -41,17 +47,25 @@ useSeoMeta({
 <template>
   <header class="mt-8 px-4 lg:px-0">
     <div class="mb-2">
-      <span class="bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
-        <NuxtTime :datetime="pageData?.date" day="numeric" month="long" year="numeric" />
+      <span
+        class="rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white"
+      >
+        <NuxtTime
+          :datetime="pageData?.date"
+          day="numeric"
+          month="long"
+          year="numeric"
+        />
       </span>
     </div>
-    <h1 class="text-gray-100 light:text-black">
+    <h1 class="light:text-black text-gray-100">
       {{ pageData?.title }}
     </h1>
-    <ul class="list-none flex flex-wrap gap-2 p-0">
+    <ul class="flex list-none flex-wrap gap-2 p-0">
       <li
-        v-for="tag in pageData?.tags" :key="tag"
-        class="bg-blue-200 text-blue-800 light:bg-blue-800 light:text-blue-200 text-sm font-semibold py-1 px-3 rounded-full"
+        v-for="tag in pageData?.tags"
+        :key="tag"
+        class="light:bg-blue-800 light:text-blue-200 rounded-full bg-blue-200 px-3 py-1 text-sm font-semibold text-blue-800"
       >
         {{ tag }}
       </li>
