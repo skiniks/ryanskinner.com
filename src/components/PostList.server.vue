@@ -21,7 +21,7 @@ const entries = await queryContent('/posts')
           class="flex flex-col items-start justify-between bg-gray-900 light:bg-gray-800/80 rounded-lg px-6 py-8 sm:px-8 sm:py-10 md:px-12 md:py-14 my-4 shadow-md transition-all ease-in-out duration-300 hover:shadow-lg animate-fadeInMoveUp"
         >
           <div class="mb-2 sm:mb-4">
-            <span class="bg-blue-600 text-white text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">
+            <span class="bg-blue-600 text-white text-xs font-semibold mr-2 px-2.5 py-1.5 rounded-full">
               <NuxtTime :datetime="date" day="numeric" month="long" year="numeric" />
             </span>
           </div>
