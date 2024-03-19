@@ -24,7 +24,7 @@
     "@vercel/analytics": "^1.2.2",
     "eslint": "^8.57.0",
     "magic-regexp": "^0.8.0",
-    "nuxt": "^3.11.0",
+    "nuxt": "^3.11.1",
     "nuxt-og-image": "3.0.0-rc.47",
     "nuxt-time": "^0.1.2",
     "prettier": "^3.2.5",
