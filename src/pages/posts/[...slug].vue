@@ -14,6 +14,7 @@ const { data: pageData, error } = await useAsyncData('pageData', () => {
     'date',
     'tags',
     'description',
+    'body',
   ])
 
   return contentQuery.findOne()
@@ -25,6 +26,13 @@ if (error.value || !pageData.value) {
     fatal: true,
   })
 }
+
+const readingTime = computed(() => {
+  if (pageData.value?.body)
+    return calculateReadingTime(pageData.value.body)
+
+  return 0
+})
 
 route.meta.title = pageData.value.title
 route.meta.description = pageData.value.description
@@ -46,9 +54,9 @@ useSeoMeta({
 
 <template>
   <header class="mt-8 px-4 lg:px-0">
-    <div class="mb-2">
+    <div class="flex flex-wrap items-baseline mb-2">
       <span
-        class="rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white"
+        class="rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white mr-2"
       >
         <NuxtTime
           :datetime="pageData?.date"
@@ -57,8 +65,11 @@ useSeoMeta({
           year="numeric"
         />
       </span>
+      <span class="rounded-full bg-gray-200 px-3 py-1 text-xs font-semibold text-gray-800">
+        {{ readingTime }} min read
+      </span>
     </div>
-    <h1 class="light:text-black text-gray-100">
+    <h1 class="mb-2 text-gray-100">
       {{ pageData?.title }}
     </h1>
     <ul class="flex list-none flex-wrap gap-2 p-0">

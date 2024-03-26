@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import type { MarkdownRoot } from '@nuxt/content/types'
+
 const entries = await queryContent('/posts')
-  .only(['title', 'date', 'description', '_path'])
+  .only(['title', 'date', 'description', '_path', 'body'])
   .find()
   .then((result) => {
     return (
@@ -9,11 +11,13 @@ const entries = await queryContent('/posts')
         date: string
         description: string
         _path: string
+        body: MarkdownRoot
       }>
     )
       .map(e => ({
         ...e,
         path: e._path,
+        readingTime: calculateReadingTime(e.body),
       }))
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
   })
@@ -24,7 +28,7 @@ const entries = await queryContent('/posts')
     <div class="mx-auto sm:max-w-xl md:max-w-2xl lg:max-w-4xl">
       <div class="space-y-8">
         <article
-          v-for="{ title, date, description, path } in entries"
+          v-for="{ title, date, description, path, readingTime } in entries"
           :key="path"
           class="light:bg-gray-800/80 animate-fadeInMoveUp my-4 flex flex-col items-start justify-between rounded-lg bg-gray-900 px-6 py-8 shadow-md transition-all duration-300 ease-in-out hover:shadow-lg sm:px-8 sm:py-10 md:px-12 md:py-14"
         >
@@ -38,6 +42,11 @@ const entries = await queryContent('/posts')
                 month="long"
                 year="numeric"
               />
+            </span>
+            <span
+              class="rounded-full bg-gray-200 px-3 py-1 text-xs font-semibold text-gray-800"
+            >
+              {{ readingTime }} min read
             </span>
           </div>
           <h3

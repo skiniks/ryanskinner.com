@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import type { MarkdownRoot } from '@nuxt/content/types'
+
 const entries = await queryContent('/posts')
-  .only(['title', 'date', 'description', '_path'])
+  .only(['title', 'date', 'description', '_path', 'body'])
   .find()
   .then((result) => {
     const sortedEntries = (
@@ -9,11 +11,13 @@ const entries = await queryContent('/posts')
         date: string
         description: string
         _path: string
+        body: MarkdownRoot
       }>
     )
       .map(e => ({
         ...e,
         path: e._path,
+        readingTime: calculateReadingTime(e.body),
       }))
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     return sortedEntries.length > 0 ? sortedEntries.slice(0, 3) : []
@@ -38,6 +42,11 @@ const entries = await queryContent('/posts')
             month="long"
             year="numeric"
           />
+        </span>
+        <span
+          class="rounded-full bg-gray-200 px-3 py-1 text-xs font-semibold text-gray-800"
+        >
+          {{ entries[0].readingTime }} min read
         </span>
         <h3
           class="light:text-gray-900 mt-4 text-3xl font-bold tracking-tight sm:text-4xl"
@@ -74,6 +83,11 @@ const entries = await queryContent('/posts')
                   month="long"
                   year="numeric"
                 />
+              </span>
+              <span
+                class="rounded-full bg-gray-200 px-3 py-1 text-xs font-semibold text-gray-800"
+              >
+                {{ entry.readingTime }} min read
               </span>
               <h3
                 class="light:text-gray-900 mt-4 text-xl font-semibold group-hover:text-gray-600"
