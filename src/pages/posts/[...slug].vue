@@ -28,8 +28,7 @@ if (error.value || !pageData.value) {
 }
 
 const readingTime = computed(() => {
-  if (pageData.value?.body)
-    return calculateReadingTime(pageData.value.body)
+  if (pageData.value?.body) return calculateReadingTime(pageData.value.body)
 
   return 0
 })
@@ -54,9 +53,9 @@ useSeoMeta({
 
 <template>
   <header class="mt-8 px-4 lg:px-0">
-    <div class="flex flex-wrap items-baseline mb-2">
+    <div class="mb-2 flex flex-wrap items-baseline">
       <span
-        class="rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white mr-2"
+        class="mr-2 rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white"
       >
         <NuxtTime
           :datetime="pageData?.date"
@@ -65,11 +64,13 @@ useSeoMeta({
           year="numeric"
         />
       </span>
-      <span class="rounded-full bg-gray-200 px-3 py-1 text-xs font-semibold text-gray-800">
+      <span
+        class="rounded-full bg-gray-200 px-3 py-1 text-xs font-semibold text-gray-800"
+      >
         {{ readingTime }} min read
       </span>
     </div>
-    <h1 class="mb-2 text-gray-100">
+    <h1 class="light:text-black mb-2 text-gray-100">
       {{ pageData?.title }}
     </h1>
     <ul class="flex list-none flex-wrap gap-2 p-0">
