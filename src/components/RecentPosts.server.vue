@@ -44,7 +44,7 @@ const entries = await queryContent('/posts')
           />
         </span>
         <span
-          class="rounded-full bg-gray-200 px-3 py-1 text-xs font-semibold text-gray-800"
+          class="light:bg-gray-300 rounded-full bg-gray-200 px-3 py-1 text-xs font-semibold text-gray-800"
         >
           {{ entries[0].readingTime }} min read
         </span>
@@ -85,7 +85,7 @@ const entries = await queryContent('/posts')
                 />
               </span>
               <span
-                class="rounded-full bg-gray-200 px-3 py-1 text-xs font-semibold text-gray-800"
+                class="light:bg-gray-300 rounded-full bg-gray-200 px-3 py-1 text-xs font-semibold text-gray-800"
               >
                 {{ entry.readingTime }} min read
               </span>

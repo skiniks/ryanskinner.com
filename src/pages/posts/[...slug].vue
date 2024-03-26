@@ -28,7 +28,8 @@ if (error.value || !pageData.value) {
 }
 
 const readingTime = computed(() => {
-  if (pageData.value?.body) return calculateReadingTime(pageData.value.body)
+  if (pageData.value?.body)
+    return calculateReadingTime(pageData.value.body)
 
   return 0
 })
@@ -65,7 +66,7 @@ useSeoMeta({
         />
       </span>
       <span
-        class="rounded-full bg-gray-200 px-3 py-1 text-xs font-semibold text-gray-800"
+        class="light:bg-gray-300 rounded-full bg-gray-200 px-3 py-1 text-xs font-semibold text-gray-800"
       >
         {{ readingTime }} min read
       </span>
