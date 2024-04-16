@@ -21,46 +21,27 @@ In today’s ever-fluctuating financial markets, the value of having advanced to
 
 ### Real-Time Data Retrieval
 
-In **trendsettler**, we fetch real-time stock prices and news updates using Yahoo Finance APIs and web scraping. This data is crucial for making informed decisions and understanding market trends. Here’s how I pull historical stock data crucial for trend analysis:
+In **trendsettler**, we fetch real-time stock prices and news updates using Polygon.io's API. This data is crucial for making informed decisions and understanding market trends. Here’s how I pull historical stock data crucial for trend analysis:
 
 ```ts
 export async function fetchHistoricalData(
   symbol: string,
   startDate: string,
   endDate: string,
-  frequency: string = '1d',
-): Promise<StockData[]> {
-  const startUnix = Math.floor(new Date(startDate).getTime() / 1000)
-  const endUnix = Math.floor(new Date(endDate).getTime() / 1000)
-
-  const url = `https://finance.yahoo.com/quote/${symbol}/history?period1=${startUnix}&period2=${endUnix}&interval=${frequency}&filter=history&frequency=${frequency}`
-
+  frequency: string = 'day',
+) {
+  const url = `https://api.polygon.io/v2/aggs/ticker/${symbol}/range/1/${frequency}/${startDate}/${endDate}?adjusted=true&sort=asc&apiKey=${POLYGON_API_KEY}`
   const response = await fetch(url)
-  if (!response.ok) throw new Error('Network response was not ok')
-
-  const html = await response.text()
-  const $ = loadCheerio(html)
-
-  if ($('title').text().includes('Symbol Not Found'))
-    throw new Error("Requested symbol wasn't found")
-
-  const data: StockData[] = []
-  $('table > tbody > tr').each((_, elem) => {
-    const $elem = $(elem)
-    const cols = $elem.find('td')
-    if (cols.length > 6) {
-      const date = new Date($(cols[0]).text()).getTime() / 1000
-      const open = Number.parseFloat($(cols[1]).text().replace(',', ''))
-      const high = Number.parseFloat($(cols[2]).text().replace(',', ''))
-      const low = Number.parseFloat($(cols[3]).text().replace(',', ''))
-      const close = Number.parseFloat($(cols[4]).text().replace(',', ''))
-      const adjClose = Number.parseFloat($(cols[5]).text().replace(',', ''))
-      const volume = Number.parseInt($(cols[6]).text().replace(',', ''), 10)
-      data.push({ date, open, high, low, close, adjClose, volume })
-    }
-  })
-
-  return data
+  if (!response.ok) throw new Error('Failed to fetch historical data')
+  const data = await response.json()
+  return data.results.map((day: DayData) => ({
+    date: day.t,
+    open: day.o,
+    high: day.h,
+    low: day.l,
+    close: day.c,
+    volume: day.v,
+  }))
 }
 ```
 
