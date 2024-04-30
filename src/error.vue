@@ -10,7 +10,7 @@ defineProps<{ error: NuxtError }>()
       v-if="error.statusCode === 404"
       src="/images/notfound.png"
       alt="Page Not Found"
-      class="max-w-4xl mx-auto"
+      class="w-full max-w-4xl mx-auto"
     >
     <h1 v-else>
       An error occurred
