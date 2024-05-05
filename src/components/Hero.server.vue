@@ -35,7 +35,7 @@
         Let's build a better internet together.
       </h1>
       <h2 class="mt-6 font-mono text-lg leading-8 sm:text-xl">
-        I'm a creative software developer passionate about exceptional design,
+        I'm a creative software engineer passionate about exceptional design,
         enhancing the developer experience, and pushing the boundaries of the
         modern web. I've collaborated with a diverse range of clients and
         utilized various technologies to craft beautiful, accessible, and
