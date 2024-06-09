@@ -1,11 +1,11 @@
 <template>
-  <div class="isolate mx-auto -mt-16 max-w-4xl py-32 sm:py-48 lg:py-56">
+  <div class="relative isolate mx-auto px-4 sm:px-6 lg:px-8 py-32 sm:py-48 lg:py-56">
     <div
-      class="absolute left-[calc(50%-2rem)] top-10 -z-10 transform-gpu blur-3xl sm:left-[calc(50%-9rem)] lg:bottom-[calc(50%-30rem)] lg:left-24 xl:left-[calc(20%-12rem)]"
+      class="absolute left-1/2 transform -translate-x-1/2 top-10 -z-10 blur-3xl sm:left-[calc(50%-9rem)] lg:bottom-[calc(50%-30rem)] lg:left-24 xl:left-[calc(20%-12rem)]"
       aria-hidden="true"
     >
       <div
-        class="light:opacity-60 aspect-[1108/632] w-[80vw] max-w-full bg-gradient-to-r from-[#80caff] to-[#4f46e5] dark:opacity-40"
+        class="light:opacity-60 aspect-[1108/632] w-full max-w-full bg-gradient-to-r from-[#80caff] to-[#4f46e5] dark:opacity-40"
         style="
           clip-path: polygon(
             73.6% 51.7%,
