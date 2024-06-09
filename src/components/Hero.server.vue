@@ -1,5 +1,5 @@
 <template>
-  <div class="relative isolate mx-auto px-4 sm:px-6 lg:px-8 py-32 sm:py-48 lg:py-56">
+  <div class="relative isolate mx-auto px-4 sm:px-6 lg:px-8 py-32 sm:py-48 lg:py-56 max-w-6xl">
     <div
       class="absolute left-1/2 transform -translate-x-1/2 top-10 -z-10 blur-3xl sm:left-[calc(50%-9rem)] lg:bottom-[calc(50%-30rem)] lg:left-24 xl:left-[calc(20%-12rem)]"
       aria-hidden="true"
