@@ -6,6 +6,8 @@ export default defineNuxtConfig({
     },
   },
 
+  build: { transpile: ['shiki'] },
+
   colorMode: {
     preference: 'dark',
     dataValue: 'theme',
