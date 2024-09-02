@@ -19,7 +19,6 @@ export default defineNuxtConfig({
   },
 
   css: ['@unocss/reset/tailwind.css', '@/assets/main.css'],
-
   devtools: { enabled: true },
 
   experimental: {
@@ -49,4 +48,5 @@ export default defineNuxtConfig({
   },
 
   srcDir: 'src',
+  compatibilityDate: '2024-09-02',
 })
