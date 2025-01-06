@@ -1,5 +1,5 @@
-import { h } from 'vue'
 import { ContentRendererMarkdown } from '#components'
+import { h } from 'vue'
 
 export default defineComponent({
   props: {
