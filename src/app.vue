@@ -27,13 +27,13 @@ if (import.meta.server) {
         name: 'description',
         content:
           (route.meta.description as string)
-          || `Ryan Skinner, a software engineer based in Toronto, Canada, excels in enhancing the web with his expertise in React, and server-side technologies to create high-performance, search-optimized web applications. Focused on improving the developer experience and leveraging the power of web components, Ryan's work embodies the pinnacle of modern web development.`,
+          || `Software engineer specializing in high-performance web applications. Expert in React and modern server-side technologies, focused on creating exceptional developer experiences and pushing the boundaries of the modern web. Building fast and scalable digital solutions that developers love to work with.`,
       },
       {
         property: 'og:description',
         content:
           (route.meta.description as string)
-          || `Ryan Skinner, a software engineer based in Toronto, Canada, excels in enhancing the web with his expertise in React, and server-side technologies to create high-performance, search-optimized web applications. Focused on improving the developer experience and leveraging the power of web components, Ryan's work embodies the pinnacle of modern web development.`,
+          || `Software engineer specializing in high-performance web applications. Expert in React and modern server-side technologies, focused on creating exceptional developer experiences and pushing the boundaries of the modern web. Building fast and scalable digital solutions that developers love to work with.`,
       },
     ],
     link: [
