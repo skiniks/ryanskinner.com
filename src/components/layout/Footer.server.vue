@@ -7,13 +7,8 @@ function useSocialLinks() {
       iconClass: 'i-simple-icons-github',
     },
     {
-      name: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/ryankskinner/',
-      iconClass: 'i-simple-icons-linkedin',
-    },
-    {
       name: 'Bluesky',
-      url: 'https://bsky.ryanskinner.com',
+      url: 'https://bsky.app/profile/ryanskinner.com',
       iconClass: 'i-simple-icons-bluesky',
     },
   ]
