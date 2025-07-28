@@ -1,4 +1,4 @@
-import { ContentRendererMarkdown } from '#components'
+import { ContentRenderer } from '#components'
 import { h } from 'vue'
 
 export default defineComponent({
@@ -8,11 +8,11 @@ export default defineComponent({
   async setup(props) {
     if (import.meta.dev) {
       const { data } = await useAsyncData(() =>
-        queryContent(props.path!).findOne(),
+        queryCollection('posts').path(props.path!).first(),
       )
-      return () => h(ContentRendererMarkdown, { value: data.value! })
+      return () => h(ContentRenderer, { value: data.value! })
     }
-    const value = await queryContent(props.path!).findOne()
-    return () => h(ContentRendererMarkdown, { value })
+    const value = await queryCollection('posts').path(props.path!).first()
+    return () => h(ContentRenderer, { value })
   },
 })

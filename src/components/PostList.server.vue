@@ -1,26 +1,25 @@
 <script setup lang="ts">
-import type { MarkdownRoot } from '@nuxt/content/types'
+const { data: entries } = await useAsyncData('post-list', async () => {
+  try {
+    const posts = await queryCollection('posts').all()
 
-const entries = await queryContent('/posts')
-  .only(['title', 'date', 'description', '_path', 'body'])
-  .find()
-  .then((result) => {
-    return (
-      result as Array<{
-        title?: string
-        date: string
-        description: string
-        _path: string
-        body: MarkdownRoot
-      }>
-    )
-      .map(e => ({
-        ...e,
-        path: e._path,
-        readingTime: calculateReadingTime(e.body),
-      }))
+    return posts
+      .map((post) => {
+        return {
+          title: post.title || 'Untitled',
+          date: post.meta?.date || new Date().toISOString(),
+          description: post.description || '',
+          path: post.path || '/',
+          readingTime: post.body ? calculateReadingTime(post.body) : 5,
+        }
+      })
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-  })
+  }
+  catch (error) {
+    console.error('Error fetching posts:', error)
+    return []
+  }
+})
 </script>
 
 <template>
@@ -28,7 +27,7 @@ const entries = await queryContent('/posts')
     <div class="mx-auto sm:max-w-xl md:max-w-2xl lg:max-w-4xl">
       <div class="space-y-8">
         <article
-          v-for="{ title, date, description, path, readingTime } in entries"
+          v-for="{ title, date, description, path, readingTime } in (entries || [])"
           :key="path"
           class="light:bg-gray-800/80 animate-fadeInMoveUp my-4 flex flex-col items-start justify-between rounded-lg bg-gray-900 px-6 py-8 shadow-md transition-all duration-300 ease-in-out hover:shadow-lg sm:px-8 sm:py-10 md:px-12 md:py-14"
         >
@@ -50,28 +49,28 @@ const entries = await queryContent('/posts')
             </span>
           </div>
           <h3
-            class="mb-3 text-3xl font-bold leading-tight text-gray-100 sm:mb-4 sm:text-4xl md:text-5xl"
+            class="mb-3 text-3xl font-bold leading-tight text-gray-100 sm:mb-4 sm:text-4xl"
           >
-            <a
-              :href="path"
+            <NuxtLink
+              :to="path"
               class="transition-colors duration-200 hover:text-gray-300"
             >
               {{ title }}
-            </a>
+            </NuxtLink>
           </h3>
           <p
             class="mb-6 text-base leading-relaxed text-white sm:mb-10 sm:text-lg"
           >
             {{ description }}
           </p>
-          <a
-            :href="path"
+          <NuxtLink
+            :to="path"
             class="rounded-xl bg-blue-600 px-3 py-2 text-white hover:bg-blue-800 sm:px-4 sm:py-3"
             :aria-label="`Read more about ${title}`"
             :title="`Read more about ${title}`"
           >
             View Post
-          </a>
+          </NuxtLink>
         </article>
       </div>
     </div>

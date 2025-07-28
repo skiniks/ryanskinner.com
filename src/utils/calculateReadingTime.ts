@@ -1,4 +1,4 @@
-import type { MarkdownRoot } from '@nuxt/content/types'
+import type { MarkdownRoot } from '@nuxt/content'
 
 export function calculateReadingTime(text: MarkdownRoot): number {
   const wordsPerMinute = 225

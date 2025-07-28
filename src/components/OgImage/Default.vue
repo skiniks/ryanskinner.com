@@ -12,6 +12,6 @@ const isClass = computed(() => props.bgColor?.startsWith('bg-'))
     :class="isClass ? [bgColor || 'bg-blue-500'] : []"
     :style="{ backgroundColor: !isClass ? `#${bgColor}` : undefined }"
   >
-    <img src="/logo.svg" alt="Site Logo" class="w-120">
+    <NuxtImg src="/logo.svg" alt="Site Logo" class="w-120" />
   </div>
 </template>

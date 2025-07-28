@@ -9,15 +9,7 @@ const path = computed(() =>
 )
 
 const { data: pageData, error } = await useAsyncData('pageData', () => {
-  const contentQuery = queryContent(path.value).only([
-    'title',
-    'date',
-    'tags',
-    'description',
-    'body',
-  ])
-
-  return contentQuery.findOne()
+  return queryCollection('posts').path(path.value).first()
 })
 
 if (error.value || !pageData.value) {
@@ -36,7 +28,7 @@ const readingTime = computed(() => {
 
 route.meta.title = pageData.value.title
 route.meta.description = pageData.value.description
-route.meta.tags = pageData.value.tags
+route.meta.tags = pageData.value.meta.tags
 
 useRoute().meta.description = pageData.value.description
 
@@ -59,7 +51,7 @@ useSeoMeta({
         class="mr-2 rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white"
       >
         <NuxtTime
-          :datetime="pageData?.date"
+          :datetime="pageData?.meta?.date"
           day="numeric"
           month="long"
           year="numeric"
@@ -76,7 +68,7 @@ useSeoMeta({
     </h1>
     <ul class="flex list-none flex-wrap gap-2 p-0">
       <li
-        v-for="tag in pageData?.tags"
+        v-for="tag in pageData?.meta?.tags"
         :key="tag"
         class="light:bg-blue-800 light:text-blue-200 rounded-full bg-blue-200 px-3 py-1 text-sm font-semibold text-blue-800"
       >

@@ -3,10 +3,12 @@
 .nuxt
 .nitro
 .cache
+.data
 dist
 
 # Node dependencies
 node_modules
+.pnpm-store
 
 # Logs
 logs
@@ -16,6 +18,19 @@ logs
 .DS_Store
 .fleet
 .idea
+.vscode
+.temp
+.tmp
+
+# Test coverage
+coverage
+
+# TypeScript
+*.tsbuildinfo
+
+# Deployment
+.vercel
+.netlify
 
 # Local env files
 .env

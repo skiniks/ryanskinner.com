@@ -14,9 +14,16 @@ export default defineNuxtConfig({
   },
 
   content: {
-    highlight: {
-      preload: ['js', 'ts', 'json', 'vue'],
-      theme: 'material-theme-palenight',
+    build: {
+      markdown: {
+        highlight: {
+          langs: ['js', 'ts', 'json', 'vue'],
+          theme: 'material-theme-palenight',
+        },
+      },
+    },
+    experimental: {
+      sqliteConnector: 'native',
     },
   },
 
@@ -24,15 +31,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   experimental: {
-    headNext: true,
     viewTransition: true,
-    componentIslands: true,
-    payloadExtraction: true,
     typedPages: true,
-  },
-
-  future: {
-    typescriptBundlerResolution: true,
   },
 
   modules: [
@@ -42,7 +42,6 @@ export default defineNuxtConfig({
     '@nuxt/image',
     'magic-regexp/nuxt',
     'nuxt-og-image',
-    'nuxt-time',
   ],
 
   site: {
@@ -50,5 +49,5 @@ export default defineNuxtConfig({
   },
 
   srcDir: 'src',
-  compatibilityDate: '2024-09-02',
+  compatibilityDate: '2025-07-28',
 })
