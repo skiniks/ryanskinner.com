@@ -35,7 +35,9 @@
   },
   "pnpm": {
     "overrides": {
-      "ipx": "^3.1.1"
+      "better-sqlite3": "^11.5.0",
+      "ipx": "^3.1.1",
+      "oxc-parser": "^0.75.0"
     }
   }
 }
