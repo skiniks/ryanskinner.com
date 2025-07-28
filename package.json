@@ -2,6 +2,9 @@
   "name": "ryanskinner.com",
   "type": "module",
   "private": true,
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -35,9 +38,7 @@
   },
   "pnpm": {
     "overrides": {
-      "better-sqlite3": "^11.5.0",
-      "ipx": "^3.1.1",
-      "oxc-parser": "^0.75.0"
+      "ipx": "^3.1.1"
     }
   }
 }
