@@ -17,7 +17,7 @@ export default defineNuxtConfig({
     build: {
       markdown: {
         highlight: {
-          langs: ['js', 'ts', 'json', 'vue'],
+          langs: ['js', 'ts', 'tsx', 'json', 'vue', 'rust'],
           theme: 'material-theme-palenight',
         },
       },

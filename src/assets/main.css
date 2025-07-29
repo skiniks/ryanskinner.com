@@ -68,3 +68,89 @@ p + blockquote {
   -webkit-background-clip: text;
   background-clip: text;
 }
+
+.prose table {
+  display: table !important;
+}
+
+table {
+  @apply my-6 w-full border-collapse;
+  border: 1px solid var(--muted);
+  background-color: var(--accent);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  table-layout: fixed;
+}
+
+thead {
+  background-color: var(--background);
+  width: 100%;
+}
+
+thead th {
+  @apply px-4 py-3 text-left font-semibold;
+  color: var(--primary);
+  border-bottom: 2px solid var(--muted);
+  position: relative;
+}
+
+tbody {
+  width: 100%;
+}
+
+tbody tr,
+thead tr {
+  width: 100%;
+  display: table-row;
+}
+
+thead th:not(:last-child) {
+  border-right: 1px solid var(--muted);
+}
+
+tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+tbody tr:hover {
+  background-color: rgba(128, 128, 128, 0.1);
+}
+
+tbody td {
+  @apply px-4 py-3;
+  color: var(--primary);
+  border-bottom: 1px solid var(--muted);
+}
+
+tbody td:not(:last-child) {
+  border-right: 1px solid var(--muted);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  table {
+    @apply text-sm;
+  }
+
+  thead th,
+  tbody td {
+    @apply px-2 py-2;
+  }
+}
+
+table code {
+  @apply rounded px-2 py-1 text-xs;
+  background-color: var(--background);
+  color: var(--primary);
+  border: 1px solid var(--muted);
+}
