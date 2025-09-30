@@ -40,7 +40,14 @@ function generateLogoPath(path: string): string {
             :key="logo.path"
             class="light:bg-gray-800/60 flex items-center justify-center bg-white/5 p-6"
           >
+            <img
+              v-if="logo.path.endsWith('.svg')"
+              :src="generateLogoPath(logo.path)"
+              :alt="`${logo.name}`"
+              class="w-full object-contain transition-all duration-300 ease-in-out hover:scale-105"
+            >
             <nuxt-img
+              v-else
               :src="generateLogoPath(logo.path)"
               :alt="`${logo.name}`"
               class="w-full object-contain transition-all duration-300 ease-in-out hover:scale-105"
