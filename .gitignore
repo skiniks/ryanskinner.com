@@ -28,10 +28,6 @@ coverage
 # TypeScript
 *.tsbuildinfo
 
-# Deployment
-.vercel
-.netlify
-
 # Local env files
 .env
 .env.*
