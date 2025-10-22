@@ -1,7 +1,7 @@
 ---
 title: The Rari SSR Breakthrough: 12x Faster, 10x Higher Throughput Than Next.js
 description: We added proper app router support, SSR capabilities, and correct RSC semantics to Rari. Here's what we shipped and what it means for performance.
-date: 2025-10-22
+date: 2025-10-22T00:00:00-05:00
 tags: [Open Source, React, Rust, Architecture, Performance]
 ---
 
