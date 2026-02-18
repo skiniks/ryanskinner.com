@@ -1,44 +1,48 @@
 {
   "name": "ryanskinner.com",
   "type": "module",
+  "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": ">=22.0.0"
-  },
+  "description": "Personal website for Ryan Skinner, built with rari",
+  "author": "Ryan Skinner",
+  "license": "MIT",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "format": "prettier --write .",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "build": "rari build",
+    "dev": "rari dev",
+    "start": "rari start",
+    "clean": "rm -rf dist",
+    "lint": "oxlint && eslint",
+    "lint:fix": "oxlint --fix && eslint --fix",
+    "typecheck": "tsgo"
   },
   "dependencies": {
-    "@nuxt/content": "^3.6.3",
-    "@nuxt/image": "1.10.0",
-    "@nuxt/scripts": "^0.13.0",
-    "@nuxtjs/color-mode": "^3.5.2",
-    "@unocss/nuxt": "^66.3.3",
-    "@unocss/reset": "^66.3.3",
-    "nuxt-og-image": "5.1.9",
-    "sharp": "^0.34.3",
-    "sitemap": "^8.0.0"
+    "@mdx-js/mdx": "^3.1.1",
+    "@shikijs/core": "^3.22.0",
+    "@shikijs/engine-oniguruma": "^3.22.0",
+    "@shikijs/langs": "^3.22.0",
+    "@shikijs/themes": "^3.22.0",
+    "@shikijs/types": "^3.22.0",
+    "rari": "^0.10.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^5.0.0",
-    "@iconify-json/simple-icons": "^1.2.44",
-    "@types/node": "^24.1.0",
-    "eslint": "^9.32.0",
-    "magic-regexp": "^0.10.0",
-    "nuxt": "^4.0.1",
-    "prettier": "^3.6.2",
-    "prettier-plugin-tailwindcss": "^0.6.14"
-  },
-  "pnpm": {
-    "overrides": {
-      "ipx": "^3.1.1"
-    }
+    "@antfu/eslint-config": "^7.4.3",
+    "@e18e/eslint-plugin": "^0.2.0",
+    "@eslint-react/eslint-plugin": "^2.13.0",
+    "@tailwindcss/vite": "^4.2.0",
+    "@types/node": "^25.2.3",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@typescript/native-preview": "^7.0.0-dev.20260218.1",
+    "eslint": "^10.0.0",
+    "eslint-plugin-de-morgan": "^2.0.0",
+    "eslint-plugin-oxlint": "^1.48.0",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.0",
+    "oxlint": "^1.48.0",
+    "rolldown-vite": "^7.3.1",
+    "tailwindcss": "^4.2.0"
   }
 }
