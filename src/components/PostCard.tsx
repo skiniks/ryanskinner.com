@@ -38,14 +38,14 @@ export default function PostCard({
         </div>
 
         <div className={`flex-1 ${isFeatured ? 'mt-6' : 'mt-4'}`}>
-          <h3 className={`font-bold tracking-tight text-white transition-colors duration-200 ${isFeatured ? 'text-3xl sm:text-4xl' : 'text-xl line-clamp-2'
+          <h2 className={`font-bold tracking-tight text-white transition-colors duration-200 ${isFeatured ? 'text-3xl sm:text-4xl' : 'text-xl line-clamp-2'
           }`}
           >
             <a href={`/posts/${slug}`} className="focus:outline-none">
               <span className="absolute inset-0" aria-hidden="true" />
               {title}
             </a>
-          </h3>
+          </h2>
           <p className={`text-gray-400 ${isFeatured ? 'mt-4 text-lg leading-8' : 'mt-3 text-sm leading-6 line-clamp-3'
           }`}
           >

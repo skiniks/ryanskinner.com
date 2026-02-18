@@ -6,7 +6,7 @@ export default function Navbar() {
     <div className="relative z-20">
       <div className="mx-auto max-w-6xl py-4">
         <nav className="flex items-center justify-between p-4 text-white">
-          <a href="/" className="flex items-center gap-2">
+          <a href="/" className="flex items-center gap-2" aria-label="Ryan Skinner - Home">
             <RyanSkinner className="w-40" />
           </a>
 
