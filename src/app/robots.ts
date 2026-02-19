@@ -6,5 +6,6 @@ export default function robots(): Robots {
       userAgent: '*',
       allow: '/',
     },
+    sitemap: 'https://ryanskinner.com/sitemap.xml',
   }
 }
