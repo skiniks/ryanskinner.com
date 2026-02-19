@@ -28,8 +28,23 @@ export default function Footer() {
 
   return (
     <footer className="bg-gray-900 rounded-t-md border-t-2 border-gray-800">
-      <div className="mx-auto max-w-7xl px-6 py-2 md:flex md:items-center md:justify-between lg:px-8">
-        <div className="flex justify-center items-center space-x-6 md:order-2">
+      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 flex flex-col-reverse items-center gap-4 sm:flex-row sm:justify-between">
+        <p className="text-center text-sm leading-5 text-gray-300">
+          <a
+            href="https://creativecommons.org/licenses/by-sa/4.0/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-link relative hover:text-gray-100 transition-colors duration-200"
+          >
+            CC BY-SA 4.0
+          </a>
+          {' '}
+          &copy; 2023-
+          {currentYear}
+          {' '}
+          Ryan Skinner
+        </p>
+        <div className="flex items-center space-x-4 sm:space-x-6">
           {links.map(link => (
             <a
               key={link.name}
@@ -43,23 +58,6 @@ export default function Footer() {
               {link.icon}
             </a>
           ))}
-        </div>
-        <div className="mt-8 md:order-1 md:mt-0">
-          <p className="text-center text-xs leading-5 text-gray-300">
-            <a
-              href="https://creativecommons.org/licenses/by-sa/4.0/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="footer-link relative hover:text-gray-100 transition-colors duration-200"
-            >
-              CC BY-SA 4.0
-            </a>
-            {' '}
-            &copy; 2023-
-            {currentYear}
-            {' '}
-            Ryan Skinner
-          </p>
         </div>
       </div>
     </footer>

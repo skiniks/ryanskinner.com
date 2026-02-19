@@ -9,8 +9,8 @@ export default async function RecentPosts() {
     return null
 
   return (
-    <div className="py-24 sm:py-32">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-12 px-6 sm:gap-y-16 lg:grid-cols-2 lg:px-8">
+    <div className="py-12 sm:py-24 lg:py-32">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16 lg:px-8">
         {recentPosts[0] && (
           <div className="mx-auto w-full max-w-2xl lg:mx-0 lg:max-w-none flex flex-col justify-center">
             <PostCard
@@ -26,7 +26,7 @@ export default async function RecentPosts() {
 
         {recentPosts.length > 1 && (
           <div className="mx-auto w-full max-w-2xl lg:mx-0 lg:max-w-none">
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-6 sm:gap-8">
               {recentPosts.slice(1, 3).map(post => (
                 <PostCard
                   key={post.slug}
@@ -42,7 +42,7 @@ export default async function RecentPosts() {
         )}
       </div>
 
-      <div className="mt-12 flex justify-center">
+      <div className="mt-8 sm:mt-12 flex justify-center px-4">
         <Button href="/posts" size="lg">View All Posts</Button>
       </div>
     </div>

@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <div className="relative isolate mx-auto px-4 sm:px-6 lg:px-8 py-32 sm:py-48 lg:pt-44 lg:pb-56 max-w-6xl">
+    <div className="relative isolate mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24 lg:pt-44 lg:pb-56 max-w-6xl">
       <div
         className="absolute left-1/2 transform -translate-x-1/2 top-10 -z-10 blur-3xl sm:left-[calc(50%-9rem)] lg:bottom-[calc(50%-30rem)] lg:left-24 xl:left-[calc(20%-12rem)]"
         aria-hidden="true"
@@ -13,10 +13,10 @@ export default function Hero() {
         />
       </div>
       <div className="animate-fadeInMoveUp text-center">
-        <h1 className="animated-gradient bg-clip-text pb-2 text-6xl font-black tracking-tight text-transparent sm:text-8xl">
+        <h1 className="animated-gradient bg-clip-text pb-2 text-6xl font-black tracking-tight text-transparent sm:text-7xl lg:text-8xl">
           Let's build a better internet together.
         </h1>
-        <h2 className="mt-6 max-w-5xl mx-auto font-mono text-lg leading-8 sm:text-xl text-balance">
+        <h2 className="mt-6 max-w-5xl mx-auto font-mono text-xl leading-8 sm:text-2xl sm:leading-8 lg:text-2xl text-balance">
           I'm a creative software engineer passionate about exceptional design,
           enhancing the developer experience, and pushing the boundaries of the
           modern web. I'm currently building

@@ -17,16 +17,16 @@ export default async function PostPage({ params }: PageProps) {
     return <div>Post not found.</div>
 
   return (
-    <article className="mx-auto flex max-w-2xl flex-col gap-4 px-4 py-16">
+    <article className="mx-auto flex max-w-2xl flex-col gap-4 px-4 sm:px-6 py-12 sm:py-16">
       <header>
-        <div className="mb-4 flex items-center gap-2">
+        <div className="mb-4 flex flex-wrap items-center gap-2">
           <time
             dateTime={post.date}
-            className="inline-flex items-center rounded-full bg-blue-500/10 px-3 py-1.5 text-xs font-semibold text-blue-400 ring-1 ring-inset ring-blue-500/20"
+            className="inline-flex items-center rounded-full bg-blue-500/10 px-3 py-1.5 text-sm font-semibold text-blue-400 ring-1 ring-inset ring-blue-500/20"
           >
             {formatDate(post.date)}
           </time>
-          <span className="inline-flex items-center rounded-full bg-gray-700/50 px-3 py-1.5 text-xs font-semibold text-gray-300 ring-1 ring-inset ring-gray-600">
+          <span className="inline-flex items-center rounded-full bg-gray-700/50 px-3 py-1.5 text-sm font-semibold text-gray-300 ring-1 ring-inset ring-gray-600">
             {post.readingTime}
             {' '}
             min read
@@ -48,7 +48,7 @@ export default async function PostPage({ params }: PageProps) {
           </ul>
         )}
       </header>
-      <div className="prose prose-invert max-w-none">
+      <div className="prose prose-invert max-w-none prose-lg">
         <MdxRenderer filePath={`${slug}.mdx`} />
       </div>
     </article>

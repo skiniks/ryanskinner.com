@@ -13,14 +13,14 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
   const { posts, totalPages } = await getPaginatedPosts(currentPage, 9)
 
   return (
-    <div className="mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12">
+        <div className="mb-8 sm:mb-12">
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">All Posts</h1>
           <p className="mt-2 text-lg text-gray-400">Thoughts on software engineering and performance</p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
           {posts.map(post => (
             <PostCard
               key={post.slug}
@@ -34,20 +34,20 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
         </div>
 
         {totalPages > 1 && (
-          <div className="mt-12 flex items-center justify-center gap-2">
+          <div className="mt-8 sm:mt-12 flex flex-wrap items-center justify-center gap-2">
             {currentPage > 1 && (
               <Button href={`/posts?page=${currentPage - 1}`} variant="secondary" size="sm">
                 <ChevronLeft className="h-4 w-4" />
-                Previous
+                <span className="hidden sm:inline">Previous</span>
               </Button>
             )}
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1 sm:gap-2">
               {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
                 <a
                   key={page}
                   href={`/posts?page=${page}`}
-                  className={`rounded-lg px-4 py-2 text-sm font-semibold transition-all duration-200 ${page === currentPage
+                  className={`rounded-lg px-3 py-1.5 sm:px-4 sm:py-2 text-sm font-semibold transition-all duration-200 ${page === currentPage
                     ? 'bg-blue-500 text-white'
                     : 'bg-gray-900 border border-gray-700 text-white hover:border-blue-500/50 hover:scale-[1.02] hover:brightness-[1.3]'
                   }`}
@@ -59,7 +59,7 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
 
             {currentPage < totalPages && (
               <Button href={`/posts?page=${currentPage + 1}`} variant="secondary" size="sm">
-                Next
+                <span className="hidden sm:inline">Next</span>
                 <ChevronRight className="h-4 w-4" />
               </Button>
             )}

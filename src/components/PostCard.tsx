@@ -22,8 +22,8 @@ export default function PostCard({
 
   return (
     <article className="group relative flex flex-col overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10 isolate before:content-[''] before:absolute before:inset-0 before:opacity-0 before:z-0 before:pointer-events-none before:transition-opacity before:duration-300 before:ease-in-out before:bg-[url('/assets/card-bg.avif')] before:bg-size-[150%_150%] before:bg-center before:animate-[move-background_8s_ease-in-out_infinite] after:content-[''] after:absolute after:inset-[2px] after:z-1 after:rounded-2xl after:bg-gray-900 after:border-2 after:border-gray-800 after:transition-[border-color] after:duration-300 after:ease-in-out hover:before:opacity-100 hover:after:border-transparent">
-      <div className={`relative z-2 flex flex-1 flex-col ${isFeatured ? 'p-10' : 'p-6'}`}>
-        <div className="flex items-center gap-2 text-xs">
+      <div className={`relative z-2 flex flex-1 flex-col ${isFeatured ? 'p-8 sm:p-10' : 'p-6 sm:p-8'}`}>
+        <div className="flex flex-wrap items-center gap-2 text-sm">
           <time
             dateTime={date}
             className="inline-flex items-center rounded-full bg-blue-500/10 px-3 py-1.5 font-semibold text-blue-400 ring-1 ring-inset ring-blue-500/20"
@@ -37,8 +37,8 @@ export default function PostCard({
           </span>
         </div>
 
-        <div className={`flex-1 ${isFeatured ? 'mt-6' : 'mt-4'}`}>
-          <h2 className={`font-bold tracking-tight text-white transition-colors duration-200 ${isFeatured ? 'text-3xl sm:text-4xl' : 'text-xl line-clamp-2'
+        <div className={`flex-1 ${isFeatured ? 'mt-5 sm:mt-6' : 'mt-4'}`}>
+          <h2 className={`font-bold tracking-tight text-white transition-colors duration-200 ${isFeatured ? 'text-3xl sm:text-4xl' : 'text-2xl line-clamp-2'
           }`}
           >
             <a href={`/posts/${slug}`} className="focus:outline-none">
@@ -46,14 +46,14 @@ export default function PostCard({
               {title}
             </a>
           </h2>
-          <p className={`text-gray-400 ${isFeatured ? 'mt-4 text-lg leading-8' : 'mt-3 text-sm leading-6 line-clamp-3'
+          <p className={`text-gray-400 ${isFeatured ? 'mt-4 text-lg leading-8' : 'mt-3 text-lg leading-7 line-clamp-3'
           }`}
           >
             {description}
           </p>
         </div>
 
-        <div className={`flex items-center gap-1 font-semibold text-blue-400 group-hover:text-blue-300 ${isFeatured ? 'mt-6 text-sm' : 'mt-4 text-sm'
+        <div className={`flex items-center gap-1 font-semibold text-blue-400 group-hover:text-blue-300 ${isFeatured ? 'mt-5 sm:mt-6 text-base' : 'mt-4 text-base'
         }`}
         >
           <span>{isFeatured ? 'Continue reading' : 'Read article'}</span>
