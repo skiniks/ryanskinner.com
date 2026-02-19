@@ -23,7 +23,7 @@ Nuxt Server Components (marked with the `.server.vue` suffix) render exclusively
 
 ### Implementation and Usage
 
-- **React**: Server components are the default in the RSC model—any component without the `"use client"` directive runs on the server. You opt into client-side interactivity explicitly by adding `"use client"` at the top of a file, which marks that component and its imports as client code. There's no `"use server"` directive for components; that directive is used for server functions, not server components.
+- **React**: Server components are the default in the RSC model—any component without the `'use client'` directive runs on the server. You opt into client-side interactivity explicitly by adding `'use client'` at the top of a file, which marks that component and its imports as client code. There's no `'use server'` directive for components; that directive is used for server functions, not server components.
 
 - **Nuxt**: The framework uses a file-based convention with the `.server.vue` suffix. This provides clear visual separation between server and client components, aligning with Vue's preference for explicit conventions.
 
