@@ -17,6 +17,7 @@
     "**/dist/",
     "**/node_modules/",
     "**/.pnpm-store/",
+    "**/.cache/",
     "**/node_modules",
     "**/dist",
     "**/package-lock.json",
@@ -169,6 +170,7 @@
     "no-throw-literal": "error",
     "no-undef": "error",
     "no-unexpected-multiline": "error",
+    "no-unmodified-loop-condition": "error",
     "no-unneeded-ternary": [
       "error",
       {
@@ -359,6 +361,7 @@
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-extra-non-null-assertion": "error",
         "@typescript-eslint/no-extraneous-class": "off",
+        "@typescript-eslint/no-invalid-void-type": "off",
         "@typescript-eslint/no-misused-new": "error",
         "@typescript-eslint/no-namespace": "error",
         "@typescript-eslint/no-non-null-asserted-nullish-coalescing": "error",
@@ -384,6 +387,7 @@
         "@typescript-eslint/prefer-literal-enum-member": "error",
         "@typescript-eslint/prefer-namespace-keyword": "error",
         "@typescript-eslint/triple-slash-reference": "off",
+        "@typescript-eslint/unified-signatures": "off",
         "@typescript-eslint/consistent-type-definitions": [
           "error",
           "interface"
@@ -397,6 +401,14 @@
           }
         ],
         "@typescript-eslint/no-import-type-side-effects": "error",
+        "no-use-before-define": [
+          "error",
+          {
+            "classes": false,
+            "functions": false,
+            "variables": true
+          }
+        ],
         "react/jsx-no-duplicate-props": "off",
         "react/jsx-no-undef": "off"
       }
@@ -466,7 +478,8 @@
         "@typescript-eslint/no-namespace": "off",
         "@typescript-eslint/no-require-imports": "off",
         "unicode-bom": "off",
-        "no-redeclare": "off"
+        "no-redeclare": "off",
+        "no-use-before-define": "off"
       },
       "plugins": [
         "typescript"
