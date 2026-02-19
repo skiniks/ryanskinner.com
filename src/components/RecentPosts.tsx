@@ -20,6 +20,7 @@ export default async function RecentPosts() {
               date={recentPosts[0].date}
               readingTime={recentPosts[0].readingTime}
               variant="featured"
+              highlighted
             />
           </div>
         )}

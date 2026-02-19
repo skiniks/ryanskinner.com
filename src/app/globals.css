@@ -76,10 +76,18 @@ code {
 
   .prose table {
     font-size: 0.8rem;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .prose th, .prose td {
-    padding: 0.5rem;
+    padding: 0.5rem 0.625rem;
+    white-space: nowrap;
+  }
+
+  .prose th {
+    font-size: 0.7rem;
   }
 }
 
@@ -151,32 +159,41 @@ code {
 
 .prose table {
   width: 100%;
-  border-collapse: collapse;
-  margin: 1rem 0;
-  border: 1px solid var(--muted);
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1.5rem 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: theme('colors.gray.900');
+  border: 2px solid theme('colors.gray.800');
 }
 
 .prose th, .prose td {
-  border: 1px solid var(--muted);
-  padding: 0.75rem;
+  padding: 0.75rem 1rem;
   text-align: left;
+  border-bottom: 1px solid theme('colors.gray.800');
 }
 
 .prose th {
-  background: var(--background);
+  background: theme('colors.gray.800');
   font-weight: 600;
+  color: theme('colors.gray.200');
 }
 
 .prose tbody tr {
   transition: background-color 0.2s ease;
 }
 
-.prose tbody tr:nth-child(even) {
-  background-color: rgba(128, 128, 128, 0.05);
+.prose tbody tr:last-child td {
+  border-bottom: none;
 }
 
 .prose tbody tr:hover {
-  background-color: rgba(128, 128, 128, 0.1);
+  background-color: theme('colors.gray.800/50');
+}
+
+.prose td strong {
+  color: var(--primary);
 }
 
 .prose pre {

@@ -8,6 +8,7 @@ interface PostCardProps {
   date: string
   readingTime: number
   variant?: 'default' | 'featured'
+  highlighted?: boolean
 }
 
 export default function PostCard({
@@ -17,11 +18,12 @@ export default function PostCard({
   date,
   readingTime,
   variant = 'default',
+  highlighted = false,
 }: PostCardProps) {
   const isFeatured = variant === 'featured'
 
   return (
-    <article className="group relative flex flex-col overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10 isolate before:content-[''] before:absolute before:inset-0 before:opacity-0 before:z-0 before:pointer-events-none before:transition-opacity before:duration-300 before:ease-in-out before:bg-[url('/assets/card-bg.avif')] before:bg-size-[150%_150%] before:bg-center before:animate-[move-background_8s_ease-in-out_infinite] after:content-[''] after:absolute after:inset-[2px] after:z-1 after:rounded-2xl after:bg-gray-900 after:border-2 after:border-gray-800 after:transition-[border-color] after:duration-300 after:ease-in-out hover:before:opacity-100 hover:after:border-transparent">
+    <article className={`group relative flex flex-col overflow-hidden rounded-2xl shadow-lg transition-all duration-300 isolate before:content-[''] before:absolute before:inset-0 before:z-0 before:pointer-events-none before:transition-all before:duration-300 before:ease-in-out before:bg-[url('/assets/card-bg.avif')] before:bg-size-[150%_150%] before:bg-center before:animate-[move-background_8s_ease-in-out_infinite] hover:before:scale-[1.02] hover:before:brightness-[1.3] after:content-[''] after:absolute after:inset-[2px] after:z-1 after:rounded-2xl after:bg-gray-900 after:border-2 after:border-gray-800 after:transition-[border-color] after:duration-300 after:ease-in-out hover:after:border-transparent ${highlighted ? 'before:opacity-100 after:border-transparent' : 'before:opacity-0 hover:before:opacity-100'}`}>
       <div className={`relative z-2 flex flex-1 flex-col ${isFeatured ? 'p-8 sm:p-10' : 'p-6 sm:p-8'}`}>
         <div className="flex flex-wrap items-center gap-2 text-sm">
           <time
