@@ -74,16 +74,8 @@ code {
     margin: 1rem 0;
   }
 
-  .prose table {
-    font-size: 0.8rem;
-    display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
   .prose th, .prose td {
     padding: 0.5rem 0.625rem;
-    white-space: nowrap;
   }
 
   .prose th {
@@ -157,6 +149,23 @@ code {
   border-radius: 0.25rem;
 }
 
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.5rem 0;
+  border-radius: 0.5rem;
+  border: 2px solid theme('colors.gray.800');
+}
+
+.prose .table-wrapper table,
+.table-wrapper table {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  min-width: 100%;
+}
+
 .prose table {
   width: 100%;
   border-collapse: separate;
@@ -178,6 +187,7 @@ code {
   background: theme('colors.gray.800');
   font-weight: 600;
   color: theme('colors.gray.200');
+  white-space: nowrap;
 }
 
 .prose tbody tr {

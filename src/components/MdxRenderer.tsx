@@ -5,6 +5,7 @@ import { evaluate } from '@mdx-js/mdx'
 import * as runtime from 'react/jsx-runtime'
 import remarkGfm from 'remark-gfm'
 import NotFoundPage from '@/app/not-found'
+import { rehypeTableWrapper } from '@/lib/rehype-table-wrapper'
 import { rehypeCodeBlock } from '@/lib/remark-codeblock'
 import { getHighlighter, SHIKI_THEME } from '@/lib/shiki'
 
@@ -54,6 +55,7 @@ export default async function MdxRenderer({
             theme: SHIKI_THEME,
           },
         ],
+        rehypeTableWrapper,
       ],
     })
 
