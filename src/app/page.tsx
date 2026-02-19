@@ -11,7 +11,7 @@ export default function HomePage() {
 }
 
 export const metadata = {
-  title: 'Ryan Skinner',
+  title: 'Ryan Skinner — Software Engineer & Creator of rari',
   description:
-    'Software engineer specializing in high-performance web applications. Expert in React and modern server-side technologies, focused on creating exceptional developer experiences and pushing the boundaries of the modern web.',
+    'Software engineer building high-performance web applications. Creator of rari, a React Server Components framework powered by Rust.',
 }
