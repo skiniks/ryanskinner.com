@@ -17,6 +17,16 @@ export default defineConfig({
           '/posts/*': 'public, max-age=86400, stale-while-revalidate=604800',
         },
       },
+      images: {
+        deviceSizes: [1920],
+        imageSizes: [384, 400, 600, 800, 1200],
+        qualityAllowlist: [25, 50, 75, 100],
+        localPatterns: [
+          {
+            pathname: '/images/**',
+          },
+        ],
+      },
     }),
     tailwindcss(),
   ],
