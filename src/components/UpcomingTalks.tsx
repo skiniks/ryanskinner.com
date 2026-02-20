@@ -94,7 +94,7 @@ export default function UpcomingTalks() {
                     </h3>
                   </div>
 
-                  <div className="text-sm font-mono text-gray-500 whitespace-nowrap">
+                  <div className="text-sm font-mono text-gray-400 whitespace-nowrap">
                     {formatDateRange(talk.startDate, talk.endDate)}
                   </div>
                 </div>
