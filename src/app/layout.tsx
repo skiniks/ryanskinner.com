@@ -4,7 +4,7 @@ import Navbar from '@/components/Navbar'
 
 export default async function RootLayout({ children }: LayoutProps) {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex h-full flex-col">
       <Navbar />
       <main className="flex-1">
         {children}
