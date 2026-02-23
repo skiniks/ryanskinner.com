@@ -4,9 +4,9 @@ import Navbar from '@/components/Navbar'
 
 export default async function RootLayout({ children }: LayoutProps) {
   return (
-    <div className="flex h-full flex-col">
+    <div>
       <Navbar />
-      <main className="flex-1">
+      <main>
         {children}
       </main>
       <Footer />
