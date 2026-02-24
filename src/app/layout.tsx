@@ -4,13 +4,13 @@ import Navbar from '@/components/Navbar'
 
 export default async function RootLayout({ children }: LayoutProps) {
   return (
-    <div>
+    <>
       <Navbar />
       <main>
         {children}
       </main>
       <Footer />
-    </div>
+    </>
   )
 }
 
