@@ -1,9 +1,11 @@
 import Bluesky from '@/components/icons/Bluesky'
 import Github from '@/components/icons/Github'
 import Rari from '@/components/icons/Rari'
+import { getLatestCommitHash } from '@/lib/github'
 
-export default function Footer() {
+export default async function Footer() {
   const currentYear = new Date().getFullYear()
+  const commitHash = await getLatestCommitHash()
 
   const links = [
     {
@@ -38,6 +40,21 @@ export default function Footer() {
             {currentYear}
             {' '}
             Ryan Skinner
+            {commitHash && (
+              <>
+                {' '}
+                (
+                <a
+                  href={`https://github.com/skiniks/ryanskinner.com/commit/${commitHash}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline hover:text-gray-200 transition-colors"
+                >
+                  {commitHash}
+                </a>
+                )
+              </>
+            )}
           </p>
           <a
             href="https://rari.build"
