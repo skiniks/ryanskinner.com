@@ -75,11 +75,17 @@ code {
   }
 
   .prose th, .prose td {
-    padding: 0.5rem 0.625rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
   }
 
   .prose th {
-    font-size: 0.7rem;
+    font-size: 0.875rem;
+    white-space: normal;
+  }
+
+  .table-wrapper {
+    margin: 1rem 0;
   }
 }
 
@@ -163,7 +169,8 @@ code {
   margin: 0;
   border: none;
   border-radius: 0;
-  min-width: 100%;
+  width: 100%;
+  display: table;
 }
 
 .prose table {
@@ -181,13 +188,22 @@ code {
   padding: 0.75rem 1rem;
   text-align: left;
   border-bottom: 1px solid theme('colors.gray.800');
+  vertical-align: top;
 }
 
 .prose th {
   background: theme('colors.gray.800');
   font-weight: 600;
   color: theme('colors.gray.200');
-  white-space: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  vertical-align: middle;
+}
+
+.prose .table-wrapper th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .prose tbody tr {
@@ -223,7 +239,6 @@ code {
   border-radius: 0 !important;
 }
 
-/* Shiki code blocks */
 .prose .shiki,
 .prose .shiki code {
   background: theme('colors.gray.900') !important;
@@ -237,7 +252,6 @@ code {
   margin: 1.5rem 0 !important;
 }
 
-/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -307,7 +321,6 @@ button:focus-visible {
   }
 }
 
-/* Button Primary Styles */
 .button-primary::before {
   content: '';
   position: absolute;
@@ -335,7 +348,7 @@ button:focus-visible {
   transition: all 0.3s ease-in-out;
 }
 
-/* Footer link */
+
 .footer-link {
   text-decoration: underline;
   text-underline-offset: 3px;
