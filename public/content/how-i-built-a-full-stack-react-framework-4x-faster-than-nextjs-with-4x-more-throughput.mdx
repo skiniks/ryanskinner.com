@@ -3,16 +3,16 @@ export const description = "Introducing rari: a React Server Components framewor
 export const date = "2025-07-24T00:00:00-05:00"
 export const tags = ["Open Source", "React", "Rust", "Software Development"]
 
-After nearly 25 years of building for the web—from Perl to PHP, through the jQuery years, and into the modern JavaScript era—I've seen tooling come and go. I've watched JavaScript bundlers get faster, server-side rendering improve, and React evolve from a simple view library into a full-stack platform. But for a while now, I've felt that we could do better—much better.
+After nearly 25 years of building for the web—from Perl to PHP, through the jQuery years, and into the modern JavaScript era—I've seen tooling come and go. I've watched JavaScript bundlers get faster, server-side rendering improve, and React evolve from a simple view library into a full-stack platform. But for a while now, I've felt like I could do better.
 
-Today, I'm excited to introduce **Runtime Accelerated Rendering Infrastructure** (**rari**), a full-stack React framework that delivers performance numbers I once thought impossible with React:
+Today I'm introducing **Runtime Accelerated Rendering Infrastructure** (**rari**), a full-stack React framework that delivers performance numbers I didn't think were possible with React:
 
 - **4.04x faster component rendering** under load (4.23ms vs 17.11ms average response time)
 - **3.74x higher throughput** under load (10,586 req/sec vs 2,832 req/sec)
 - **5.80x faster build times** (1.59 seconds vs 9.22 seconds)
 - **100% React Server Component compatibility** with true streaming support
 
-rari isn't just another Node.js framework with performance optimizations—it's a fundamental rethinking of how React applications should run. Built on a custom Rust runtime with V8 at its core, rari proves that web frameworks can be both developer-friendly and ridiculously fast.
+rari isn't another Node.js framework with performance optimizations—it's a fundamental rethinking of how React applications should run. Built on a custom Rust runtime with V8 at its core, rari proves that web frameworks can be both developer-friendly and fast.
 
 ## The Performance Story
 
@@ -205,17 +205,9 @@ Full TypeScript support with intelligent type inference across the client/server
 
 ## Why I Built This
 
-Throughout my career, I've seen the same pattern repeat: we build frameworks that prioritize developer experience over performance, then spend years optimizing them. I believe we can have both from day one.
+Throughout my career, I've seen the same pattern repeat: frameworks prioritize developer experience over performance, then spend years optimizing. I believe you can have both from day one.
 
-I built rari because:
-
-**I believe in the power of open source.** The web's greatest innovations have come from open collaboration. rari is MIT licensed and designed to be extended by the community.
-
-**We can do better.** Current React frameworks make architectural compromises that limit their performance ceiling. By building on Rust while maintaining JavaScript compatibility, we can break through those limitations.
-
-**Performance is a feature.** Faster applications mean better user experiences, lower server costs, and happier developers. Performance shouldn't be an afterthought—it should be built into the foundation.
-
-**The web deserves better tooling.** I wanted to contribute something meaningful to the ecosystem that gave me my career. rari represents the framework I wish I'd had for the past decade.
+Current React frameworks make architectural compromises that limit their performance ceiling. By building on Rust while maintaining JavaScript compatibility, I wanted to see if I could break through those limitations. rari is MIT licensed and represents the framework I wish I'd had for the past decade.
 
 ## Getting Started
 
@@ -242,16 +234,9 @@ Key testing details:
 - **Concurrent users**: 50 simultaneous connections
 - **Component complexity**: Real-world patterns including data fetching, nested components, and client interactivity
 
-## Join the Community
+## Get Involved
 
-rari is more than a framework—it's a bet that we can build better tools for the web. If you believe that performance and developer experience aren't mutually exclusive, I'd love for you to:
-
-- **Try rari** at [rari.build](https://rari.build) in your next project
+- **Try rari** at [rari.build](https://rari.build)
 - **Contribute** to the codebase at [github.com/rari-build/rari](https://github.com/rari-build/rari)
 - **[Join our Discord](https://discord.gg/GSh2Ak3b8Q)** for real-time discussions and support
 - **Share feedback** about what works and what doesn't
-- **Help build** the next generation of web tools
-
-I'm more excited about the web's future than ever. With tools like rari, we can easily create experiences that would have required massive engineering teams and infrastructure just a few years ago.
-
-The web deserves frameworks that are both fast and beautiful to work with. That's what rari delivers.
