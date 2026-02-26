@@ -9,7 +9,8 @@ const GITHUB_API_BASE = 'https://api.github.com'
 
 function getHeaders(): HeadersInit {
   return {
-    Accept: 'application/vnd.github.v3+json',
+    'Accept': 'application/vnd.github.v3+json',
+    'User-Agent': 'skiniks/ryanskinner.com',
     ...(process.env.GITHUB_TOKEN && {
       Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
     }),
