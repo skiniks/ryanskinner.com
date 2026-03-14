@@ -17,7 +17,13 @@ export default antfu(
       ],
     },
   },
+  {
+    files: ['src/app/**'],
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
+  },
   deMorgan.configs.recommended,
   e18e.configs.recommended,
-  ...oxlint.buildFromOxlintConfigFile(`${import.meta.dirname}/.oxlintrc.json`),
+  ...oxlint.buildFromOxlintConfigFile(`${import.meta.dirname}/vite.config.ts`),
 )
