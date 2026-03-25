@@ -22,7 +22,7 @@ export default function Hero() {
           modern web. I'm currently building
           {' '}
           <a href="https://rari.build" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:opacity-70 transition-opacity">rari</a>
-          , a React Server Components framework powered by a Rust runtime that delivers 46.5x higher throughput and 9.1x faster response times than Next.js.
+          , a React Server Components framework powered by a Rust runtime that delivers 44.9x higher throughput and 8.7x faster response times than Next.js.
         </h2>
       </div>
     </div>
