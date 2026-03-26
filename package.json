@@ -23,7 +23,7 @@
     "@shikijs/langs": "^4.0.2",
     "@shikijs/themes": "^4.0.2",
     "@shikijs/types": "^4.0.2",
-    "rari": "^0.10.24",
+    "rari": "^0.10.25",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "remark-gfm": "^4.0.1"
@@ -35,7 +35,7 @@
     "@types/node": "^25.5.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "@typescript/native-preview": "^7.0.0-dev.20260324.1",
+    "@typescript/native-preview": "^7.0.0-dev.20260326.1",
     "eslint": "^10.1.0",
     "eslint-plugin-de-morgan": "^2.1.1",
     "eslint-plugin-oxlint": "^1.57.0",
