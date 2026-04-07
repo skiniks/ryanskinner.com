@@ -16,8 +16,8 @@ const talks: Talk[] = [
     location: 'Amsterdam',
     flag: '🇳🇱',
     url: 'https://gitnation.com/badges/react-summit-2026/ryan_skinner_155589',
-    startDate: '2026-06-11',
-    endDate: '2026-06-15',
+    startDate: '2026-06-12',
+    endDate: '2026-06-12',
     image: '/images/react-summit.jpg',
   },
 ]
@@ -70,10 +70,10 @@ export default function UpcomingTalks() {
               href={talk.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex flex-col rounded-lg border border-gray-800 bg-gray-900/50 overflow-hidden transition-all duration-200 hover:border-blue-500/50 hover:bg-gray-900 hover:scale-[1.02]"
+              className="group relative flex flex-col rounded-lg border border-gray-800 bg-gray-900/50 transition-all duration-200 hover:border-blue-500/50 hover:bg-gray-900 hover:scale-[1.02]"
             >
               {talk.image && (
-                <div className="w-full aspect-video overflow-hidden bg-gray-800">
+                <div className="w-full aspect-video overflow-hidden bg-gray-800 rounded-t-lg">
                   <Image
                     src={talk.image}
                     alt={`${talk.name}`}
