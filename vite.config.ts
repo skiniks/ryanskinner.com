@@ -594,7 +594,7 @@ export default defineConfig({
       },
       images: {
         deviceSizes: [1920],
-        imageSizes: [384, 400, 600, 800, 1200],
+        imageSizes: [384, 640, 750, 828, 1080, 1200, 1920],
         qualityAllowlist: [25, 50, 75, 100],
         localPatterns: [
           {

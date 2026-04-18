@@ -77,8 +77,7 @@ export default function UpcomingTalks() {
                   <Image
                     src={talk.image}
                     alt={`${talk.name}`}
-                    width={800}
-                    height={450}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105"
                   />
                 </div>
