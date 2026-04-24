@@ -3,16 +3,16 @@ export const description = "I added proper app router support, SSR capabilities,
 export const date = "2025-10-22T00:00:00-05:00"
 export const tags = ["Open Source", "React", "Rust", "Architecture", "Performance"]
 
-Three months ago, I shipped rari with solid numbers: 4x faster component rendering than Next.js, 3.74x higher throughput, and 5.8x faster builds. But the architecture had gaps. The app router wasn't there. True server-side rendering wasn't there. The `use` directive semantics weren't quite right.
+Three months ago, I shipped rari with solid numbers: 4x faster component rendering than Next.js, 3.74x higher throughput, and 5.8x faster builds. But the architecture still had gaps, most notably a missing app router, incomplete server-side rendering, and `use` directive semantics that weren't quite aligned with React's design.
 
-So I went back and built the missing pieces properly. With app router support, true SSR, and correct RSC semantics in place, the performance profile changed significantly:
+So I went back and built those pieces properly. With app router support, true SSR, and correct RSC semantics in place, the performance profile changed significantly:
 
 - **Response times dropped to 0.69ms** (3.8x faster than Next.js)
 - **Throughput jumped to 20,226 req/sec** (10.5x higher than Next.js)
 - **P99 latency under load: 4ms** (12x faster than Next.js)
 - **Bundle sizes: 68% smaller** (27.6 KB vs 85.9 KB)
 
-These aren't incremental improvements. This is what happens when your architecture matches React's design intentions.
+These aren't incremental improvements. Getting the architecture right, particularly around RSC semantics, changed the performance profile entirely.
 
 ## The Three Missing Pieces
 
@@ -20,7 +20,7 @@ rari could render React Server Components before, but it wasn't doing it the rig
 
 ### 1. The App Router
 
-The app router is more than file-based routing—it's how the framework understands your application. During build, rari now analyzes every route and component, determining what needs to run on the server and what needs to hydrate on the client.
+The app router is more than file-based routing; it's how the framework understands your application. During build, rari now analyzes every route and component, determining what needs to run on the server and what needs to hydrate on the client.
 
 This enables:
 - Automatic code splitting based on route boundaries
@@ -54,9 +54,9 @@ Once this was in place, bundle sizes dropped. The framework finally knew what be
 
 ### 2. Correct Use Directive Semantics
 
-I had the directives wrong—not broken, but wrong enough to cause confusion.
+I had the directives wrong, not broken exactly, but wrong enough to cause confusion.
 
-`'use server'` doesn't mark server *components*. It marks server *functions*. Server components are the default. No directive needed.
+`'use server'` doesn't mark server *components*. It marks server *functions*. Server components are the default and don't need a directive at all.
 
 ```tsx
 // Server function - handles mutations, database access
@@ -116,9 +116,9 @@ Before, I was doing what I'd call "RSC-flavored rendering." Components ran on th
 
 Now everything renders on the Rust runtime by default. The client receives pre-rendered HTML and RSC payloads, then hydrates only the interactive bits. This eliminates three performance bottlenecks:
 
-- **Client-side hydration overhead** — The tree doesn't re-render to become interactive
-- **JavaScript parsing delay** — Interactive components are already wired up
-- **Cascading waterfall requests** — Data is fetched server-side during render
+- **Client-side hydration overhead**, because the tree doesn't re-render to become interactive
+- **JavaScript parsing delay**, since interactive components are already wired up
+- **Cascading waterfall requests**, because data is fetched server-side during render
 
 The Rust runtime handles RSC rendering with minimal overhead, delivering HTML directly to the client.
 
@@ -156,23 +156,23 @@ Build times barely changed because I was already leveraging Rolldown and tsgo op
 
 ## Why Performance Improved
 
-Better architecture plus correct semantics equals better performance.
+These gains come from correct architecture and proper semantics reinforcing each other.
 
-**Smaller Bundles (68% reduction):** Only interactive components ship to the client. Server components stay on the server. The app router eliminates dead code. The framework knows what the client actually needs.
+**Smaller Bundles (68% reduction):** Only interactive components ship to the client while server components stay on the server. The app router eliminates dead code, so the framework knows exactly what the client actually needs.
 
-**Lower Latency (3.8x faster):** SSR means no client-side hydration wait. The Rust runtime renders faster than JavaScript. RSC rendering starts immediately with no layers between components and the client.
+**Lower Latency (3.8x faster):** SSR means no client-side hydration wait. The Rust runtime renders faster than JavaScript, and RSC rendering starts immediately with no layers between components and the client.
 
-**Higher Throughput (10.5x):** The persistent Rust runtime handles connection pooling efficiently. Concurrent request handling is optimized at the runtime level with no per-request overhead from spinning up Node.js contexts.
+**Higher Throughput (10.5x):** The persistent Rust runtime handles connection pooling efficiently. Concurrent request handling is optimized at the runtime level, with no per-request overhead from spinning up Node.js contexts.
 
-**Predictable Performance:** No garbage collection pauses. No event loop blocking. Linear scaling with more instances.
+**Predictable Performance:** No garbage collection pauses, no event loop blocking, and linear scaling with more instances.
 
 ## What This Means in Practice
 
-**For users:** HTML arrives immediately from the server. Interactive components hydrate instantly. The client only runs code for interactive features, and the server handles the heavy lifting under load.
+**For users:** HTML arrives immediately from the server. Interactive components hydrate instantly, and the client only runs code for interactive features. The server handles the heavy lifting under load.
 
-**For developers:** `'use server'` and `'use client'` directives work as expected. HMR works for both server and client components. Full TypeScript support across the client/server boundary. Build, bundle, and RSC setup are automatic.
+**For developers:** `'use server'` and `'use client'` directives work as expected. HMR works for both server and client components, with full TypeScript support across the client/server boundary. Build, bundle, and RSC setup are automatic.
 
-**For infrastructure:** Smaller client JavaScript means fewer resources needed. The Rust runtime handles 10.5x more concurrent requests. No garbage collection pauses under load.
+**For infrastructure:** Smaller client JavaScript means fewer resources needed. The Rust runtime handles 10.5x more concurrent requests with no garbage collection pauses under load.
 
 ## Getting Started
 

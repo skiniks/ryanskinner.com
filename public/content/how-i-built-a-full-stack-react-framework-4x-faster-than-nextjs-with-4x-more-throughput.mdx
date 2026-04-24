@@ -3,7 +3,7 @@ export const description = "Introducing rari: a React Server Components framewor
 export const date = "2025-07-24T00:00:00-05:00"
 export const tags = ["Open Source", "React", "Rust", "Software Development"]
 
-After nearly 25 years of building for the web—from Perl to PHP, through the jQuery years, and into the modern JavaScript era—I've seen tooling come and go. I've watched JavaScript bundlers get faster, server-side rendering improve, and React evolve from a simple view library into a full-stack platform. But for a while now, I've felt like I could do better.
+After nearly 25 years of building for the web, from Perl to PHP, through the jQuery years, and into the modern JavaScript era, I've watched tooling come and go. Bundlers got faster, server-side rendering improved, and React evolved from a simple view library into a full-stack platform. But for a while now, I've felt like I could do better.
 
 Today I'm introducing **Runtime Accelerated Rendering Infrastructure** (**rari**), a full-stack React framework that delivers performance numbers I didn't think were possible with React:
 
@@ -12,15 +12,13 @@ Today I'm introducing **Runtime Accelerated Rendering Infrastructure** (**rari**
 - **5.80x faster build times** (1.59 seconds vs 9.22 seconds)
 - **100% React Server Component compatibility** with true streaming support
 
-rari isn't another Node.js framework with performance optimizations—it's a fundamental rethinking of how React applications should run. Built on a custom Rust runtime with V8 at its core, rari proves that web frameworks can be both developer-friendly and fast.
+rari isn't another Node.js framework with performance optimizations bolted on. It's a fundamental rethinking of how React applications should run, built on a custom Rust runtime with V8 at its core.
 
 ## The Performance Story
 
-Let me start with the numbers that demonstrate rari's performance advantages.
-
 ### Response Time Comparison
 
-I built identical applications in both Next.js and rari, each rendering the same complex component tree with server-side data fetching, client components, and real-world patterns. Here's what happened:
+I built identical applications in both Next.js and rari, each rendering the same complex component tree with server-side data fetching, client components, and real-world patterns.
 
 | Framework | Avg Response Time | Min | Max | P95 |
 |-----------|------------------|-----|-----|-----|
@@ -31,7 +29,7 @@ rari renders complex React Server Components **2.27x faster** than Next.js acros
 
 ### Concurrent Load Performance
 
-But response time is only part of the story. Modern applications need to handle concurrent users without breaking a sweat. I stress-tested both frameworks with 50 concurrent connections for 30 seconds:
+I stress-tested both frameworks with 50 concurrent connections for 30 seconds:
 
 | Framework | Total Requests | Req/Sec | Avg Latency | P99 Latency |
 |-----------|----------------|---------|-------------|-------------|
@@ -41,8 +39,6 @@ But response time is only part of the story. Modern applications need to handle 
 rari handled **3.74x more requests** with **4.04x lower latency**. Under extreme load, rari consistently delivered sub-50ms response times while maintaining high throughput.
 
 ### Build Performance
-
-Development velocity matters too. Nobody wants to wait for builds:
 
 | Framework | Build Time | Bundle Size |
 |-----------|------------|-------------|
@@ -57,7 +53,7 @@ rari's performance comes from a unique three-layer architecture that combines th
 
 ### Layer 1: Rust Core Runtime
 
-At the heart of rari is a custom Rust runtime built on Deno Core and V8. This isn't just about "Rust being fast"—it's about fundamental architectural decisions:
+At the heart of rari is a custom Rust runtime built on Deno Core and V8. The performance gains aren't just "Rust is fast" as a hand-wave; they come from specific architectural decisions:
 
 ```rust
 // React Server Components execute directly in the Rust runtime
@@ -72,16 +68,16 @@ renderer.register_component("UserProfile", jsx_source).await?;
 let rsc_payload = renderer.render_to_rsc_format("UserProfile", Some(props_json)).await?;
 ```
 
-**Why Rust?** After decades of web development, I've learned that performance bottlenecks often come from the runtime itself. Node.js, despite its improvements, still carries overhead from its event loop design and garbage collection patterns. Rust gives us:
+**Why Rust?** Performance bottlenecks often come from the runtime itself. Node.js, despite years of improvements, still carries overhead from its event loop design and garbage collection patterns. Rust gives us:
 
-- **Zero-cost abstractions**: Performance optimizations that don't compromise developer experience
-- **Memory safety without garbage collection**: Predictable performance under load
-- **True concurrency**: Handle thousands of requests without blocking
-- **Direct V8 integration**: JavaScript execution without Node.js layers
+- **Zero-cost abstractions**, so performance optimizations don't compromise developer experience
+- **Memory safety without garbage collection**, which means predictable performance under load
+- **True concurrency** to handle thousands of requests without blocking
+- **Direct V8 integration** for JavaScript execution without Node.js layers
 
 ### Layer 2: Intelligent Vite Integration
 
-rari doesn't reinvent build tooling—it extends Vite with RSC-aware transformations:
+Rather than reinventing build tooling, rari extends Vite with RSC-aware transformations:
 
 ```typescript
 // Automatic client/server component detection and transformation
@@ -109,7 +105,7 @@ This intelligent transformation layer:
 
 ### Layer 3: React Server Components Done Right
 
-rari implements React Server Components as they were meant to be—true server-side rendering with streaming support:
+rari implements React Server Components as they were meant to be, with true server-side rendering and streaming support:
 
 ```rust
 // RSC streaming implementation in Rust
@@ -150,11 +146,11 @@ async fn stream_component(
 
 ## Intelligent Routing and Code Splitting
 
-rari's file-based routing automatically discovers and optimizes routes during build, with smart code splitting and prefetching built in. Routes are pre-analyzed for RSC/client component boundaries, enabling optimal bundle sizes and zero-configuration performance.
+rari's file-based routing automatically discovers and optimizes routes during build, with smart code splitting and prefetching built in. Routes are pre-analyzed for RSC and client component boundaries, enabling optimal bundle sizes without any configuration.
 
-## Developer Experience Without Compromise
+## Developer Experience
 
-Performance means nothing if the developer experience suffers. rari maintains all the conveniences you expect:
+rari maintains all the conveniences you'd expect from a modern React framework:
 
 ### Server and Client Components
 
@@ -163,7 +159,6 @@ Performance means nothing if the developer experience suffers. rari maintains al
 'use server'
 
 export default async function UserProfile({ userId }: { userId: string }) {
-  // Fetch data from APIs, access file system, external services
   const response = await fetch(`https://api.example.com/users/$\{userId}`)
   const user = await response.json()
 
@@ -197,7 +192,7 @@ export default function ClientCounter({ initialCount }: { initialCount: number }
 
 ### Hot Module Replacement for Everything
 
-rari's HMR works for both client and server components. Change a server component and see it update instantly—no full page reload, no lost state.
+rari's HMR works for both client and server components. Change a server component and see it update instantly, without a full page reload or lost state.
 
 ### TypeScript by Default
 
@@ -205,24 +200,17 @@ Full TypeScript support with intelligent type inference across the client/server
 
 ## Why I Built This
 
-Throughout my career, I've seen the same pattern repeat: frameworks prioritize developer experience over performance, then spend years optimizing. I believe you can have both from day one.
-
-Current React frameworks make architectural compromises that limit their performance ceiling. By building on Rust while maintaining JavaScript compatibility, I wanted to see if I could break through those limitations. rari is MIT licensed and represents the framework I wish I'd had for the past decade.
+Current React frameworks make architectural compromises that limit their performance ceiling. They prioritize developer experience first, then spend years optimizing. By building on Rust while maintaining JavaScript compatibility, I wanted to see if those two goals could coexist from the start. rari is MIT licensed and represents the framework I wish I'd had for the past decade.
 
 ## Getting Started
 
-Ready to try rari? Getting started takes less than a minute:
-
 ```bash
-# Create a new rari app
 npm create rari-app@latest my-app
 cd my-app
-
-# Start developing
 npm run dev
 ```
 
-rari automatically downloads the appropriate binary for your platform and starts both the Vite development server and Rust runtime. No Docker, no complex setup—just fast React development.
+rari automatically downloads the appropriate binary for your platform and starts both the Vite development server and Rust runtime, with no Docker or complex setup required.
 
 ## The Benchmark Code
 
