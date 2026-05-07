@@ -35,6 +35,7 @@ export default async function MdxRenderer({
   filePath,
   className = '',
 }: MdxRendererProps) {
+  // eslint-disable-next-line react/error-boundaries
   try {
     const content = findContentFile(filePath)
     if (!content)
@@ -72,6 +73,7 @@ export default async function MdxRenderer({
     )
   }
   catch (error) {
+    // eslint-disable-next-line react/purity
     console.error('Error in MdxRenderer:', error)
     return <NotFoundPage />
   }
