@@ -3,14 +3,12 @@
   "entry": [
     "src/app/**/*.{ts,tsx}",
     "src/components/**/*.{ts,tsx}",
-    "src/lib/**/*.{ts,tsx}"
+    "src/lib/**/*.{ts,tsx}",
+    "vite.config.ts",
+    "public/content/**/*.mdx"
   ],
   "project": [
-    "src/**/*.{ts,tsx}",
-    "public/**/*.{md,mdx}"
-  ],
-  "ignore": [
-    "public/content/**/*.mdx"
+    "src/**/*.{ts,tsx}"
   ],
   "ignoreDependencies": [
     "tailwindcss"
