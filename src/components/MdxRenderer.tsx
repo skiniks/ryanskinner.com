@@ -73,7 +73,6 @@ export default async function MdxRenderer({
     )
   }
   catch (error) {
-    // eslint-disable-next-line react/purity
     console.error('Error in MdxRenderer:', error)
     return <NotFoundPage />
   }

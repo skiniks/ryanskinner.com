@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@11.0.9",
+  "packageManager": "pnpm@11.1.2",
   "description": "Personal website for Ryan Skinner, built with rari",
   "author": "Ryan Skinner",
   "license": "MIT",
@@ -24,25 +24,25 @@
     "@shikijs/langs": "^4.0.2",
     "@shikijs/themes": "^4.0.2",
     "@shikijs/types": "^4.0.2",
-    "rari": "^0.13.4",
+    "rari": "^0.13.5",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^8.2.0",
-    "@eslint-react/eslint-plugin": "^3.0.0",
+    "@antfu/eslint-config": "^9.0.0",
+    "@eslint-react/eslint-plugin": "^5.7.8",
     "@tailwindcss/vite": "^4.3.0",
-    "@types/node": "^25.6.2",
+    "@types/node": "^25.8.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "@typescript/native-preview": "^7.0.0-dev.20260509.2",
+    "@typescript/native-preview": "^7.0.0-dev.20260514.1",
     "eslint": "^10.3.0",
     "eslint-plugin-de-morgan": "^2.1.2",
-    "eslint-plugin-oxlint": "^1.63.0",
+    "eslint-plugin-oxlint": "^1.64.0",
     "eslint-plugin-react-refresh": "^0.5.2",
-    "knip": "^6.12.2",
+    "knip": "^6.13.1",
     "tailwindcss": "^4.3.0",
-    "vite-plus": "^0.1.20"
+    "vite-plus": "^0.1.21"
   }
 }
