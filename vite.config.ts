@@ -19,49 +19,12 @@ export default defineConfig({
       node: true,
     },
     ignorePatterns: [
-      '**/target/',
-      '**/dist/',
-      '**/node_modules/',
-      'packages/*/bin/',
-      '**/.pnpm-store/',
-      '**/.cache/',
-      '**/coverage/',
-      '**/test-results/',
-      '**/playwright-report/',
-      'playwright/.cache/',
-      '**/node_modules',
       '**/dist',
-      '**/package-lock.json',
-      '**/yarn.lock',
-      '**/pnpm-lock.yaml',
-      '**/bun.lockb',
-      '**/output',
-      '**/coverage',
-      '**/temp',
-      '**/.temp',
-      '**/tmp',
-      '**/.tmp',
-      '**/.history',
-      '**/.vitepress/cache',
-      '**/.nuxt',
-      '**/.next',
-      '**/.svelte-kit',
-      '**/.vercel',
-      '**/.changeset',
-      '**/.idea',
+      '**/node_modules',
       '**/.cache',
-      '**/.output',
-      '**/.vite-inspect',
-      '**/.yarn',
-      '**/vite.config.*.timestamp-*',
-      '**/CHANGELOG*.md',
-      '**/*.min.*',
+      '**/tmp',
+      '**/pnpm-lock.yaml',
       '**/LICENSE*',
-      '**/__snapshots__',
-      '**/auto-import?(s).d.ts',
-      '**/components.d.ts',
-      '**/packages/create-rari-app/templates/**',
-      'templates/**',
     ],
     rules: {
       'accessor-pairs': [
@@ -226,6 +189,14 @@ export default defineConfig({
       'no-useless-return': 'error',
       'no-var': 'error',
       'no-with': 'error',
+      'object-shorthand': [
+        'error',
+        'always',
+        {
+          avoidQuotes: true,
+          ignoreConstructors: false,
+        },
+      ],
       'prefer-const': [
         'error',
         {
@@ -291,6 +262,10 @@ export default defineConfig({
           '**/*.?([cm])[jt]s?(x)',
         ],
         rules: {
+          'node/handle-callback-err': [
+            'error',
+            '^(err|error)$',
+          ],
           'node/no-exports-assign': 'error',
           'node/no-new-require': 'error',
           'node/no-path-concat': 'error',
@@ -344,34 +319,6 @@ export default defineConfig({
               ignoreReadBeforeAssign: true,
             },
           ],
-          '@typescript-eslint/ban-ts-comment': [
-            'error',
-            {
-              'ts-expect-error': 'allow-with-description',
-            },
-          ],
-          '@typescript-eslint/no-duplicate-enum-values': 'error',
-          '@typescript-eslint/no-dynamic-delete': 'off',
-          '@typescript-eslint/no-empty-object-type': [
-            'error',
-            {
-              allowInterfaces: 'always',
-            },
-          ],
-          '@typescript-eslint/no-explicit-any': 'off',
-          '@typescript-eslint/no-extra-non-null-assertion': 'error',
-          '@typescript-eslint/no-extraneous-class': 'off',
-          '@typescript-eslint/no-invalid-void-type': 'off',
-          '@typescript-eslint/no-misused-new': 'error',
-          '@typescript-eslint/no-namespace': 'error',
-          '@typescript-eslint/no-non-null-asserted-nullish-coalescing': 'error',
-          '@typescript-eslint/no-non-null-asserted-optional-chain': 'error',
-          '@typescript-eslint/no-non-null-assertion': 'off',
-          '@typescript-eslint/no-require-imports': 'error',
-          '@typescript-eslint/no-this-alias': 'error',
-          '@typescript-eslint/no-unnecessary-type-constraint': 'error',
-          '@typescript-eslint/no-unsafe-declaration-merging': 'error',
-          '@typescript-eslint/no-unsafe-function-type': 'error',
           'no-unused-expressions': [
             'error',
             {
@@ -382,12 +329,6 @@ export default defineConfig({
           ],
           'no-unused-vars': 'off',
           'no-useless-constructor': 'off',
-          '@typescript-eslint/no-wrapper-object-types': 'error',
-          '@typescript-eslint/prefer-as-const': 'error',
-          '@typescript-eslint/prefer-literal-enum-member': 'error',
-          '@typescript-eslint/prefer-namespace-keyword': 'error',
-          '@typescript-eslint/triple-slash-reference': 'off',
-          '@typescript-eslint/unified-signatures': 'off',
           'no-use-before-define': [
             'error',
             {
@@ -396,11 +337,45 @@ export default defineConfig({
               variables: true,
             },
           ],
-          '@typescript-eslint/consistent-type-definitions': [
+          'typescript/ban-ts-comment': [
+            'error',
+            {
+              'ts-expect-error': 'allow-with-description',
+            },
+          ],
+          'typescript/no-duplicate-enum-values': 'error',
+          'typescript/no-dynamic-delete': 'off',
+          'typescript/no-empty-object-type': [
+            'error',
+            {
+              allowInterfaces: 'always',
+            },
+          ],
+          'typescript/no-explicit-any': 'off',
+          'typescript/no-extra-non-null-assertion': 'error',
+          'typescript/no-extraneous-class': 'off',
+          'typescript/no-invalid-void-type': 'off',
+          'typescript/no-misused-new': 'error',
+          'typescript/no-namespace': 'error',
+          'typescript/no-non-null-asserted-nullish-coalescing': 'error',
+          'typescript/no-non-null-asserted-optional-chain': 'error',
+          'typescript/no-non-null-assertion': 'off',
+          'typescript/no-require-imports': 'error',
+          'typescript/no-this-alias': 'error',
+          'typescript/no-unnecessary-type-constraint': 'error',
+          'typescript/no-unsafe-declaration-merging': 'error',
+          'typescript/no-unsafe-function-type': 'error',
+          'typescript/no-wrapper-object-types': 'error',
+          'typescript/prefer-as-const': 'error',
+          'typescript/prefer-literal-enum-member': 'error',
+          'typescript/prefer-namespace-keyword': 'error',
+          'typescript/triple-slash-reference': 'off',
+          'typescript/unified-signatures': 'off',
+          'typescript/consistent-type-definitions': [
             'error',
             'interface',
           ],
-          '@typescript-eslint/consistent-type-imports': [
+          'typescript/consistent-type-imports': [
             'error',
             {
               disallowTypeAnnotations: false,
@@ -408,7 +383,7 @@ export default defineConfig({
               prefer: 'type-imports',
             },
           ],
-          '@typescript-eslint/no-import-type-side-effects': 'error',
+          'typescript/no-import-type-side-effects': 'error',
         },
         plugins: [
           'typescript',
@@ -435,7 +410,7 @@ export default defineConfig({
           'vitest/prefer-hooks-in-order': 'error',
           'vitest/prefer-lowercase-title': 'error',
           'no-unused-expressions': 'off',
-          '@typescript-eslint/explicit-function-return-type': 'off',
+          'typescript/explicit-function-return-type': 'off',
         },
         plugins: [
           'vitest',
@@ -447,15 +422,12 @@ export default defineConfig({
           '**/*.?([cm])[jt]s?(x)',
         ],
         rules: {
-          'react/jsx-no-comment-textnodes': 'warn',
-          'react/jsx-no-duplicate-props': 'warn',
+          'react/exhaustive-deps': 'warn',
           'react/no-array-index-key': 'warn',
           'react/no-clone-element': 'warn',
           'react/no-direct-mutation-state': 'error',
-          'react/no-redundant-should-component-update': 'error',
-          'react/no-string-refs': 'error',
-          'react-hooks/rules-of-hooks': 'error',
-          'react-hooks/exhaustive-deps': 'warn',
+          'react/rules-of-hooks': 'error',
+          'react/jsx-no-comment-textnodes': 'warn',
           'react/only-export-components': [
             'error',
             {
@@ -470,27 +442,6 @@ export default defineConfig({
       },
       {
         files: [
-          '**/*.?([cm])ts',
-          '**/*.?([cm])tsx',
-        ],
-        rules: {
-          'react/jsx-no-duplicate-props': 'off',
-          'react/jsx-no-undef': 'off',
-        },
-        plugins: [
-          'react',
-        ],
-      },
-      {
-        files: [
-          '**/*.md',
-        ],
-        rules: {
-          'no-irregular-whitespace': 'off',
-        },
-      },
-      {
-        files: [
           '**/*.md/**/*.?([cm])[jt]s?(x)',
         ],
         rules: {
@@ -502,13 +453,13 @@ export default defineConfig({
           'no-unused-expressions': 'off',
           'no-unused-labels': 'off',
           'no-unused-vars': 'off',
-          '@typescript-eslint/consistent-type-imports': 'off',
-          '@typescript-eslint/explicit-function-return-type': 'off',
-          '@typescript-eslint/no-namespace': 'off',
-          '@typescript-eslint/no-require-imports': 'off',
           'unicode-bom': 'off',
           'no-redeclare': 'off',
           'no-use-before-define': 'off',
+          'typescript/consistent-type-imports': 'off',
+          'typescript/explicit-function-return-type': 'off',
+          'typescript/no-namespace': 'off',
+          'typescript/no-require-imports': 'off',
         },
         plugins: [
           'typescript',
@@ -520,7 +471,7 @@ export default defineConfig({
         ],
         rules: {
           'no-console': 'off',
-          '@typescript-eslint/explicit-function-return-type': 'off',
+          'typescript/explicit-function-return-type': 'off',
         },
         plugins: [
           'typescript',
@@ -541,7 +492,7 @@ export default defineConfig({
           '**/*.cjs',
         ],
         rules: {
-          '@typescript-eslint/no-require-imports': 'off',
+          'typescript/no-require-imports': 'off',
         },
         plugins: [
           'typescript',
@@ -554,7 +505,7 @@ export default defineConfig({
         ],
         rules: {
           'no-console': 'off',
-          '@typescript-eslint/explicit-function-return-type': 'off',
+          'typescript/explicit-function-return-type': 'off',
         },
         plugins: [
           'typescript',
