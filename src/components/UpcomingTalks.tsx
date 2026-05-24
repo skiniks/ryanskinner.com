@@ -8,6 +8,7 @@ interface Talk {
   startDate: string
   endDate?: string
   image?: string
+  blurDataURL?: string
 }
 
 const talks: Talk[] = [
@@ -19,6 +20,7 @@ const talks: Talk[] = [
     startDate: '2026-06-12',
     endDate: '2026-06-12',
     image: '/images/react-summit.jpg',
+    blurDataURL: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAYAAAB4ka1VAAAAsElEQVQIWwGlAFr/ARwtN/8nJScAGRUUAOj9AADy+P0A6fn+APD6/QD6up4AAQgHA/8yOUMAJiksAAD/AQDj+P0A9PsBANGzlQD+9/sAASwdCv/g7PoAAQMEAPHy9gBocXUAnZWNABALBgATCwoAAUc6F//92OkAME8tAKGp2gBaTU4Av8fFADExFgATFNwAAV5BIf+41PIACvntAOURKwAbLDUAOAPcAO/d9gDC3dMAEAJAbojXOh8AAAAASUVORK5CYII=',
   },
 ]
 
@@ -78,6 +80,8 @@ export default function UpcomingTalks() {
                     src={talk.image}
                     alt={`${talk.name}`}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    placeholder={talk.blurDataURL ? 'blur' : undefined}
+                    blurDataURL={talk.blurDataURL}
                     className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105"
                   />
                 </div>
