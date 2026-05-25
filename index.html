@@ -16,11 +16,10 @@
     gtag("js", new Date());
     gtag("config", "G-2PTW34K8LT");
 
-    if (document.readyState === 'complete') {
+    if (document.readyState === 'complete')
       loadGTM();
-    } else {
+    else
       window.addEventListener('load', loadGTM);
-    }
 
     function loadGTM() {
       const script = document.createElement('script');
