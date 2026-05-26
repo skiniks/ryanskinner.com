@@ -9,9 +9,9 @@ interface PostsPageProps {
   searchParams: { page?: string }
 }
 
-export default async function PostsPage({ searchParams }: PostsPageProps) {
+export default function PostsPage({ searchParams }: PostsPageProps) {
   const currentPage = Number(searchParams.page) || 1
-  const { posts, totalPages } = await getPaginatedPosts(currentPage, 9)
+  const { posts, totalPages } = getPaginatedPosts(currentPage, 9)
 
   return (
     <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">

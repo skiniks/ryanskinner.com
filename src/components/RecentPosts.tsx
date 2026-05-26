@@ -2,8 +2,8 @@ import { getPosts } from '@/lib/posts'
 import Button from './Button'
 import PostCard from './PostCard'
 
-export default async function RecentPosts() {
-  const recentPosts = await getPosts(3)
+export default function RecentPosts() {
+  const recentPosts = getPosts(3)
 
   if (recentPosts.length === 0)
     return null

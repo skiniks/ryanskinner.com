@@ -2,7 +2,7 @@ import Hero from '@/components/Hero'
 import RecentPosts from '@/components/RecentPosts'
 import UpcomingTalks from '@/components/UpcomingTalks'
 
-export default async function HomePage() {
+export default function HomePage() {
   return (
     <>
       <Hero />

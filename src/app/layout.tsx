@@ -1,19 +1,15 @@
 import type { LayoutProps } from 'rari'
-import { Suspense } from 'react'
 import Footer from '@/components/Footer'
-import FooterSkeleton from '@/components/FooterSkeleton'
 import Navbar from '@/components/Navbar'
 
-export default async function RootLayout({ children }: LayoutProps) {
+export default function RootLayout({ children }: LayoutProps) {
   return (
     <>
       <Navbar />
       <main>
         {children}
       </main>
-      <Suspense fallback={<FooterSkeleton />}>
-        <Footer />
-      </Suspense>
+      <Footer />
     </>
   )
 }

@@ -51,7 +51,7 @@ function parseFrontmatter(fileContents: string) {
   return { data, content }
 }
 
-export async function getPosts(limit?: number): Promise<Post[]> {
+export function getPosts(limit?: number): Post[] {
   try {
     const postsDirectory = path.join(process.cwd(), 'public/content')
 
@@ -91,13 +91,13 @@ export async function getPosts(limit?: number): Promise<Post[]> {
   }
 }
 
-export async function getAllPosts(limit?: number): Promise<Post[]> {
+export function getAllPosts(limit?: number): Post[] {
   return getPosts(limit)
 }
 
-export async function getPaginatedPosts(page: number = 1, postsPerPage: number = 9): Promise<{ posts: Post[], totalPages: number, currentPage: number }> {
+export function getPaginatedPosts(page: number = 1, postsPerPage: number = 9): { posts: Post[], totalPages: number, currentPage: number } {
   try {
-    const allPosts = await getPosts()
+    const allPosts = getPosts()
     const totalPages = Math.ceil(allPosts.length / postsPerPage)
     const startIndex = (page - 1) * postsPerPage
     const endIndex = startIndex + postsPerPage
@@ -119,7 +119,7 @@ export async function getPaginatedPosts(page: number = 1, postsPerPage: number =
   }
 }
 
-export async function getPostBySlug(slug: string): Promise<Post | null> {
+export function getPostBySlug(slug: string): Post | null {
   try {
     const extensions = ['mdx', 'md']
     let fileContents: string | null = null

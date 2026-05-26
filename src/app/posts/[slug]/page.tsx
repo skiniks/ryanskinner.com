@@ -8,12 +8,12 @@ import { isValidSlug } from '@/lib/validation'
 
 const DEFAULT_METADATA = getDefaultMetadata('Post')
 
-export default async function PostPage({ params }: PageProps) {
+export default function PostPage({ params }: PageProps) {
   const slug = params?.slug
   if (!isValidSlug(slug))
     return <div>Invalid post path.</div>
 
-  const post = await getPostBySlug(slug)
+  const post = getPostBySlug(slug)
   if (!post)
     return <div>Post not found.</div>
 
@@ -56,14 +56,14 @@ export default async function PostPage({ params }: PageProps) {
   )
 }
 
-export async function generateMetadata({ params }: PageProps) {
+export function generateMetadata({ params }: PageProps) {
   const slug = params?.slug
 
   if (!isValidSlug(slug))
     return DEFAULT_METADATA
 
   try {
-    const post = await getPostBySlug(slug)
+    const post = getPostBySlug(slug)
 
     if (!post)
       return DEFAULT_METADATA
