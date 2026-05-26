@@ -2,6 +2,7 @@ import Button from '@/components/Button'
 import ChevronLeft from '@/components/icons/ChevronLeft'
 import ChevronRight from '@/components/icons/ChevronRight'
 import PostCard from '@/components/PostCard'
+import { createMetadata } from '@/lib/metadata'
 import { getPaginatedPosts } from '@/lib/posts'
 
 interface PostsPageProps {
@@ -70,7 +71,7 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
   )
 }
 
-export const metadata = {
-  title: 'Posts / Ryan Skinner',
-  description: 'Blog posts about software engineering, React, performance, and modern web technologies.',
-}
+export const metadata = createMetadata(
+  'Posts',
+  'Blog posts about software engineering, React, performance, and modern web technologies.',
+)

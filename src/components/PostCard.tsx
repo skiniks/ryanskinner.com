@@ -1,5 +1,6 @@
 import ArrowNarrowRight from '@/components/icons/ArrowNarrowRight'
-import { formatDate } from '@/lib/posts'
+import { formatDate } from '@/lib/dates'
+import { badgeStyles, getCardClasses } from '@/lib/styles'
 
 interface PostCardProps {
   slug: string
@@ -23,16 +24,16 @@ export default function PostCard({
   const isFeatured = variant === 'featured'
 
   return (
-    <article className={`group relative flex flex-col rounded-2xl shadow-lg transition-all duration-300 isolate before:content-[''] before:absolute before:inset-0 before:z-0 before:rounded-2xl before:pointer-events-none before:transition-all before:duration-300 before:ease-in-out before:bg-[url('/assets/card-bg.avif')] before:bg-size-[150%_150%] before:bg-center before:animate-[move-background_8s_ease-in-out_infinite] hover:before:brightness-[1.3] after:content-[''] after:absolute after:inset-[2px] after:z-1 after:rounded-2xl after:bg-gray-900 after:border-2 after:border-gray-800 after:transition-all after:duration-300 after:ease-in-out hover:after:border-transparent hover:after:inset-[4px] ${highlighted ? 'before:opacity-100 after:border-transparent' : 'before:opacity-0 hover:before:opacity-100'}`}>
+    <article className={getCardClasses(highlighted)}>
       <div className={`relative z-2 flex flex-1 flex-col ${isFeatured ? 'p-8 sm:p-10' : 'p-6 sm:p-8'}`}>
         <div className="flex flex-wrap items-center gap-2 text-sm">
           <time
             dateTime={date}
-            className="inline-flex items-center rounded-full bg-blue-500/10 px-3 py-1.5 font-semibold text-blue-400 ring-1 ring-inset ring-blue-500/20"
+            className={badgeStyles.date}
           >
             {formatDate(date)}
           </time>
-          <span className="inline-flex items-center rounded-full bg-gray-700/50 px-3 py-1.5 font-semibold text-gray-300 ring-1 ring-inset ring-gray-600">
+          <span className={badgeStyles.readingTime}>
             {readingTime}
             {' '}
             min read

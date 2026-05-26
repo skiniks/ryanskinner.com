@@ -1,3 +1,5 @@
+import { linkStyles } from '@/lib/styles'
+
 export default function Hero() {
   return (
     <div className="relative isolate mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24 lg:pt-44 lg:pb-56 max-w-6xl">
@@ -21,7 +23,7 @@ export default function Hero() {
           enhancing the developer experience, and pushing the boundaries of the
           modern web. I'm currently building
           {' '}
-          <a href="https://rari.build" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:opacity-70 transition-opacity">rari</a>
+          <a href="https://rari.build" target="_blank" rel="noopener noreferrer" className={linkStyles.underline}>rari</a>
           , a React Server Components framework powered by a Rust runtime that delivers 67x higher throughput and 18x faster response times than Next.js.
         </h2>
       </div>

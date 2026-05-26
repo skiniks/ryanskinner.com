@@ -1,15 +1,16 @@
 import type { PageProps } from 'rari'
 import MdxRenderer from '@/components/MdxRenderer'
-import { formatDate, getPostBySlug } from '@/lib/posts'
+import { formatDate } from '@/lib/dates'
+import { createMetadata, getDefaultMetadata } from '@/lib/metadata'
+import { getPostBySlug } from '@/lib/posts'
+import { badgeStyles } from '@/lib/styles'
+import { isValidSlug } from '@/lib/validation'
 
-const DEFAULT_METADATA = {
-  title: 'Post / Ryan Skinner',
-  description: 'Blog post about software engineering, React, performance, and modern web technologies.',
-}
+const DEFAULT_METADATA = getDefaultMetadata('Post')
 
 export default async function PostPage({ params }: PageProps) {
   const slug = params?.slug
-  if (typeof slug !== 'string' || slug.includes('..') || slug.includes('/'))
+  if (!isValidSlug(slug))
     return <div>Invalid post path.</div>
 
   const post = await getPostBySlug(slug)
@@ -22,11 +23,11 @@ export default async function PostPage({ params }: PageProps) {
         <div className="mb-4 flex flex-wrap items-center gap-2">
           <time
             dateTime={post.date}
-            className="inline-flex items-center rounded-full bg-blue-500/10 px-3 py-1.5 text-sm font-semibold text-blue-400 ring-1 ring-inset ring-blue-500/20"
+            className={badgeStyles.date}
           >
             {formatDate(post.date)}
           </time>
-          <span className="inline-flex items-center rounded-full bg-gray-700/50 px-3 py-1.5 text-sm font-semibold text-gray-300 ring-1 ring-inset ring-gray-600">
+          <span className={badgeStyles.readingTime}>
             {post.readingTime}
             {' '}
             min read
@@ -40,7 +41,7 @@ export default async function PostPage({ params }: PageProps) {
             {post.tags.map(tag => (
               <li
                 key={tag}
-                className="inline-flex items-center rounded-full bg-emerald-500/10 px-3 py-1 text-sm font-semibold text-emerald-400 ring-1 ring-inset ring-emerald-500/20"
+                className={badgeStyles.tag}
               >
                 {tag}
               </li>
@@ -58,7 +59,7 @@ export default async function PostPage({ params }: PageProps) {
 export async function generateMetadata({ params }: PageProps) {
   const slug = params?.slug
 
-  if (typeof slug !== 'string' || slug.includes('..') || slug.includes('/'))
+  if (!isValidSlug(slug))
     return DEFAULT_METADATA
 
   try {
@@ -67,10 +68,12 @@ export async function generateMetadata({ params }: PageProps) {
     if (!post)
       return DEFAULT_METADATA
 
-    return {
-      title: `${post.title} / Ryan Skinner`,
-      description: post.description || DEFAULT_METADATA.description,
-    }
+    const metadata = createMetadata(
+      post.title,
+      post.description || DEFAULT_METADATA.description,
+    )
+
+    return metadata
   }
   catch {
     return DEFAULT_METADATA
