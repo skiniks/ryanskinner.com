@@ -10,23 +10,23 @@
     import "/src/app/globals.css";
 
     window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-    gtag("config", "G-2PTW34K8LT");
-
-    if (document.readyState === 'complete')
-      loadGTM();
-    else
-      window.addEventListener('load', loadGTM);
+    function gtag() { dataLayer.push(arguments); }
 
     function loadGTM() {
-      const script = document.createElement('script');
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-2PTW34K8LT';
-      script.async = true;
-      document.head.appendChild(script);
+      if (window.__gtmLoaded) return
+      window.__gtmLoaded = true
+      gtag('js', new Date())
+      gtag('config', 'G-2PTW34K8LT')
+      const script = document.createElement('script')
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-2PTW34K8LT'
+      script.async = true
+      document.head.appendChild(script)
     }
+
+    document.addEventListener('click', loadGTM, { once: true, passive: true })
+    document.addEventListener('scroll', loadGTM, { once: true, passive: true })
+    document.addEventListener('keydown', loadGTM, { once: true, passive: true })
+    setTimeout(loadGTM, 3000)
   </script>
 </head>
 
