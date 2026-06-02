@@ -92,6 +92,7 @@ export default defineConfig({
       'no-fallthrough': 'error',
       'no-func-assign': 'error',
       'no-global-assign': 'error',
+      'no-implied-eval': 'error',
       'no-import-assign': 'error',
       'no-irregular-whitespace': 'error',
       'no-iterator': 'error',
@@ -129,6 +130,29 @@ export default defineConfig({
         {
           message: 'Use `globalThis` instead.',
           name: 'self',
+        },
+      ],
+      'no-restricted-properties': [
+        'error',
+        {
+          message: 'Use `Object.getPrototypeOf` or `Object.setPrototypeOf` instead.',
+          property: '__proto__',
+        },
+        {
+          message: 'Use `Object.defineProperty` instead.',
+          property: '__defineGetter__',
+        },
+        {
+          message: 'Use `Object.defineProperty` instead.',
+          property: '__defineSetter__',
+        },
+        {
+          message: 'Use `Object.getOwnPropertyDescriptor` instead.',
+          property: '__lookupGetter__',
+        },
+        {
+          message: 'Use `Object.getOwnPropertyDescriptor` instead.',
+          property: '__lookupSetter__',
         },
       ],
       'no-self-assign': [
@@ -197,6 +221,13 @@ export default defineConfig({
           ignoreConstructors: false,
         },
       ],
+      'prefer-arrow-callback': [
+        'error',
+        {
+          allowNamedFunctions: false,
+          allowUnboundThis: true,
+        },
+      ],
       'prefer-const': [
         'error',
         {
@@ -206,6 +237,12 @@ export default defineConfig({
       ],
       'prefer-exponentiation-operator': 'error',
       'prefer-promise-reject-errors': 'error',
+      'prefer-regex-literals': [
+        'error',
+        {
+          disallowRedundantWrapping: true,
+        },
+      ],
       'prefer-rest-params': 'error',
       'prefer-spread': 'error',
       'prefer-template': 'error',
@@ -240,6 +277,12 @@ export default defineConfig({
       'import/no-duplicates': 'error',
       'import/no-mutable-exports': 'error',
       'import/no-named-default': 'error',
+      'import/newline-after-import': [
+        'error',
+        {
+          count: 1,
+        },
+      ],
       'unicorn/consistent-empty-array-spread': 'error',
       'unicorn/error-message': 'error',
       'unicorn/escape-case': 'error',
@@ -513,9 +556,7 @@ export default defineConfig({
       },
       {
         files: [
-          'examples/**/src/app/**',
-          'test/fixtures/**/src/app/**',
-          'web/src/app/**',
+          'src/app/**',
         ],
         rules: {
           'react/only-export-components': 'off',
