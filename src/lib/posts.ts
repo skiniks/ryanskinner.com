@@ -15,6 +15,7 @@ export interface Post {
   tags?: string[]
   content: string
   readingTime: number
+  externalUrl?: string
 }
 
 function calculateReadingTime(content: string): number {
@@ -78,7 +79,8 @@ export function getPosts(limit?: number): Post[] {
           date: data.date || new Date().toISOString(),
           tags: data.tags || [],
           content,
-          readingTime: calculateReadingTime(content),
+          readingTime: data.externalUrl ? 0 : calculateReadingTime(content),
+          externalUrl: data.externalUrl || undefined,
         }
       })
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())

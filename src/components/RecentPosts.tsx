@@ -21,6 +21,7 @@ export default function RecentPosts() {
               readingTime={recentPosts[0].readingTime}
               variant="featured"
               highlighted
+              externalUrl={recentPosts[0].externalUrl}
             />
           </div>
         )}
@@ -36,6 +37,7 @@ export default function RecentPosts() {
                   description={post.description}
                   date={post.date}
                   readingTime={post.readingTime}
+                  externalUrl={post.externalUrl}
                 />
               ))}
             </div>

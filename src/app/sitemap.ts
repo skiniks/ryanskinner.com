@@ -19,11 +19,13 @@ export default async function sitemap(): Promise<Sitemap> {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
-    ...posts.map(post => ({
-      url: `${baseUrl}/posts/${post.slug}`,
-      lastModified: new Date(post.date),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    })),
+    ...posts
+      .filter(post => !post.externalUrl)
+      .map(post => ({
+        url: `${baseUrl}/posts/${post.slug}`,
+        lastModified: new Date(post.date),
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+      })),
   ]
 }

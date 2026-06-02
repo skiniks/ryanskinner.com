@@ -1,5 +1,5 @@
 import type { PageProps } from 'rari'
-import { readdirSync } from 'node:fs'
+import { readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import process from 'node:process'
 import MdxRenderer from '@/components/MdxRenderer'
@@ -89,7 +89,12 @@ export function generateStaticParams() {
   try {
     const entries = readdirSync(contentDir)
     return entries
-      .filter(entry => entry.endsWith('.mdx'))
+      .filter((entry) => {
+        if (!entry.endsWith('.mdx'))
+          return false
+        const content = readFileSync(join(contentDir, entry), 'utf8')
+        return !content.includes('export const externalUrl')
+      })
       .map(entry => ({ slug: entry.replace(/\.mdx$/, '') }))
   }
   catch {

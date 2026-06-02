@@ -30,6 +30,7 @@ export default function PostsPage({ searchParams }: PostsPageProps) {
               description={post.description}
               date={post.date}
               readingTime={post.readingTime}
+              externalUrl={post.externalUrl}
             />
           ))}
         </div>
