@@ -41,7 +41,7 @@ export default function PostCard({
           {isExternal
             ? (
                 <span className="inline-flex items-center gap-1 rounded-full bg-amber-500/10 px-3 py-1.5 text-sm font-semibold text-amber-400 ring-1 ring-inset ring-amber-500/20">
-                  <ExternalLink className="h-3 w-3" aria-hidden="true" />
+                  <ExternalLink className="h-4 w-4" aria-hidden="true" />
                   External
                 </span>
               )
