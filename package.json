@@ -24,7 +24,7 @@
     "@shikijs/langs": "^4.2.0",
     "@shikijs/themes": "^4.2.0",
     "@shikijs/types": "^4.2.0",
-    "rari": "^0.14.7",
+    "rari": "^0.14.8",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "remark-gfm": "^4.0.1"
