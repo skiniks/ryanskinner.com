@@ -584,6 +584,16 @@ export default defineConfig({
           '/posts/*': 'public, max-age=86400, stale-while-revalidate=604800',
         },
       },
+      cache: {
+        layers: {
+          response: {
+            handler: 'memory',
+            maxEntries: 1000,
+            // @ts-expect-error maxBytes missing from ServerCacheLayerConfig -- adding in next release
+            maxBytes: 128 * 1024 * 1024,
+          },
+        },
+      },
       images: {
         deviceSizes: [1920],
         imageSizes: [384, 640, 750, 828, 1080, 1200, 1920],
