@@ -1,28 +1,11 @@
-import path from 'node:path'
-import { antfu } from '@antfu/eslint-config'
-import deMorgan from 'eslint-plugin-de-morgan'
-import oxlint from 'eslint-plugin-oxlint'
+import rari from '@rari/lint/eslint'
 
-export default antfu(
+export default [
+  ...rari,
   {
-    react: true,
-    typescript: true,
-  },
-  {
+    files: ['package.json', '**/package.json'],
     rules: {
-      'padding-line-between-statements': [
-        'error',
-        { blankLine: 'always', prev: ['if', 'for', 'while', 'switch'], next: 'return' },
-        { blankLine: 'always', prev: 'block-like', next: 'return' },
-      ],
+      'pnpm/json-enforce-catalog': 'off',
     },
   },
-  {
-    files: ['src/app/**'],
-    rules: {
-      'react-refresh/only-export-components': 'off',
-    },
-  },
-  deMorgan.configs.recommended,
-  ...oxlint.buildFromOxlintConfigFile(path.join(import.meta.dirname, 'vite.config.ts')),
-)
+]

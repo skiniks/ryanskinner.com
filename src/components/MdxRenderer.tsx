@@ -10,8 +10,8 @@ import { rehypeCodeBlock } from '@/lib/remark-codeblock'
 import { getHighlighter, SHIKI_THEME } from '@/lib/shiki'
 
 interface MdxRendererProps {
-  filePath: string
-  className?: string
+  readonly filePath: string
+  readonly className?: string
 }
 
 function findContentFile(filePath: string): string | null {
@@ -38,7 +38,7 @@ export default async function MdxRenderer({
   // eslint-disable-next-line react/error-boundaries
   try {
     const content = findContentFile(filePath)
-    if (!content)
+    if (content === null || content === '')
       return <NotFoundPage />
 
     const highlighter = await getHighlighter()

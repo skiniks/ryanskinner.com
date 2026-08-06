@@ -3,7 +3,7 @@ import { generateOGImage } from '@/lib/og-image'
 import { getPostBySlug } from '@/lib/posts'
 
 export default function Image({ params }: PageProps) {
-  const slug = params?.slug
+  const slug = params.slug
   const post = typeof slug === 'string' ? getPostBySlug(slug) : null
 
   return generateOGImage({

@@ -14,7 +14,7 @@ export default function feed(): Feed {
     copyright: `© ${new Date().getFullYear()} Ryan Skinner. All rights reserved.`,
     lastBuildDate: new Date(),
     items: posts
-      .filter(post => !post.externalUrl)
+      .filter(post => post.externalUrl === undefined || post.externalUrl === '')
       .map(post => ({
         title: post.title,
         url: `${baseUrl}/posts/${post.slug}`,

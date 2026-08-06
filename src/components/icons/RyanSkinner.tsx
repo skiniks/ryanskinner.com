@@ -1,6 +1,4 @@
-import type { SVGProps } from 'react'
-
-export default function RyanSkinner(props: SVGProps<SVGSVGElement>) {
+export default function RyanSkinner(props: Readonly<{ className?: string, width?: number | string, height?: number | string }>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 562.21 183.47" {...props}>
       <path

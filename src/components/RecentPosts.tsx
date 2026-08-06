@@ -8,28 +8,28 @@ export default function RecentPosts() {
   if (recentPosts.length === 0)
     return null
 
+  const [featured, ...rest] = recentPosts
+
   return (
     <div className="py-12 sm:py-24 lg:py-32">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16 lg:px-8">
-        {recentPosts[0] && (
-          <div className="mx-auto w-full max-w-2xl lg:mx-0 lg:max-w-none flex flex-col justify-center">
-            <PostCard
-              slug={recentPosts[0].slug}
-              title={recentPosts[0].title}
-              description={recentPosts[0].description}
-              date={recentPosts[0].date}
-              readingTime={recentPosts[0].readingTime}
-              variant="featured"
-              highlighted
-              externalUrl={recentPosts[0].externalUrl}
-            />
-          </div>
-        )}
+        <div className="mx-auto w-full max-w-2xl lg:mx-0 lg:max-w-none flex flex-col justify-center">
+          <PostCard
+            slug={featured.slug}
+            title={featured.title}
+            description={featured.description}
+            date={featured.date}
+            readingTime={featured.readingTime}
+            variant="featured"
+            highlighted
+            externalUrl={featured.externalUrl}
+          />
+        </div>
 
-        {recentPosts.length > 1 && (
+        {rest.length > 0 && (
           <div className="mx-auto w-full max-w-2xl lg:mx-0 lg:max-w-none">
             <div className="flex flex-col gap-6 sm:gap-8">
-              {recentPosts.slice(1, 3).map(post => (
+              {rest.slice(0, 2).map(post => (
                 <PostCard
                   key={post.slug}
                   slug={post.slug}

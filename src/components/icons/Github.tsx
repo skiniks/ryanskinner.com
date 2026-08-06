@@ -1,6 +1,4 @@
-import type { SVGProps } from 'react'
-
-export default function Github(props: SVGProps<SVGSVGElement>) {
+export default function Github(props: Readonly<{ className?: string }>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

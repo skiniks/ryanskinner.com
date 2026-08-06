@@ -18,29 +18,49 @@ export interface Post {
   externalUrl?: string
 }
 
+interface FrontmatterData {
+  readonly title?: string
+  readonly description?: string
+  readonly date?: string
+  readonly tags?: readonly string[]
+  readonly externalUrl?: string
+}
+
 function calculateReadingTime(content: string): number {
   const wordsPerMinute = 200
   const words = content.trim().split(WHITESPACE_REGEX).length
   return Math.ceil(words / wordsPerMinute)
 }
 
-function parseFrontmatter(fileContents: string) {
-  const data: any = {}
-  const matches = [...fileContents.matchAll(EXPORT_REGEX)]
+function asOptionalString(value: unknown): string | undefined {
+  return typeof value === 'string' && value !== '' ? value : undefined
+}
+
+function asStringArray(value: unknown): string[] {
+  return Array.isArray(value) && value.every(item => typeof item === 'string')
+    ? value
+    : []
+}
+
+function parseFrontmatter(fileContents: string): { data: FrontmatterData, content: string } {
+  const data: Record<string, unknown> = {}
+  const matches = fileContents.matchAll(EXPORT_REGEX)
 
   for (const match of matches) {
     const key = match[1]
-    let value: any = match[2]
+    const raw = match[2]
 
-    if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith('\'') && value.endsWith('\''))) {
-      value = value.slice(1, -1)
+    let value: unknown = raw
+
+    if ((raw.startsWith('"') && raw.endsWith('"')) || (raw.startsWith('\'') && raw.endsWith('\''))) {
+      value = raw.slice(1, -1)
     }
-    else if (value.startsWith('[') || value.startsWith('{')) {
+    else if (raw.startsWith('[') || raw.startsWith('{')) {
       try {
-        value = JSON.parse(value)
+        value = JSON.parse(raw) as unknown
       }
       catch {
-        console.warn(`Failed to parse JSON value for ${key}:`, value)
+        console.warn(`Failed to parse JSON value for ${key}:`, raw)
       }
     }
 
@@ -49,7 +69,29 @@ function parseFrontmatter(fileContents: string) {
 
   const content = fileContents.replace(FRONTMATTER_CONTENT_REGEX, '').trim()
 
-  return { data, content }
+  return {
+    data: {
+      title: asOptionalString(data.title),
+      description: asOptionalString(data.description),
+      date: asOptionalString(data.date),
+      tags: asStringArray(data.tags),
+      externalUrl: asOptionalString(data.externalUrl),
+    },
+    content,
+  }
+}
+
+function toPost(slug: string, data: FrontmatterData, content: string, readingTime: number): Post {
+  return {
+    slug,
+    title: data.title ?? 'Untitled',
+    description: data.description ?? '',
+    date: data.date ?? new Date().toISOString(),
+    tags: data.tags === undefined ? [] : [...data.tags],
+    content,
+    readingTime,
+    externalUrl: data.externalUrl,
+  }
 }
 
 export function getPosts(limit?: number): Post[] {
@@ -71,21 +113,15 @@ export function getPosts(limit?: number): Post[] {
         const filePath = path.join(postsDirectory, filename)
         const fileContents = fs.readFileSync(filePath, 'utf8')
         const { data, content } = parseFrontmatter(fileContents)
+        const readingTime = data.externalUrl === undefined
+          ? calculateReadingTime(content)
+          : 0
 
-        return {
-          slug,
-          title: data.title || 'Untitled',
-          description: data.description || '',
-          date: data.date || new Date().toISOString(),
-          tags: data.tags || [],
-          content,
-          readingTime: data.externalUrl ? 0 : calculateReadingTime(content),
-          externalUrl: data.externalUrl || undefined,
-        }
+        return toPost(slug, data, content, readingTime)
       })
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
-    return limit ? posts.slice(0, limit) : posts
+    return limit === undefined ? posts : posts.slice(0, limit)
   }
   catch (error) {
     console.error('Error in getPosts:', error)
@@ -137,20 +173,12 @@ export function getPostBySlug(slug: string): Post | null {
       }
     }
 
-    if (!fileContents)
+    if (fileContents === null)
       return null
 
     const { data, content } = parseFrontmatter(fileContents)
 
-    return {
-      slug,
-      title: data.title || 'Untitled',
-      description: data.description || '',
-      date: data.date || new Date().toISOString(),
-      tags: data.tags || [],
-      content,
-      readingTime: calculateReadingTime(content),
-    }
+    return toPost(slug, data, content, calculateReadingTime(content))
   }
   catch (error) {
     console.error('Error in getPostBySlug:', error)

@@ -37,7 +37,7 @@ const talks: Talk[] = [
 
 export default function UpcomingTalks() {
   const upcomingTalks = talks.filter(talk =>
-    isFutureDate(talk.endDate || talk.startDate),
+    isFutureDate(talk.endDate ?? talk.startDate),
   )
 
   if (upcomingTalks.length === 0)
@@ -59,13 +59,13 @@ export default function UpcomingTalks() {
               rel="noopener noreferrer"
               className="group relative flex flex-col rounded-lg border border-gray-800 bg-gray-900/50 transition-all duration-200 hover:border-blue-500/50 hover:bg-gray-900 hover:scale-[1.02]"
             >
-              {talk.image && (
+              {talk.image !== undefined && talk.image !== '' && (
                 <div className="w-full aspect-video overflow-hidden bg-gray-800 rounded-t-lg">
                   <Image
                     src={talk.image}
-                    alt={`${talk.name}`}
+                    alt={talk.name}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    placeholder={talk.blurDataURL ? 'blur' : undefined}
+                    placeholder={talk.blurDataURL !== undefined && talk.blurDataURL !== '' ? 'blur' : undefined}
                     blurDataURL={talk.blurDataURL}
                     className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105"
                   />

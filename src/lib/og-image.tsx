@@ -5,10 +5,14 @@ const OG_BACKGROUND = '#0d1117'
 const OG_PADDING = '60px'
 
 interface BaseOGImageProps {
-  title?: string
-  subtitle?: string
-  tags?: string[]
-  logoSize?: 'small' | 'large'
+  readonly title?: string
+  readonly subtitle?: string
+  readonly tags?: readonly string[]
+  readonly logoSize?: 'small' | 'large'
+}
+
+function hasText(value: string | undefined): value is string {
+  return value !== undefined && value !== ''
 }
 
 export function generateOGImage({
@@ -19,8 +23,10 @@ export function generateOGImage({
 }: BaseOGImageProps = {}) {
   const logoWidth = logoSize === 'large' ? 480 : 240
   const logoHeight = logoSize === 'large' ? 157 : 79
+  const hasSubtitle = hasText(subtitle)
+  const hasTitle = hasText(title)
 
-  if (!title && !subtitle && tags.length === 0) {
+  if (!hasTitle && !hasSubtitle && tags.length === 0) {
     return new ImageResponse(
       <div
         style={{
@@ -54,7 +60,7 @@ export function generateOGImage({
         background: OG_BACKGROUND,
         padding: OG_PADDING,
         flexDirection: 'column',
-        justifyContent: subtitle ? 'space-between' : 'flex-start',
+        justifyContent: hasSubtitle ? 'space-between' : 'flex-start',
       }}
     >
       <div style={{ display: 'flex' }}>
@@ -64,11 +70,11 @@ export function generateOGImage({
       <div
         style={{
           display: 'flex',
-          flex: subtitle ? 0 : 1,
+          flex: hasSubtitle ? 0 : 1,
           flexDirection: 'column',
-          justifyContent: subtitle ? 'flex-start' : 'center',
+          justifyContent: hasSubtitle ? 'flex-start' : 'center',
           gap: '20px',
-          marginTop: subtitle ? '0' : '40px',
+          marginTop: hasSubtitle ? '0' : '40px',
         }}
       >
         {tags.length > 0 && (
@@ -92,21 +98,21 @@ export function generateOGImage({
           </div>
         )}
 
-        {title && (
+        {hasTitle && (
           <div
             style={{
               display: 'flex',
-              fontSize: subtitle ? 64 : 56,
+              fontSize: hasSubtitle ? 64 : 56,
               fontWeight: 700,
               color: '#ffffff',
-              lineHeight: subtitle ? 1.1 : 1.2,
+              lineHeight: hasSubtitle ? 1.1 : 1.2,
             }}
           >
             {title}
           </div>
         )}
 
-        {subtitle && (
+        {hasSubtitle && (
           <div style={{ display: 'flex', fontSize: 28, color: '#8b949e' }}>
             {subtitle}
           </div>

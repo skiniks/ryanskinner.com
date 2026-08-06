@@ -6,9 +6,7 @@ export const badgeStyles = {
 
 export const cardStyles = {
   base: 'group relative flex flex-col rounded-2xl shadow-lg transition-all duration-300 isolate',
-  // eslint-disable-next-line style/quotes
   gradientBefore: "before:content-[''] before:absolute before:inset-0 before:z-0 before:rounded-2xl before:pointer-events-none before:transition-all before:duration-300 before:ease-in-out before:bg-[url('/assets/card-bg.avif')] before:bg-size-[150%_150%] before:bg-center before:animate-[move-background_8s_ease-in-out_infinite] hover:before:brightness-[1.3]",
-  // eslint-disable-next-line style/quotes
   innerBorder: "after:content-[''] after:absolute after:inset-[2px] after:z-1 after:rounded-2xl after:bg-gray-900 after:border-2 after:border-gray-800 after:transition-all after:duration-300 after:ease-in-out hover:after:border-transparent hover:after:inset-[4px]",
   highlighted: 'before:opacity-100 after:border-transparent',
   notHighlighted: 'before:opacity-0 hover:before:opacity-100',

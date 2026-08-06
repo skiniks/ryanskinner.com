@@ -2,6 +2,7 @@ import type { LayoutProps, Metadata } from 'rari'
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
 
+// oxlint-disable-next-line typescript/prefer-readonly-parameter-types
 export default function RootLayout({ children }: LayoutProps) {
   return (
     <>

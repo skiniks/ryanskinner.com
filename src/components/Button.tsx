@@ -1,11 +1,12 @@
 interface ButtonProps {
-  href: string
-  children: React.ReactNode
-  variant?: 'primary' | 'secondary'
-  size?: 'sm' | 'md' | 'lg'
-  className?: string
+  readonly href: string
+  readonly children: React.ReactNode
+  readonly variant?: 'primary' | 'secondary'
+  readonly size?: 'sm' | 'md' | 'lg'
+  readonly className?: string
 }
 
+// oxlint-disable-next-line typescript/prefer-readonly-parameter-types
 export default function Button({
   href,
   children,

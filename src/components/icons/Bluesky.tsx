@@ -1,6 +1,4 @@
-import type { SVGProps } from 'react'
-
-export default function Bluesky(props: SVGProps<SVGSVGElement>) {
+export default function Bluesky(props: Readonly<{ className?: string }>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="1.14em" height="1em" viewBox="0 0 256 226" {...props}>
       {/* Icon from SVG Logos by Gil Barbara - https://raw.githubusercontent.com/gilbarbara/logos/master/LICENSE.txt */}

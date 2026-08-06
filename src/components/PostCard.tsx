@@ -4,14 +4,14 @@ import { formatDate } from '@/lib/dates'
 import { badgeStyles, getCardClasses } from '@/lib/styles'
 
 interface PostCardProps {
-  slug: string
-  title: string
-  description: string
-  date: string
-  readingTime: number
-  variant?: 'default' | 'featured'
-  highlighted?: boolean
-  externalUrl?: string
+  readonly slug: string
+  readonly title: string
+  readonly description: string
+  readonly date: string
+  readonly readingTime: number
+  readonly variant?: 'default' | 'featured'
+  readonly highlighted?: boolean
+  readonly externalUrl?: string
 }
 
 export default function PostCard({
@@ -25,7 +25,7 @@ export default function PostCard({
   externalUrl,
 }: PostCardProps) {
   const isFeatured = variant === 'featured'
-  const isExternal = !!externalUrl
+  const isExternal = externalUrl !== undefined && externalUrl !== ''
   const href = isExternal ? externalUrl : `/posts/${slug}`
 
   return (

@@ -12,7 +12,7 @@ export function formatDateRange(startDate: string, endDate?: string): string {
   const startMonth = start.toLocaleDateString('en-US', { month: 'long' })
   const startDay = start.getDate()
 
-  if (!endDate || startDate === endDate)
+  if (endDate === undefined || endDate === '' || startDate === endDate)
     return `${startMonth} ${startDay}`
 
   const end = new Date(`${endDate}T12:00:00`)

@@ -41,7 +41,7 @@ export default async function Footer() {
             {currentYear}
             {' '}
             Ryan Skinner
-            {commitHash && (
+            {commitHash !== null && commitHash !== '' && (
               <>
                 {' '}
                 (

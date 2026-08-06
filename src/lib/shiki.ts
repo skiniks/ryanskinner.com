@@ -5,9 +5,13 @@ import { createOnigurumaEngine } from '@shikijs/engine-oniguruma'
 
 let highlighter: HighlighterCore | null = null
 
+function isThemeRegistration(value: unknown): value is ThemeRegistration {
+  return typeof value === 'object' && value !== null
+}
+
 function replaceThemeColors(
-  theme: ThemeRegistration,
-  replacements: Record<string, string>,
+  theme: object,
+  replacements: Readonly<Record<string, string>>,
 ): ThemeRegistration {
   let themeString = JSON.stringify(theme)
   for (const [oldColor, newColor] of Object.entries(replacements)) {
@@ -16,30 +20,33 @@ function replaceThemeColors(
     themeString = themeString.replaceAll(oldColor.toUpperCase(), newColor)
   }
 
-  return JSON.parse(themeString)
+  const parsed: unknown = JSON.parse(themeString)
+  if (!isThemeRegistration(parsed))
+    throw new TypeError('Failed to parse Shiki theme after color replacement')
+
+  return parsed
 }
 
 export const SHIKI_THEME = 'github-dark'
 
 export async function getHighlighter(): Promise<HighlighterCore> {
-  if (!highlighter) {
-    highlighter = await createHighlighterCore({
-      themes: [
-        import('@shikijs/themes/github-dark').then(t =>
-          replaceThemeColors(t.default ?? t, {
-            '#6A737D': '#8B949E', // comments: boost contrast on dark bg
-          }),
-        ),
-      ],
-      langs: [
-        import('@shikijs/langs/bash'),
-        import('@shikijs/langs/rust'),
-        import('@shikijs/langs/tsx'),
-        import('@shikijs/langs/typescript'),
-      ],
-      engine: createOnigurumaEngine(import('@shikijs/engine-oniguruma/wasm-inlined')),
-    })
-  }
+  highlighter ??= await createHighlighterCore({
+    themes: [
+      import('@shikijs/themes/github-dark').then((t) => {
+        const theme = 'default' in t ? t.default : t
+        return replaceThemeColors(theme, {
+          '#6A737D': '#8B949E', // comments: boost contrast on dark bg
+        })
+      }),
+    ],
+    langs: [
+      import('@shikijs/langs/bash'),
+      import('@shikijs/langs/rust'),
+      import('@shikijs/langs/tsx'),
+      import('@shikijs/langs/typescript'),
+    ],
+    engine: createOnigurumaEngine(import('@shikijs/engine-oniguruma/wasm-inlined')),
+  })
 
   return highlighter
 }

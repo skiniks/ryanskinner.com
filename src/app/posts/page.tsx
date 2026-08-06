@@ -6,7 +6,7 @@ import { createMetadata } from '@/lib/metadata'
 import { getPaginatedPosts } from '@/lib/posts'
 
 interface PostsPageProps {
-  searchParams: { page?: string }
+  readonly searchParams: Readonly<{ page?: string }>
 }
 
 export default function PostsPage({ searchParams }: PostsPageProps) {

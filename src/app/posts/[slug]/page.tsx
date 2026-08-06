@@ -12,12 +12,12 @@ import { isValidSlug } from '@/lib/validation'
 const DEFAULT_METADATA = getDefaultMetadata('Post')
 
 export default function PostPage({ params }: PageProps) {
-  const slug = params?.slug
+  const slug = params.slug
   if (!isValidSlug(slug))
     return <div>Invalid post path.</div>
 
   const post = getPostBySlug(slug)
-  if (!post)
+  if (post === null)
     return <div>Post not found.</div>
 
   return (
@@ -39,7 +39,7 @@ export default function PostPage({ params }: PageProps) {
         <h1 className="text-4xl font-bold text-white sm:text-5xl">
           {post.title}
         </h1>
-        {post.tags && post.tags.length > 0 && (
+        {post.tags !== undefined && post.tags.length > 0 && (
           <ul className="mt-3 flex list-none flex-wrap gap-2 p-0">
             {post.tags.map(tag => (
               <li
@@ -60,7 +60,7 @@ export default function PostPage({ params }: PageProps) {
 }
 
 export function generateMetadata({ params }: PageProps) {
-  const slug = params?.slug
+  const slug = params.slug
 
   if (!isValidSlug(slug))
     return DEFAULT_METADATA
@@ -68,12 +68,12 @@ export function generateMetadata({ params }: PageProps) {
   try {
     const post = getPostBySlug(slug)
 
-    if (!post)
+    if (post === null)
       return DEFAULT_METADATA
 
     const metadata = createMetadata(
       post.title,
-      post.description || DEFAULT_METADATA.description,
+      post.description === '' ? DEFAULT_METADATA.description : post.description,
     )
 
     return metadata

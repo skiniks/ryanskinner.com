@@ -3,8 +3,8 @@ import { getPosts } from '@/lib/posts'
 
 const baseUrl = 'https://ryanskinner.com'
 
-export default async function sitemap(): Promise<Sitemap> {
-  const posts = await getPosts()
+export default function sitemap(): Sitemap {
+  const posts = getPosts()
 
   return [
     {
@@ -20,7 +20,7 @@ export default async function sitemap(): Promise<Sitemap> {
       priority: 0.9,
     },
     ...posts
-      .filter(post => !post.externalUrl)
+      .filter(post => post.externalUrl === undefined || post.externalUrl === '')
       .map(post => ({
         url: `${baseUrl}/posts/${post.slug}`,
         lastModified: new Date(post.date),
