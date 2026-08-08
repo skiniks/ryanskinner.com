@@ -1,3 +1,4 @@
+import type { ComponentType } from 'react'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { cwd } from 'node:process'
@@ -31,16 +32,8 @@ function findContentFile(filePath: string): string | null {
   return null
 }
 
-export default async function MdxRenderer({
-  filePath,
-  className = '',
-}: MdxRendererProps) {
-  // eslint-disable-next-line react/error-boundaries
+async function loadMdxContent(content: string): Promise<ComponentType | null> {
   try {
-    const content = findContentFile(filePath)
-    if (content === null || content === '')
-      return <NotFoundPage />
-
     const highlighter = await getHighlighter()
 
     const { default: MDXContent } = await evaluate(content, {
@@ -60,20 +53,35 @@ export default async function MdxRenderer({
       ],
     })
 
-    return (
-      <div
-        className={`prose prose-invert max-w-none overflow-hidden ${className}`}
-        style={{
-          wordWrap: 'break-word',
-          overflowWrap: 'break-word',
-        }}
-      >
-        <MDXContent />
-      </div>
-    )
+    return MDXContent
   }
   catch (error) {
     console.error('Error in MdxRenderer:', error)
-    return <NotFoundPage />
+    return null
   }
+}
+
+export default async function MdxRenderer({
+  filePath,
+  className = '',
+}: MdxRendererProps) {
+  const content = findContentFile(filePath)
+  if (content === null || content === '')
+    return <NotFoundPage />
+
+  const MDXContent = await loadMdxContent(content)
+  if (MDXContent === null)
+    return <NotFoundPage />
+
+  return (
+    <div
+      className={`prose prose-invert max-w-none overflow-hidden ${className}`}
+      style={{
+        wordWrap: 'break-word',
+        overflowWrap: 'break-word',
+      }}
+    >
+      <MDXContent />
+    </div>
+  )
 }
