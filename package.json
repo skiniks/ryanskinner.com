@@ -23,7 +23,7 @@
     "@shikijs/langs": "^4.4.3",
     "@shikijs/themes": "^4.4.3",
     "@shikijs/types": "^4.4.3",
-    "rari": "^0.15.11",
+    "rari": "^0.15.12",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "remark-gfm": "^4.0.1"
@@ -39,6 +39,6 @@
     "tailwindcss": "^4.3.3",
     "typescript": "npm:@typescript/typescript6@^6.0.2",
     "typescript-7": "npm:typescript@^7.0.2",
-    "vite-plus": "^0.2.8"
+    "vite-plus": "^0.2.9"
   }
 }
