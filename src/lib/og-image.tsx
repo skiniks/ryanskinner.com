@@ -89,7 +89,7 @@ export function generateOGImage({
                   padding: '4px 16px',
                   fontSize: 18,
                   fontWeight: 600,
-                  color: '#fff',
+                  color: '#ffffff',
                 }}
               >
                 {tag}
