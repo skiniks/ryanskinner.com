@@ -1,4 +1,5 @@
 import type { Sitemap } from 'rari'
+import { parseDate } from '@/lib/dates'
 import { getPosts } from '@/lib/posts'
 
 const baseUrl = 'https://ryanskinner.com'
@@ -23,7 +24,7 @@ export default function sitemap(): Sitemap {
       .filter(post => post.externalUrl === undefined || post.externalUrl === '')
       .map(post => ({
         url: `${baseUrl}/posts/${post.slug}`,
-        lastModified: new Date(post.date),
+        lastModified: parseDate(post.date),
         changeFrequency: 'monthly' as const,
         priority: 0.8,
       })),

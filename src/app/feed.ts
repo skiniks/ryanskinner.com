@@ -1,4 +1,5 @@
 import type { Feed } from 'rari'
+import { parseDate } from '@/lib/dates'
 import { getPosts } from '@/lib/posts'
 
 const baseUrl = 'https://ryanskinner.com'
@@ -19,7 +20,7 @@ export default function feed(): Feed {
         title: post.title,
         url: `${baseUrl}/posts/${post.slug}`,
         description: post.description,
-        pubDate: new Date(post.date),
+        pubDate: parseDate(post.date),
         categories: post.tags,
       })),
   }

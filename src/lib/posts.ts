@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'
+import { parseDate, toDateOnly } from '@/lib/dates'
 
 const EXPORT_REGEX = /^export const (\w+) = (.+)$/gm
 const FRONTMATTER_CONTENT_REGEX = /^export const \w+ = .+$/gm
@@ -86,7 +87,7 @@ function toPost(slug: string, data: FrontmatterData, content: string, readingTim
     slug,
     title: data.title ?? 'Untitled',
     description: data.description ?? '',
-    date: data.date ?? new Date().toISOString(),
+    date: data.date === undefined ? toDateOnly(new Date().toISOString()) : toDateOnly(data.date),
     tags: data.tags === undefined ? [] : [...data.tags],
     content,
     readingTime,
@@ -119,7 +120,7 @@ export function getPosts(limit?: number): Post[] {
 
         return toPost(slug, data, content, readingTime)
       })
-      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      .sort((a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime())
 
     return limit === undefined ? posts : posts.slice(0, limit)
   }
