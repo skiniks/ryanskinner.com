@@ -13,9 +13,7 @@ export default defineConfig({
       },
       cacheControl: {
         routes: {
-          '/': 'public, max-age=3600, stale-while-revalidate=86400',
-          '/posts': 'public, max-age=3600, stale-while-revalidate=86400',
-          '/posts/*': 'public, max-age=86400, stale-while-revalidate=604800',
+          '/': 'public, max-age=86400, stale-while-revalidate=86400',
         },
       },
       cache: {

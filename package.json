@@ -23,7 +23,7 @@
     "@shikijs/langs": "^4.4.3",
     "@shikijs/themes": "^4.4.3",
     "@shikijs/types": "^4.4.3",
-    "rari": "^0.15.12",
+    "rari": "^0.15.13",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "remark-gfm": "^4.0.1"
