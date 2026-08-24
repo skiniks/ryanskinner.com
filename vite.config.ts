@@ -17,12 +17,13 @@ export default defineConfig({
         },
       },
       cache: {
+        maxBytes: 24 * 1024 * 1024,
         layers: {
-          response: {
-            handler: 'memory',
-            maxEntries: 1000,
-            maxBytes: 128 * 1024 * 1024,
-          },
+          response: { maxEntries: 40 },
+          layout: { maxEntries: 40 },
+          image: { maxEntries: 20 },
+          og: { maxEntries: 20 },
+          fetch: { maxEntries: 32 },
         },
       },
       images: {
