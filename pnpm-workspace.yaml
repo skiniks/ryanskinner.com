@@ -5,7 +5,7 @@ minimumReleaseAgeExclude:
   - rari-linux-x64@0.15.14
   - rari-win32-arm64@0.15.14
   - rari-win32-x64@0.15.14
-  - rari@0.15.14
+  - rari@0.15.15
   - '@rari/use-cache-darwin-arm64@0.15.14'
   - '@rari/use-cache-darwin-x64@0.15.14'
   - '@rari/use-cache-linux-arm64@0.15.14'

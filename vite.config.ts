@@ -7,6 +7,7 @@ import { fmt, lint } from '@rari/lint/vite'
 export default defineConfig({
   plugins: [
     rari({
+      compiler: true,
       csp: {
         scriptSrc: ['\'self\'', '\'unsafe-inline\'', 'https://www.googletagmanager.com'],
         connectSrc: ['\'self\'', 'ws:', 'wss:', 'https://www.google-analytics.com', 'https://www.googletagmanager.com'],
