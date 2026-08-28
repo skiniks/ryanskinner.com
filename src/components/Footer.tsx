@@ -4,7 +4,6 @@ import Rari from '@/components/icons/Rari'
 import { getLatestCommitHash } from '@/lib/github'
 
 export default async function Footer() {
-  // eslint-disable-next-line react/purity
   const currentYear = new Date().getFullYear()
   const commitHash = await getLatestCommitHash()
 

@@ -18,7 +18,7 @@ export function rehypeTableWrapper() {
 
 function visit(
   node: { children?: HastNode[] },
-  test: (node: HastNode) => boolean,
+  test: (_node: HastNode) => boolean,
 ): void {
   if (node.children === undefined)
     return
