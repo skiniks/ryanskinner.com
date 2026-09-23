@@ -1,4 +1,15 @@
-**[ryanskinner.com](https://ryanskinner.com)**
+<div style="width: 200px">
+  <a href="https://ryanskinner.com" target="_blank">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset=".github/assets/ryanskinner-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset=".github/assets/ryanskinner-light.svg">
+      <img alt="Ryan Skinner" src=".github/assets/ryanskinner-light.svg" width="200">
+    </picture>
+  </a>
+  <p align="center">
+    <strong><a href="https://ryanskinner.com">ryanskinner.com</a></strong>
+  </p>
+</div>
 
 My personal website built with **[rari](https://rari.build)**.
 
