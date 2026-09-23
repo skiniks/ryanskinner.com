@@ -1,12 +1,12 @@
-<a href="https://ryanskinner.com" target="_blank">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset=".github/assets/ryanskinner-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset=".github/assets/ryanskinner-light.svg">
-    <img alt="Ryan Skinner" src=".github/assets/ryanskinner-light.svg" width="200">
-  </picture>
-</a>
-
-<br>
+<p>
+  <a href="https://ryanskinner.com" target="_blank">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset=".github/assets/ryanskinner-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset=".github/assets/ryanskinner-light.svg">
+      <img alt="Ryan Skinner" src=".github/assets/ryanskinner-light.svg" width="200">
+    </picture>
+  </a>
+</p>
 
 My personal website built with **[rari](https://rari.build)**.
 
