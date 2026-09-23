@@ -1,5 +1,5 @@
-import { getPosts } from '@/lib/posts'
-import Button from './Button'
+import { getPosts } from '@/lib/content/post'
+import Button from '@/components/ui/Button'
 import PostCard from './PostCard'
 
 export default function RecentPosts() {

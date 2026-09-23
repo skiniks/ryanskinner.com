@@ -15,6 +15,8 @@ export default defineConfig({
       cacheControl: {
         routes: {
           '/': 'public, max-age=86400, stale-while-revalidate=86400',
+          '/posts': 'public, max-age=86400, stale-while-revalidate=86400',
+          '/posts/*': 'public, max-age=86400, stale-while-revalidate=86400',
         },
       },
       cache: {
@@ -28,14 +30,7 @@ export default defineConfig({
         },
       },
       images: {
-        deviceSizes: [1920],
-        imageSizes: [384, 640, 750, 828, 1080, 1200, 1920],
         qualityAllowlist: [25, 50, 75, 100],
-        localPatterns: [
-          {
-            pathname: '/images/**',
-          },
-        ],
       },
     }),
     tailwindcss(),

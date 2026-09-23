@@ -1,35 +1,26 @@
 import type { ComponentType } from 'react'
 import { readFileSync } from 'node:fs'
-import { resolve } from 'node:path'
-import { cwd } from 'node:process'
 import { evaluate } from 'rari/mdx'
 import * as runtime from 'react/jsx-runtime'
 import remarkGfm from 'remark-gfm'
 import NotFoundPage from '@/app/not-found'
-import { rehypeTableWrapper } from '@/lib/rehype-table-wrapper'
-import { rehypeCodeBlock } from '@/lib/remark-codeblock'
-import { getHighlighter, SHIKI_THEME } from '@/lib/shiki'
+import { contentFilePath } from '@/lib/content/paths'
+import { rehypeTableWrapper } from '@/lib/mdx/rehype-table-wrapper'
+import { rehypeCodeBlock } from '@/lib/mdx/remark-codeblock'
+import { getHighlighter, SHIKI_THEME } from '@/lib/mdx/shiki'
 
 interface MdxRendererProps {
   readonly filePath: string
   readonly className?: string
 }
 
-function findContentFile(filePath: string): string | null {
-  const searchPaths = [
-    resolve(cwd(), 'public', 'content', filePath),
-    resolve(cwd(), 'content', filePath),
-    resolve(cwd(), 'dist', 'content', filePath),
-  ]
-
-  for (const path of searchPaths) {
-    try {
-      return readFileSync(path, 'utf-8')
-    }
-    catch {}
+function readContentFile(filePath: string): string | null {
+  try {
+    return readFileSync(contentFilePath(filePath), 'utf-8')
   }
-
-  return null
+  catch {
+    return null
+  }
 }
 
 async function loadMdxContent(content: string): Promise<ComponentType | null> {
@@ -65,7 +56,7 @@ export default async function MdxRenderer({
   filePath,
   className = '',
 }: MdxRendererProps) {
-  const content = findContentFile(filePath)
+  const content = readContentFile(filePath)
   if (content === null || content === '')
     return <NotFoundPage />
 

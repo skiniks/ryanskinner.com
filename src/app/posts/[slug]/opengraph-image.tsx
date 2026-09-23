@@ -1,6 +1,6 @@
 import type { PageProps } from 'rari'
-import { generateOGImage } from '@/lib/og-image'
-import { getPostBySlug } from '@/lib/posts'
+import { generateOGImage } from '@/lib/site/og-image'
+import { getPostBySlug } from '@/lib/content/post'
 
 export default function Image({ params }: PageProps) {
   const slug = params.slug

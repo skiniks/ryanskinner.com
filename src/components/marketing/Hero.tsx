@@ -1,4 +1,5 @@
-import { linkStyles } from '@/lib/styles'
+import { rariUrl } from '@/lib/site'
+import { linkStyle } from '@/lib/site/style'
 
 export default function Hero() {
   return (
@@ -23,7 +24,7 @@ export default function Hero() {
           enhancing the developer experience, and pushing the boundaries of the
           modern web. I'm currently building
           {' '}
-          <a href="https://rari.build" target="_blank" rel="noopener noreferrer" className={linkStyles.underline}>rari</a>
+          <a href={rariUrl} target="_blank" rel="noopener noreferrer" className={linkStyle.underline}>rari</a>
           , a React Server Components framework powered by a Rust runtime that delivers 53x higher throughput and 14.5x faster response times than Next.js.
         </h2>
       </div>

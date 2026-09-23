@@ -2,21 +2,23 @@ import Bluesky from '@/components/icons/Bluesky'
 import Github from '@/components/icons/Github'
 import Rari from '@/components/icons/Rari'
 import { getLatestCommitHash } from '@/lib/github'
+import { blueskyUrl, contentLicense, contentLicenseUrl, githubRepoUrl, githubUrl, rariUrl, siteName } from '@/lib/site'
+import { currentYear } from '@/lib/utils/date'
 
 export default async function Footer() {
-  const currentYear = new Date().getFullYear()
+  const copyrightYear = currentYear()
   const commitHash = await getLatestCommitHash()
 
   const links = [
     {
       name: 'GitHub',
-      url: 'https://github.com/skiniks',
+      url: githubUrl,
       icon: <Github className="h-6 w-6 relative z-10" />,
       gradient: 'from-[#fd7e14]/10 to-[#e8590c]/10',
     },
     {
       name: 'Bluesky',
-      url: 'https://bsky.app/profile/ryanskinner.com',
+      url: blueskyUrl,
       icon: <Bluesky className="h-6 w-6 relative z-10" />,
       gradient: 'from-blue-500/10 to-cyan-500/10',
     },
@@ -28,24 +30,24 @@ export default async function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
           <p className="text-center text-sm leading-5 text-gray-300 sm:text-left order-2 sm:order-1">
             <a
-              href="https://creativecommons.org/licenses/by-sa/4.0/"
+              href={contentLicenseUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="footer-link relative hover:text-gray-100 transition-colors duration-200"
             >
-              CC BY-SA 4.0
+              {contentLicense}
             </a>
             {' '}
             &copy; 2023-
-            {currentYear}
+            {copyrightYear}
             {' '}
-            Ryan Skinner
+            {siteName}
             {commitHash !== null && commitHash !== '' && (
               <>
                 {' '}
                 (
                 <a
-                  href={`https://github.com/skiniks/ryanskinner.com/commit/${commitHash}`}
+                  href={`${githubRepoUrl}/commit/${commitHash}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:underline hover:text-gray-200 transition-colors"
@@ -57,7 +59,7 @@ export default async function Footer() {
             )}
           </p>
           <a
-            href="https://rari.build"
+            href={rariUrl}
             className="flex items-center justify-center gap-2 text-gray-300 hover:text-gray-100 transition-colors duration-200 group order-1 sm:order-2"
             target="_blank"
             rel="noopener noreferrer"

@@ -1,9 +1,9 @@
-import Button from '@/components/Button'
+import Button from '@/components/ui/Button'
 import ChevronLeft from '@/components/icons/ChevronLeft'
 import ChevronRight from '@/components/icons/ChevronRight'
-import PostCard from '@/components/PostCard'
-import { createMetadata } from '@/lib/metadata'
-import { getPaginatedPosts } from '@/lib/posts'
+import PostCard from '@/components/marketing/PostCard'
+import { createMetadata } from '@/lib/content/metadata'
+import { getPaginatedPosts } from '@/lib/content/post'
 
 interface PostsPageProps {
   readonly searchParams: Readonly<{ page?: string }>
@@ -75,4 +75,5 @@ export default function PostsPage({ searchParams }: PostsPageProps) {
 export const metadata = createMetadata(
   'Posts',
   'Blog posts about software engineering, React, performance, and modern web technologies.',
+  { path: '/posts' },
 )

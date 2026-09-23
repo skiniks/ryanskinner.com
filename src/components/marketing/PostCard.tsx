@@ -1,7 +1,7 @@
 import ArrowNarrowRight from '@/components/icons/ArrowNarrowRight'
 import ExternalLink from '@/components/icons/ExternalLink'
-import { formatDate } from '@/lib/dates'
-import { badgeStyles, getCardClasses } from '@/lib/styles'
+import { formatDate } from '@/lib/utils/date'
+import { badgeStyle, getCardClasses } from '@/lib/site/style'
 
 interface PostCardProps {
   readonly slug: string
@@ -34,7 +34,7 @@ export default function PostCard({
         <div className="flex flex-wrap items-center gap-2 text-sm">
           <time
             dateTime={date}
-            className={badgeStyles.date}
+            className={badgeStyle.date}
           >
             {formatDate(date)}
           </time>
@@ -46,7 +46,7 @@ export default function PostCard({
                 </span>
               )
             : (
-                <span className={badgeStyles.readingTime}>
+                <span className={badgeStyle.readingTime}>
                   {readingTime}
                   {' '}
                   min read

@@ -1,7 +1,6 @@
 import fs from 'node:fs'
-import path from 'node:path'
-import process from 'node:process'
-import { parseDate, toDateOnly } from '@/lib/dates'
+import { contentDir, contentFilePath } from '@/lib/content/paths'
+import { parseDate, toDateOnly } from '@/lib/utils/date'
 
 const EXPORT_REGEX = /^export const (\w+) = (.+)$/gm
 const FRONTMATTER_CONTENT_REGEX = /^export const \w+ = .+$/gm
@@ -97,11 +96,9 @@ function toPost(slug: string, data: FrontmatterData, content: string, readingTim
 
 export function getPosts(limit?: number): Post[] {
   try {
-    const postsDirectory = path.join(process.cwd(), 'public/content')
-
     let filenames: string[]
     try {
-      filenames = fs.readdirSync(postsDirectory)
+      filenames = fs.readdirSync(contentDir)
     }
     catch {
       return []
@@ -111,8 +108,7 @@ export function getPosts(limit?: number): Post[] {
       .filter(filename => filename.endsWith('.md') || filename.endsWith('.mdx'))
       .map((filename) => {
         const slug = filename.replace(MARKDOWN_EXTENSIONS, '')
-        const filePath = path.join(postsDirectory, filename)
-        const fileContents = fs.readFileSync(filePath, 'utf8')
+        const fileContents = fs.readFileSync(contentFilePath(filename), 'utf8')
         const { data, content } = parseFrontmatter(fileContents)
         const readingTime = data.externalUrl === undefined
           ? calculateReadingTime(content)
@@ -128,10 +124,6 @@ export function getPosts(limit?: number): Post[] {
     console.error('Error in getPosts:', error)
     return []
   }
-}
-
-export function getAllPosts(limit?: number): Post[] {
-  return getPosts(limit)
 }
 
 export function getPaginatedPosts(page: number = 1, postsPerPage: number = 9): { posts: Post[], totalPages: number, currentPage: number } {
@@ -165,8 +157,7 @@ export function getPostBySlug(slug: string): Post | null {
 
     for (const ext of extensions) {
       try {
-        const filePath = path.join(process.cwd(), 'public/content', `${slug}.${ext}`)
-        fileContents = fs.readFileSync(filePath, 'utf8')
+        fileContents = fs.readFileSync(contentFilePath(`${slug}.${ext}`), 'utf8')
         break
       }
       catch {

@@ -1,4 +1,4 @@
-import Button from '@/components/Button'
+import Button from '@/components/ui/Button'
 import RyanSkinner from '@/components/icons/RyanSkinner'
 
 export default function Navbar() {

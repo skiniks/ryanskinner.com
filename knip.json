@@ -4,10 +4,10 @@
     "src/app/**/*.{ts,tsx}",
     "src/components/**/*.{ts,tsx}",
     "src/lib/**/*.{ts,tsx}",
-    "public/content/**/*.mdx"
+    "src/content/**/*.mdx"
   ],
   "project": [
     "src/**/*.{ts,tsx,css}",
-    "public/content/**/*.mdx"
+    "src/content/**/*.mdx"
   ]
 }

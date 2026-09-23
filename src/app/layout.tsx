@@ -1,27 +1,47 @@
 import type { LayoutProps, Metadata } from 'rari'
-import Footer from '@/components/Footer'
-import Navbar from '@/components/Navbar'
+import Analytics from '@/components/ui/Analytics'
+import Footer from '@/components/ui/Footer'
+import Navbar from '@/components/ui/Navbar'
+import { absoluteUrl, feedUrl, siteDescription, siteName } from '@/lib/site'
+import './globals.css'
 
 // oxlint-disable-next-line typescript/prefer-readonly-parameter-types
-export default function RootLayout({ children }: LayoutProps) {
+export default function Layout({ children }: LayoutProps) {
   return (
-    <>
-      <Navbar />
-      <main>
-        {children}
-      </main>
-      <Footer />
-    </>
+    <html lang="en">
+      <head>
+        <Analytics />
+      </head>
+      <body className="bg-gray-950 text-gray-100">
+        <Navbar />
+        <main>
+          {children}
+        </main>
+        <Footer />
+      </body>
+    </html>
   )
 }
 
 export const metadata: Metadata = {
-  title: 'Ryan Skinner',
-  description:
-    'Software engineer specializing in high-performance web applications. Expert in React and modern server-side technologies, focused on creating exceptional developer experiences and pushing the boundaries of the modern web.',
+  title: siteName,
+  description: siteDescription,
   alternates: {
     types: {
-      'application/rss+xml': 'https://ryanskinner.com/feed.xml',
+      'application/rss+xml': feedUrl,
     },
+  },
+  openGraph: {
+    title: siteName,
+    description: siteDescription,
+    siteName,
+    locale: 'en_US',
+    type: 'website',
+    url: absoluteUrl('/'),
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteName,
+    description: siteDescription,
   },
 }

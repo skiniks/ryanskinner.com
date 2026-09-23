@@ -61,3 +61,7 @@ export function isFutureDate(dateString: string): boolean {
 
   return date >= now
 }
+
+export function currentYear(): number {
+  return new Date().getFullYear()
+}

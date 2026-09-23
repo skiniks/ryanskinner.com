@@ -1,13 +1,12 @@
 import type { PageProps } from 'rari'
 import { readdirSync, readFileSync } from 'node:fs'
-import { join } from 'node:path'
-import process from 'node:process'
-import MdxRenderer from '@/components/MdxRenderer'
-import { formatDate } from '@/lib/dates'
-import { createMetadata, getDefaultMetadata } from '@/lib/metadata'
-import { getPostBySlug } from '@/lib/posts'
-import { badgeStyles } from '@/lib/styles'
-import { isValidSlug } from '@/lib/validation'
+import MdxRenderer from '@/components/content/MdxRenderer'
+import { createMetadata, getDefaultMetadata } from '@/lib/content/metadata'
+import { contentDir, contentFilePath } from '@/lib/content/paths'
+import { getPostBySlug } from '@/lib/content/post'
+import { badgeStyle } from '@/lib/site/style'
+import { formatDate } from '@/lib/utils/date'
+import { isValidSlug } from '@/lib/utils/validation'
 
 const DEFAULT_METADATA = getDefaultMetadata('Post')
 
@@ -26,11 +25,11 @@ export default function PostPage({ params }: PageProps) {
         <div className="mb-4 flex flex-wrap items-center gap-2">
           <time
             dateTime={post.date}
-            className={badgeStyles.date}
+            className={badgeStyle.date}
           >
             {formatDate(post.date)}
           </time>
-          <span className={badgeStyles.readingTime}>
+          <span className={badgeStyle.readingTime}>
             {post.readingTime}
             {' '}
             min read
@@ -44,7 +43,7 @@ export default function PostPage({ params }: PageProps) {
             {post.tags.map(tag => (
               <li
                 key={tag}
-                className={badgeStyles.tag}
+                className={badgeStyle.tag}
               >
                 {tag}
               </li>
@@ -73,7 +72,8 @@ export function generateMetadata({ params }: PageProps) {
 
     const metadata = createMetadata(
       post.title,
-      post.description === '' ? DEFAULT_METADATA.description : post.description,
+      post.description === '' ? DEFAULT_METADATA.description ?? '' : post.description,
+      { path: `/posts/${slug}`, type: 'article' },
     )
 
     return metadata
@@ -84,15 +84,13 @@ export function generateMetadata({ params }: PageProps) {
 }
 
 export function generateStaticParams() {
-  const contentDir = join(process.cwd(), 'public', 'content')
-
   try {
     const entries = readdirSync(contentDir)
     return entries
       .filter((entry) => {
         if (!entry.endsWith('.mdx'))
           return false
-        const content = readFileSync(join(contentDir, entry), 'utf8')
+        const content = readFileSync(contentFilePath(entry), 'utf8')
         return !content.includes('export const externalUrl')
       })
       .map(entry => ({ slug: entry.replace(/\.mdx$/, '') }))

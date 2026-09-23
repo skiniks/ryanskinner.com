@@ -1,6 +1,8 @@
-import Hero from '@/components/Hero'
-import RecentPosts from '@/components/RecentPosts'
-import UpcomingTalks from '@/components/UpcomingTalks'
+import type { Metadata } from 'rari'
+import Hero from '@/components/marketing/Hero'
+import RecentPosts from '@/components/marketing/RecentPosts'
+import UpcomingTalks from '@/components/marketing/UpcomingTalks'
+import { absoluteUrl, siteDescription, siteHomeTitle, siteName } from '@/lib/site'
 
 export default function HomePage() {
   return (
@@ -12,8 +14,20 @@ export default function HomePage() {
   )
 }
 
-export const metadata = {
-  title: 'Ryan Skinner — Software Engineer & Creator of rari',
-  description:
-    'Software engineer building high-performance web applications. Creator of rari, a React Server Components framework powered by Rust.',
+export const metadata: Metadata = {
+  title: siteHomeTitle,
+  description: siteDescription,
+  openGraph: {
+    title: siteHomeTitle,
+    description: siteDescription,
+    siteName,
+    locale: 'en_US',
+    type: 'website',
+    url: absoluteUrl('/'),
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteHomeTitle,
+    description: siteDescription,
+  },
 }

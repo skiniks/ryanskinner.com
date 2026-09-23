@@ -1,4 +1,5 @@
 import type { Robots } from 'rari'
+import { sitemapUrl } from '@/lib/site'
 
 export default function robots(): Robots {
   return {
@@ -6,6 +7,6 @@ export default function robots(): Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://ryanskinner.com/sitemap.xml',
+    sitemap: sitemapUrl,
   }
 }

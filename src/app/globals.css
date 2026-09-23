@@ -321,12 +321,23 @@ button:focus-visible {
   }
 }
 
+.card-gradient::before {
+  background-image: url('/textures/card-bg.avif');
+  background-size: 150% 150%;
+  background-position: center;
+  animation: move-background 8s ease-in-out infinite;
+}
+
+.card-gradient:hover::before {
+  filter: brightness(1.3);
+}
+
 .button-primary::before {
   content: '';
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image: url('/assets/small-bg.avif');
+  background-image: url('/textures/small-bg.avif');
   background-size: 150% 150%;
   background-position: center;
   transition: filter 0.3s ease;
