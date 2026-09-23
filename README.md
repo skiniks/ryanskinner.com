@@ -6,6 +6,8 @@
   </picture>
 </a>
 
+<br>
+
 My personal website built with **[rari](https://rari.build)**.
 
 Code is licensed under <a href="./LICENSE">MIT</a>, words & images are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
