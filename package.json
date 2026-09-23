@@ -6,6 +6,9 @@
   "description": "Personal website for Ryan Skinner, built with rari",
   "author": "Ryan Skinner",
   "license": "MIT",
+  "engines": {
+    "node": ">=24.21.0"
+  },
   "scripts": {
     "build": "rari build",
     "dev": "rari dev",
@@ -27,6 +30,10 @@
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "remark-gfm": "^4.0.1"
+  },
+  "optionalDependencies": {
+    "rari-linux-arm64": "0.16.0",
+    "rari-linux-x64": "0.16.0"
   },
   "devDependencies": {
     "@rari/lint": "^0.1.3",
