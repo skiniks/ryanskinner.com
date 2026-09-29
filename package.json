@@ -2,7 +2,7 @@
   "name": "ryanskinner.com",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@12.8.0",
+  "packageManager": "pnpm@12.8.1",
   "description": "Personal website for Ryan Skinner, built with rari",
   "author": "Ryan Skinner",
   "license": "MIT",
