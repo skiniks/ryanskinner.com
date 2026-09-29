@@ -3,8 +3,8 @@ import { getPosts } from '@/lib/content/post'
 import { absoluteUrl, siteName, siteTagline } from '@/lib/site'
 import { currentYear, parseDate } from '@/lib/utils/date'
 
-export default function feed(): Feed {
-  const posts = getPosts()
+export default async function feed(): Promise<Feed> {
+  const posts = await getPosts()
 
   return {
     title: siteName,

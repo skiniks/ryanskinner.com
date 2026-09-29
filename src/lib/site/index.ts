@@ -2,7 +2,7 @@ export const siteUrl = 'https://ryanskinner.com'
 
 export const siteName = 'Ryan Skinner'
 
-export const siteHomeTitle = `${siteName} — Software Engineer & Creator of rari`
+export const siteHomeTitle = `${siteName} - Software Engineer & Creator of rari`
 
 export const siteDescription
   = 'Software engineer specializing in high-performance web applications. Expert in React and modern server-side technologies, focused on creating exceptional developer experiences and pushing the boundaries of the modern web.'

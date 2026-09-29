@@ -1,5 +1,6 @@
 import type { PageProps } from 'rari'
-import { readdirSync, readFileSync } from 'node:fs'
+import { readdir, readFile } from 'node:fs/promises'
+import { notFound } from 'rari'
 import MdxRenderer from '@/components/content/MdxRenderer'
 import { createMetadata, getDefaultMetadata } from '@/lib/content/metadata'
 import { contentDir, contentFilePath } from '@/lib/content/paths'
@@ -10,14 +11,14 @@ import { isValidSlug } from '@/lib/utils/validation'
 
 const DEFAULT_METADATA = getDefaultMetadata('Post')
 
-export default function PostPage({ params }: PageProps) {
+export default async function PostPage({ params }: PageProps) {
   const slug = params.slug
   if (!isValidSlug(slug))
-    return <div>Invalid post path.</div>
+    notFound()
 
-  const post = getPostBySlug(slug)
-  if (post === null)
-    return <div>Post not found.</div>
+  const post = await getPostBySlug(slug)
+  if (post === null || (post.externalUrl != null && post.externalUrl !== ''))
+    notFound()
 
   return (
     <article className="mx-auto flex max-w-2xl flex-col gap-4 px-4 sm:px-6 py-12 sm:py-16">
@@ -51,49 +52,48 @@ export default function PostPage({ params }: PageProps) {
           </ul>
         )}
       </header>
-      <div className="prose prose-invert max-w-none prose-lg">
-        <MdxRenderer filePath={`${slug}.mdx`} />
-      </div>
+      <MdxRenderer filePath={`${slug}.mdx`} className="prose-lg" />
     </article>
   )
 }
 
-export function generateMetadata({ params }: PageProps) {
+export async function generateMetadata({ params }: PageProps) {
   const slug = params.slug
 
   if (!isValidSlug(slug))
     return DEFAULT_METADATA
 
   try {
-    const post = getPostBySlug(slug)
+    const post = await getPostBySlug(slug)
 
-    if (post === null)
+    if (post === null || (post.externalUrl != null && post.externalUrl !== ''))
       return DEFAULT_METADATA
 
-    const metadata = createMetadata(
+    return createMetadata(
       post.title,
       post.description === '' ? DEFAULT_METADATA.description ?? '' : post.description,
       { path: `/posts/${slug}`, type: 'article' },
     )
-
-    return metadata
   }
   catch {
     return DEFAULT_METADATA
   }
 }
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   try {
-    const entries = readdirSync(contentDir)
-    return entries
-      .filter((entry) => {
-        if (!entry.endsWith('.mdx'))
-          return false
-        const content = readFileSync(contentFilePath(entry), 'utf8')
-        return !content.includes('export const externalUrl')
-      })
-      .map(entry => ({ slug: entry.replace(/\.mdx$/, '') }))
+    const entries = await readdir(contentDir)
+    const slugs = await Promise.all(
+      entries
+        .filter(entry => entry.endsWith('.mdx'))
+        .map(async (entry) => {
+          const content = await readFile(contentFilePath(entry), 'utf8')
+          if (content.includes('export const externalUrl'))
+            return null
+          return { slug: entry.replace(/\.mdx$/, '') }
+        }),
+    )
+    return slugs.filter((entry): entry is { slug: string } => entry !== null)
   }
   catch {
     return []

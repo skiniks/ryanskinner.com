@@ -1,3 +1,4 @@
+import type { PageProps } from 'rari'
 import Button from '@/components/ui/Button'
 import ChevronLeft from '@/components/icons/ChevronLeft'
 import ChevronRight from '@/components/icons/ChevronRight'
@@ -5,13 +6,13 @@ import PostCard from '@/components/marketing/PostCard'
 import { createMetadata } from '@/lib/content/metadata'
 import { getPaginatedPosts } from '@/lib/content/post'
 
-interface PostsPageProps {
-  readonly searchParams: Readonly<{ page?: string }>
-}
-
-export default function PostsPage({ searchParams }: PostsPageProps) {
-  const currentPage = Number(searchParams.page) || 1
-  const { posts, totalPages } = getPaginatedPosts(currentPage, 9)
+export default async function PostsPage({ searchParams }: PageProps) {
+  const pageParam = searchParams.page
+  const requestedPage = Number(typeof pageParam === 'string' ? pageParam : pageParam?.[0])
+  const { posts, totalPages, currentPage } = await getPaginatedPosts(
+    Number.isFinite(requestedPage) ? requestedPage : 1,
+    9,
+  )
 
   return (
     <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">

@@ -1,10 +1,11 @@
 import type { ComponentType } from 'react'
-import { readFileSync } from 'node:fs'
+import { readFile } from 'node:fs/promises'
+import { notFound } from 'rari'
 import { evaluate } from 'rari/mdx'
 import * as runtime from 'react/jsx-runtime'
 import remarkGfm from 'remark-gfm'
-import NotFoundPage from '@/app/not-found'
 import { contentFilePath } from '@/lib/content/paths'
+import { withMdxEvaluateCache } from '@/lib/mdx/evaluate-cached'
 import { rehypeTableWrapper } from '@/lib/mdx/rehype-table-wrapper'
 import { rehypeCodeBlock } from '@/lib/mdx/remark-codeblock'
 import { getHighlighter, SHIKI_THEME } from '@/lib/mdx/shiki'
@@ -14,55 +15,49 @@ interface MdxRendererProps {
   readonly className?: string
 }
 
-function readContentFile(filePath: string): string | null {
+async function readContentFile(filePath: string): Promise<string | null> {
   try {
-    return readFileSync(contentFilePath(filePath), 'utf-8')
+    return await readFile(contentFilePath(filePath), 'utf-8')
   }
   catch {
     return null
   }
 }
 
-async function loadMdxContent(content: string): Promise<ComponentType | null> {
-  try {
-    const highlighter = await getHighlighter()
+async function evaluateMdx(content: string): Promise<ComponentType> {
+  const highlighter = await getHighlighter()
 
-    const { default: MDXContent } = await evaluate(content, {
-      ...runtime,
-      baseUrl: import.meta.url,
-      development: false,
-      remarkPlugins: [remarkGfm],
-      rehypePlugins: [
-        [
-          rehypeCodeBlock,
-          {
-            highlighter,
-            theme: SHIKI_THEME,
-          },
-        ],
-        rehypeTableWrapper,
+  const { default: MDXContent } = await evaluate(content, {
+    ...runtime,
+    baseUrl: import.meta.url,
+    development: false,
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [
+      [
+        rehypeCodeBlock,
+        {
+          highlighter,
+          theme: SHIKI_THEME,
+        },
       ],
-    })
+      rehypeTableWrapper,
+    ],
+  })
 
-    return MDXContent
-  }
-  catch (error) {
-    console.error('Error in MdxRenderer:', error)
-    return null
-  }
+  return MDXContent
 }
 
 export default async function MdxRenderer({
   filePath,
   className = '',
 }: MdxRendererProps) {
-  const content = readContentFile(filePath)
+  const content = await readContentFile(filePath)
   if (content === null || content === '')
-    return <NotFoundPage />
+    notFound()
 
-  const MDXContent = await loadMdxContent(content)
-  if (MDXContent === null)
-    return <NotFoundPage />
+  const MDXContent = await withMdxEvaluateCache(filePath, content, async () =>
+    evaluateMdx(content),
+  )
 
   return (
     <div

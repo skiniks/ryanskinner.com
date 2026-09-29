@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+import { readdir, readFile } from 'node:fs/promises'
 import { contentDir, contentFilePath } from '@/lib/content/paths'
 import { parseDate, toDateOnly } from '@/lib/utils/date'
 
@@ -94,29 +94,32 @@ function toPost(slug: string, data: FrontmatterData, content: string, readingTim
   }
 }
 
-export function getPosts(limit?: number): Post[] {
+export async function getPosts(limit?: number): Promise<Post[]> {
   try {
     let filenames: string[]
     try {
-      filenames = fs.readdirSync(contentDir)
+      filenames = await readdir(contentDir)
     }
     catch {
       return []
     }
 
-    const posts = filenames
-      .filter(filename => filename.endsWith('.md') || filename.endsWith('.mdx'))
-      .map((filename) => {
-        const slug = filename.replace(MARKDOWN_EXTENSIONS, '')
-        const fileContents = fs.readFileSync(contentFilePath(filename), 'utf8')
-        const { data, content } = parseFrontmatter(fileContents)
-        const readingTime = data.externalUrl === undefined
-          ? calculateReadingTime(content)
-          : 0
+    const posts = await Promise.all(
+      filenames
+        .filter(filename => filename.endsWith('.md') || filename.endsWith('.mdx'))
+        .map(async (filename) => {
+          const slug = filename.replace(MARKDOWN_EXTENSIONS, '')
+          const fileContents = await readFile(contentFilePath(filename), 'utf8')
+          const { data, content } = parseFrontmatter(fileContents)
+          const readingTime = data.externalUrl === undefined
+            ? calculateReadingTime(content)
+            : 0
 
-        return toPost(slug, data, content, readingTime)
-      })
-      .sort((a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime())
+          return toPost(slug, data, content, readingTime)
+        }),
+    )
+
+    posts.sort((a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime())
 
     return limit === undefined ? posts : posts.slice(0, limit)
   }
@@ -126,18 +129,23 @@ export function getPosts(limit?: number): Post[] {
   }
 }
 
-export function getPaginatedPosts(page: number = 1, postsPerPage: number = 9): { posts: Post[], totalPages: number, currentPage: number } {
+export async function getPaginatedPosts(
+  page: number = 1,
+  postsPerPage: number = 9,
+): Promise<{ posts: Post[], totalPages: number, currentPage: number }> {
   try {
-    const allPosts = getPosts()
-    const totalPages = Math.ceil(allPosts.length / postsPerPage)
-    const startIndex = (page - 1) * postsPerPage
-    const endIndex = startIndex + postsPerPage
-    const posts = allPosts.slice(startIndex, endIndex)
+    const allPosts = await getPosts()
+    const totalPages = Math.max(1, Math.ceil(allPosts.length / postsPerPage))
+    const currentPage = Number.isFinite(page)
+      ? Math.min(Math.max(Math.trunc(page), 1), totalPages)
+      : 1
+    const startIndex = (currentPage - 1) * postsPerPage
+    const posts = allPosts.slice(startIndex, startIndex + postsPerPage)
 
     return {
       posts,
-      totalPages,
-      currentPage: page,
+      totalPages: allPosts.length === 0 ? 0 : totalPages,
+      currentPage,
     }
   }
   catch (error) {
@@ -145,19 +153,19 @@ export function getPaginatedPosts(page: number = 1, postsPerPage: number = 9): {
     return {
       posts: [],
       totalPages: 0,
-      currentPage: page,
+      currentPage: 1,
     }
   }
 }
 
-export function getPostBySlug(slug: string): Post | null {
+export async function getPostBySlug(slug: string): Promise<Post | null> {
   try {
-    const extensions = ['mdx', 'md']
+    const extensions = ['mdx', 'md'] as const
     let fileContents: string | null = null
 
     for (const ext of extensions) {
       try {
-        fileContents = fs.readFileSync(contentFilePath(`${slug}.${ext}`), 'utf8')
+        fileContents = await readFile(contentFilePath(`${slug}.${ext}`), 'utf8')
         break
       }
       catch {

@@ -1,4 +1,5 @@
 import type { Metadata } from 'rari'
+import { Suspense } from 'react'
 import Hero from '@/components/marketing/Hero'
 import RecentPosts from '@/components/marketing/RecentPosts'
 import UpcomingTalks from '@/components/marketing/UpcomingTalks'
@@ -8,7 +9,9 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <RecentPosts />
+      <Suspense fallback={null}>
+        <RecentPosts />
+      </Suspense>
       <UpcomingTalks />
     </>
   )

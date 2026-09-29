@@ -1,4 +1,5 @@
 import type { LayoutProps, Metadata } from 'rari'
+import { Suspense } from 'react'
 import Analytics from '@/components/ui/Analytics'
 import Footer from '@/components/ui/Footer'
 import Navbar from '@/components/ui/Navbar'
@@ -8,7 +9,7 @@ import './globals.css'
 // oxlint-disable-next-line typescript/prefer-readonly-parameter-types
 export default function Layout({ children }: LayoutProps) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <Analytics />
       </head>
@@ -17,7 +18,9 @@ export default function Layout({ children }: LayoutProps) {
         <main>
           {children}
         </main>
-        <Footer />
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
       </body>
     </html>
   )

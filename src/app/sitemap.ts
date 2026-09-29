@@ -3,8 +3,8 @@ import { getPosts } from '@/lib/content/post'
 import { absoluteUrl } from '@/lib/site'
 import { parseDate } from '@/lib/utils/date'
 
-export default function sitemap(): Sitemap {
-  const posts = getPosts()
+export default async function sitemap(): Promise<Sitemap> {
+  const posts = await getPosts()
 
   return [
     {
