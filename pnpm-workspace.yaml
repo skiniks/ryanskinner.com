@@ -1,23 +1,23 @@
 minimumReleaseAgeExcludePrune: true
 minimumReleaseAgeExclude:
-  - rari-darwin-arm64@0.17.1
-  - rari-darwin-x64@0.17.1
-  - rari-linux-arm64@0.17.1
-  - rari-linux-x64@0.17.1
-  - rari-win32-arm64@0.17.1
-  - rari-win32-x64@0.17.1
-  - rari@0.17.1
-  - '@rari/lint@0.1.4'
-  - '@voidzero-dev/vite-plus-core@1.0.0'
-  - '@voidzero-dev/vite-plus-darwin-arm64@1.0.0'
-  - '@voidzero-dev/vite-plus-darwin-x64@1.0.0'
-  - '@voidzero-dev/vite-plus-linux-arm64-gnu@1.0.0'
-  - '@voidzero-dev/vite-plus-linux-arm64-musl@1.0.0'
-  - '@voidzero-dev/vite-plus-linux-x64-gnu@1.0.0'
-  - '@voidzero-dev/vite-plus-linux-x64-musl@1.0.0'
-  - '@voidzero-dev/vite-plus-win32-arm64-msvc@1.0.0'
-  - '@voidzero-dev/vite-plus-win32-x64-msvc@1.0.0'
-  - vite-plus@1.0.0
+  - rari
+  - rari-darwin-arm64
+  - rari-darwin-x64
+  - rari-linux-arm64
+  - rari-linux-x64
+  - rari-win32-arm64
+  - rari-win32-x64
+  - '@rari/lint'
+  - '@voidzero-dev/vite-plus-core'
+  - '@voidzero-dev/vite-plus-darwin-arm64'
+  - '@voidzero-dev/vite-plus-darwin-x64'
+  - '@voidzero-dev/vite-plus-linux-arm64-gnu'
+  - '@voidzero-dev/vite-plus-linux-arm64-musl'
+  - '@voidzero-dev/vite-plus-linux-x64-gnu'
+  - '@voidzero-dev/vite-plus-linux-x64-musl'
+  - '@voidzero-dev/vite-plus-win32-arm64-msvc'
+  - '@voidzero-dev/vite-plus-win32-x64-msvc'
+  - vite-plus
 
 shellEmulator: true
 trustPolicy: no-downgrade
