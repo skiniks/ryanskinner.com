@@ -1,8 +1,7 @@
 import type { PageProps } from 'rari'
 import { readdir, readFile } from 'node:fs/promises'
-import ExternalPostRedirect from '@/components/content/ExternalPostRedirect'
+import { notFound } from 'rari'
 import MdxRenderer from '@/components/content/MdxRenderer'
-import NotFoundContent from '@/components/ui/NotFoundContent'
 import { createMetadata, getDefaultMetadata } from '@/lib/content/metadata'
 import { contentDir, contentFilePath } from '@/lib/content/paths'
 import { getPostBySlug } from '@/lib/content/post'
@@ -15,20 +14,11 @@ const DEFAULT_METADATA = getDefaultMetadata('Post')
 export default async function PostPage({ params }: PageProps) {
   const slug = params.slug
   if (!isValidSlug(slug))
-    return <NotFoundContent />
+    notFound()
 
   const post = await getPostBySlug(slug)
-  if (post === null)
-    return <NotFoundContent />
-
-  if (post.externalUrl != null && post.externalUrl !== '') {
-    return (
-      <ExternalPostRedirect
-        url={post.externalUrl}
-        title={post.title}
-      />
-    )
-  }
+  if (post === null || (post.externalUrl != null && post.externalUrl !== ''))
+    notFound()
 
   return (
     <article className="mx-auto flex max-w-2xl flex-col gap-4 px-4 sm:px-6 py-12 sm:py-16">

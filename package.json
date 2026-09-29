@@ -2,7 +2,7 @@
   "name": "ryanskinner.com",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@12.6.0",
+  "packageManager": "pnpm@12.8.0",
   "description": "Personal website for Ryan Skinner, built with rari",
   "author": "Ryan Skinner",
   "license": "MIT",
@@ -26,7 +26,7 @@
     "@shikijs/langs": "^4.4.3",
     "@shikijs/themes": "^4.4.3",
     "@shikijs/types": "^4.4.3",
-    "rari": "^0.17.0",
+    "rari": "^0.17.1",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "remark-gfm": "^4.0.1"

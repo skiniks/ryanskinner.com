@@ -33,8 +33,7 @@ export default function UpcomingTalks() {
                     alt={talk.name}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    // placeholder={talk.blurDataURL != null && talk.blurDataURL !== '' ? 'blur' : undefined}
-                    // blurDataURL={talk.blurDataURL}
+                    placeholder="blur"
                     className="object-cover transition-transform duration-200 group-hover:scale-105"
                   />
                 </div>
