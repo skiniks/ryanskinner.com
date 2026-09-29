@@ -4,10 +4,8 @@ import Analytics from '@/components/ui/Analytics'
 import Footer from '@/components/ui/Footer'
 import Navbar from '@/components/ui/Navbar'
 import { absoluteUrl, feedUrl, siteDescription, siteName } from '@/lib/site'
-import { Providers } from '@/providers'
 import './globals.css'
 
-// oxlint-disable-next-line typescript/prefer-readonly-parameter-types
 export default function Layout({ children }: LayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -15,15 +13,13 @@ export default function Layout({ children }: LayoutProps) {
         <Analytics />
       </head>
       <body className="bg-gray-950 text-gray-100">
-        <Providers>
-          <Navbar />
-          <main>
-            {children}
-          </main>
-          <Suspense fallback={null}>
-            <Footer />
-          </Suspense>
-        </Providers>
+        <Navbar />
+        <main>
+          {children}
+        </main>
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
       </body>
     </html>
   )
