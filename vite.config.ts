@@ -12,7 +12,15 @@ export default defineConfig({
       origin: siteUrl,
       csp: {
         scriptSrc: ['\'self\'', '\'unsafe-inline\'', 'https://www.googletagmanager.com'],
-        connectSrc: ['\'self\'', 'ws:', 'wss:', 'https://www.google-analytics.com', 'https://www.googletagmanager.com'],
+        connectSrc: [
+          '\'self\'',
+          'ws:',
+          'wss:',
+          'https://www.google.com',
+          'https://www.google-analytics.com',
+          'https://analytics.google.com',
+          'https://www.googletagmanager.com',
+        ],
       },
       cacheControl: {
         routes: {

@@ -1,9 +1,9 @@
 import type { ComponentType } from 'react'
 import { readFile } from 'node:fs/promises'
-import { notFound } from 'rari'
 import { evaluate } from 'rari/mdx'
 import * as runtime from 'react/jsx-runtime'
 import remarkGfm from 'remark-gfm'
+import NotFoundContent from '@/components/ui/NotFoundContent'
 import { contentFilePath } from '@/lib/content/paths'
 import { withMdxEvaluateCache } from '@/lib/mdx/evaluate-cached'
 import { rehypeTableWrapper } from '@/lib/mdx/rehype-table-wrapper'
@@ -53,7 +53,7 @@ export default async function MdxRenderer({
 }: MdxRendererProps) {
   const content = await readContentFile(filePath)
   if (content === null || content === '')
-    notFound()
+    return <NotFoundContent />
 
   const MDXContent = await withMdxEvaluateCache(filePath, content, async () =>
     evaluateMdx(content),
