@@ -6,6 +6,7 @@ import Navbar from '@/components/ui/Navbar'
 import { absoluteUrl, feedUrl, siteDescription, siteName } from '@/lib/site'
 import './globals.css'
 
+// oxlint-disable-next-line typescript/prefer-readonly-parameter-types
 export default function Layout({ children }: LayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
