@@ -32,7 +32,7 @@ export default function UpcomingTalks() {
                     src={talk.image}
                     alt={talk.name}
                     fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
                     placeholder="blur"
                     className="object-cover transition-transform duration-200 group-hover:scale-105"
                   />
