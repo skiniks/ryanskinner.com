@@ -252,22 +252,9 @@ code {
   margin: 1.5rem 0 !important;
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--background);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--muted);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: theme('colors.gray.400');
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--muted) var(--background);
 }
 
 a:focus,
@@ -391,4 +378,3 @@ button:focus-visible {
   -webkit-background-clip: text;
   background-clip: text;
 }
-
