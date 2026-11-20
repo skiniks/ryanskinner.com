@@ -8,7 +8,7 @@ export default function Analytics() {
       <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
       <link rel="dns-prefetch" href="https://www.google-analytics.com" />
       <script
-        // eslint-disable-next-line react/dom-no-dangerously-set-innerhtml
+        // oxlint-disable-next-line eslint-react/dom-no-dangerously-set-innerhtml
         dangerouslySetInnerHTML={{ __html: GTM_BOOTSTRAP }}
       />
     </>
