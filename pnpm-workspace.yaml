@@ -20,4 +20,7 @@ minimumReleaseAgeExclude:
   - vite-plus
 
 shellEmulator: true
+
 trustPolicy: no-downgrade
+trustPolicyExclude:
+  - tsrs@7.1.0-beta.tsrs2
