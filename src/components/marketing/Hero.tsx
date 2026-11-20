@@ -25,7 +25,7 @@ export default function Hero() {
           modern web. I'm currently building
           {' '}
           <a href={rariUrl} target="_blank" rel="noopener noreferrer" className={linkStyle.underline}>rari</a>
-          , a React Server Components framework powered by a Rust runtime that delivers 53x higher throughput and 14.5x faster response times than Next.js.
+          , a React Server Components framework powered by a Rust runtime that delivers 62x higher throughput and 15x faster response times than Next.js.
         </h2>
       </div>
     </div>
